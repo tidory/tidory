@@ -33,6 +33,7 @@ const config = {
         filename: 'app.bundle.js',
         publicPath: '/',
         path: resolve('../dist'),
+        index: 'skin.html'
     }
 }
 

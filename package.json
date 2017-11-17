@@ -1,6 +1,6 @@
 {
   "name": "tidory",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "Tidory",
   "scripts": {
     "start": "webpack-dev-server --open --config ./build/webpack.dev.conf.js",
@@ -9,7 +9,6 @@
   },
   "author": "App Writer<pronist@naver.com>",
   "license": "MIT",
-  "main": "./src/main.js",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

@@ -25,6 +25,7 @@ module.exports = merge(webpackBaseConfig, {
         quiet: true,
         hot: true,
         watchContentBase: true,   
+        index: config.dev.index
     },
     output: {
         filename: config.dev.filename,

@@ -27,6 +27,8 @@ const config = {
         path: resolve('../dist/images'),
         staticCopyFrom: 'images',
         staticCopyTo : './',
+        indexCopyFrom: 'docs',
+        indexCopyTo: '../',
         style: "../style.css"
     },
     dev: {

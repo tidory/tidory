@@ -65,6 +65,12 @@ module.exports = merge(webpackBaseConfig, {
                 to: config.build.staticCopyTo,
             },
         ]),
+        new CopyWebpackPlugin([           
+            {
+                from: config.build.indexCopyFrom,
+                to: config.build.indexCopyTo,
+            },
+        ]),
         new HtmlWebpackPlugin({
             template: config.pugTemplate,
             filename: config.exportHtmlFileName,

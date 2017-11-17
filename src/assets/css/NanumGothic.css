@@ -1,0 +1,40 @@
+/* 
+ * Nanum Barun Gothic Web Fonts
+ * https://github.com/513g/NanumGothic
+ *
+ * Created by NAVER. (http://www.naver.com)
+ */
+ 
+@font-face {
+ font-family: 'NanumGothic';
+ font-weight: 200;
+ src: url(../fonts/NanumGothicLight.eot);
+ src: url(../fonts/NanumGothicLight.eot?#iefix) format('embedded-opentype'),
+      url(../fonts/NanumGothicLight.woff) format('woff'),
+      url(../fonts/NanumGothicLight.ttf) format('truetype');
+}
+@font-face {
+ font-family: 'NanumGothic';
+ font-weight: 400;
+ src: url(../fonts/NanumGothicRegular.eot);
+ src: url(../fonts/NanumGothicRegular.eot?#iefix) format('embedded-opentype'),
+      url(../fonts/NanumGothicRegular.woff) format('woff'),
+      url(../fonts/NanumGothicRegular.ttf) format('truetype');
+}
+@font-face {
+ font-family: 'NanumGothic';
+ font-weight: 600;
+ src: url(../fonts/NanumGothicBold.eot);
+ src: url(../fonts/NanumGothicBold.eot?#iefix) format('embedded-opentype'),
+      url(../fonts/NanumGothicBold.woff) format('woff'),
+      url(../fonts/NanumGothicBold.ttf) format('truetype');
+}
+@font-face {
+ font-family: 'NanumGothic';
+ font-weight: 800;
+ src: url(../fonts/NanumGothicExtraBold.eot);
+ src: url(../fonts/NanumGothicExtraBold.eot?#iefix) format('embedded-opentype'),
+      url(../fonts/NanumGothicExtraBold.woff) format('woff'),
+      url(../fonts/NanumGothicExtraBold.ttf) format('truetype');
+}
+

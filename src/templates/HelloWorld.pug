@@ -1,0 +1,44 @@
+// script
+- 
+    const data = { 
+        title: "It's awesome framework for Tistory Skin",
+        subTitle: 'With Webpack, Pug, Less', 
+        logoPath: "./images/favicon.png",
+        tidory: "Tidory" 
+    }
+- 
+    const refs = [
+        { text:"Introduction",  href:"http://appwriter.tistory.com/entry/tidory" }, 
+        { text:"Get Started",  href:"http://appwriter.tistory.com/entry/tidory-get-started" },
+        { text:"Documents",  href:"ttp://appwriter.tistory.com/entry/tidory-documents" },
+        { text:"Github",  href:"https://github.com/pronist/Tidory" }
+    ]
+-   
+    const copyright = {
+        author: {
+            text: "Author: App Writer(pronist@naver.com)",
+            href: "#"
+        },
+        blog: {
+            text: "Blog: appwriter.tistory.com",
+            href: "http://appwriter.tistory.com/"
+        }
+    }
+
+// template
+div#HelloWorld
+    div.hello-world-inner
+        h1.title #{data.title}
+        h2.subtitle #{data.subTitle}
+        div.logo
+            img(src=data.logoPath)
+        h2.tev(class="animated infinite rubberBand") #{data.tidory}
+        div.refs
+            each r in refs
+                span 
+                    a(href=r.href)=r.text
+        div.copyright
+            div.author 
+                a(href=copyright.author.href) #{copyright.author.text}
+            div.blog 
+                a(href=copyright.blog.href) #{copyright.blog.text}

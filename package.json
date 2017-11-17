@@ -1,6 +1,6 @@
 {
   "name": "tidory",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tidory",
   "scripts": {
     "start": "webpack-dev-server --open --config ./build/webpack.dev.conf.js",

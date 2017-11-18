@@ -74,7 +74,12 @@ module.exports = merge(webpackBaseConfig, {
         new HtmlWebpackPlugin({
             template: config.pugTemplate,
             filename: config.exportHtmlFileName,
-            inject: false
+            inject: false,
+            minify: {
+                removeComments: true,
+                collapseWhitespace: true,
+                removeAttributeQuotes: true
+            }
         }),
         new ExtractTextPlugin(config.build.style)
     ]

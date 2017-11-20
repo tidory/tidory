@@ -19,14 +19,16 @@ Webpack 빌드를 통한 배포와 개발의 편리함 <br />
 이게 끝? 그렇지 않습니다! 아래의 가이드를 통해 사용법을 익힐 수 있습니다. 이러한 가이드를 익히는 것에는 그리 오래 걸리지 않습니다.
 
 Step 1. <a href="http://appwriter.tistory.com/entry/tidory" target="_blank" class="tx-link">[Tidory] 티스토리 스킨제작을 위한 Tidory 프레임워크</a> <br />
-Step 2. <a href="http://appwriter.tistory.com/entry/tidory-get-started" target="_blank" class="tx-link">[Tidory] Tidory 시작하기</a> <br />
-Step 3. <a href="http://appwriter.tistory.com/entry/tidory-documents" target="_blank" class="tx-link">[Tidory] Tidory 사용법 익히기</a> <br />
+Step 2. <a href="http://appwriter.tistory.com/entry/tidory-get-started" target="_blank" class="tx-link">[Tidory] Tidory 시작하기(Pug, Less)</a> <br />
+Step 3. <a href="http://appwriter.tistory.com/entry/tidory-documents" target="_blank" class="tx-link">[Tidory] Tidory 사용법 익히기(Pug, Less)</a> <br />
 Step 4. <a href="http://appwriter.tistory.com/entry/tidory-how-to-dist" target="_blank" class="tx-link">[Tidory] Tidory 빌드 파일 배포하기</a>
 
 HTML, CSS 버전으로 작성된 Tidory 프레임워크의 시작하기는 다음의 링크에서 찾을 수 있습니다.<br />
 
 <a href="http://appwriter.tistory.com/entry/tidory-get-started-html" target="_blank" class="tx-link">[Tidory] Tidory 시작하기(HTML, CSS)</a><br />
 <a href="http://appwriter.tistory.com/entry/tidory-documents-html" target="_blank" class="tx-link">[Tidory] Tidory 사용법 익히기(HTML, CSS)</a>
+
+https://github.com/pronist/Tidory-HTML
 
 ## License
 

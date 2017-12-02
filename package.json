@@ -1,6 +1,6 @@
 {
   "name": "tidory",
-  "version": "1.1.4",
+  "version": "1.2.4",
   "description": "Tidory",
   "scripts": {
     "start": "webpack-dev-server --open --config ./build/webpack.dev.conf.js",
@@ -15,9 +15,11 @@
     "babel-preset-es2015": "^6.24.1",
     "copy-webpack-plugin": "^4.2.0",
     "css-loader": "^0.28.7",
+    "expose-loader": "^0.7.4",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.30.1",
+    "imports-loader": "^0.7.1",
     "less": "^2.7.3",
     "less-loader": "^4.0.5",
     "optimize-css-assets-webpack-plugin": "^3.2.0",

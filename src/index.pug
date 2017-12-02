@@ -1,19 +1,16 @@
-doctype html
+extends ../layouts/default
 
-html(lang="ko")
-	head
-		//- BLOG NAME
-		title Tidory 
-		//- TISTORY RSS
-		link(rel="alternate", type="application/rss+xml", title="[##_title_##]", href="[##_rss_url_##]")
-		//- Only for PRODUCT
-		link(rel="stylesheet" href="./style.css")
-	body
-		//- TISTORY CONTAINER
-		s_t3
-			//- TIDORY DEMO
-			#container
-				include templates/HelloWorld
-				
-	//- Only for PRODUCT
-	script(type="text/javascript", src="./images/app.bundle.js")
+block HEAD
+	// Open Graph protocol
+	meta(property="og:description", 
+			content="Tidory Framework for Tistory Skin")
+	meta(property="og:title", content="Tidory")
+	meta(property="og:site_name", content="Tidory")
+	meta(property="og:url", content="http://tidory.com")
+
+block TISTORY
+	include templates/HelloWorld
+
+block FOOTER
+	// jQuery
+	// script(src="https://code.jquery.com/jquery-3.2.1.js")

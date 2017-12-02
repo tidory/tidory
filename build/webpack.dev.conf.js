@@ -8,7 +8,7 @@
  * 
  *      Author. Mansu Jeong
  *      Alias. App Writer
- *      Homepage. http://appwriter.tistory.com
+ *      Homepage. http://www.tidory.com
  *      Github. https://github.com/pronist/
  */
 
@@ -16,6 +16,7 @@ const webpack = require('webpack')
 const path = require('path');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require('./webpack.base.conf');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const config = require('./tistory.build.config');
 
@@ -24,13 +25,13 @@ module.exports = merge(webpackBaseConfig, {
     devServer: {
         quiet: true,
         hot: true,
-        watchContentBase: true,   
+		watchContentBase: true,   
         index: config.dev.index
     },
     output: {
         filename: config.dev.filename,
         publicPath: config.dev.publicPath,
-        path: config.dev.path,
+		path: config.dev.path
     },
     module: {
         rules: [
@@ -54,6 +55,6 @@ module.exports = merge(webpackBaseConfig, {
             template: config.pugTemplate,
             filename: config.exportHtmlFileName,
             inject: true
-        })
+		})
     ]
 });

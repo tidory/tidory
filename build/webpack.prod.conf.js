@@ -8,7 +8,7 @@
  * 
  *      Author. Mansu Jeong
  *      Alias. App Writer
- *      Homepage. http://appwriter.tistory.com
+ *      Homepage. http://www.tidory.com
  *      Github. https://github.com/pronist/
  */
 
@@ -26,7 +26,8 @@ module.exports = merge(webpackBaseConfig, {
     output: {
         filename: config.build.filename,
         publicPath: config.build.publicPath,
-        path: config.build.path,
+		path: config.build.path,
+		chunkFilename: config.build.outputChunkFilename
     },
     module: {
         rules: [
@@ -47,7 +48,7 @@ module.exports = merge(webpackBaseConfig, {
         new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false
-              },
+            },
             sourceMap: true
         }),
         new OptimizeCssAssetsPlugin({
@@ -80,7 +81,21 @@ module.exports = merge(webpackBaseConfig, {
                 collapseWhitespace: true,
                 removeAttributeQuotes: true
             }
-        }),
+		}),
+		new webpack.HashedModuleIdsPlugin(),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: config.build.chunkFilename,
+			minChunks: function (module) {
+			  // any required modules inside node_modules are extracted to vendor
+			  return (
+				module.resource &&
+				/\.js$/.test(module.resource) &&
+				module.resource.indexOf(
+				  path.join(__dirname, '../node_modules')
+				) === 0
+			  )
+			}
+		  }),
         new ExtractTextPlugin(config.build.style)
     ]
 });

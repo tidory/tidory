@@ -8,7 +8,7 @@
  * 
  *      Author. Mansu Jeong
  *      Alias. App Writer
- *      Homepage. http://appwriter.tistory.com
+ *      Homepage. http://www.tidory.com
  *      Github. https://github.com/pronist/
  */
 
@@ -16,16 +16,26 @@ const webpack = require('webpack')
 const path = require('path');
 
 module.exports = {
-    entry: './src/main.js',
+	entry: {
+		tidory: './src/main.js'
+	},
     module: {
         rules: [
-            {
-                test: /\.(woff|woff2|eot|ttf|otf)$/,
-                use: ['file-loader']
-            },
+			{
+				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+				loader: 'file-loader',
+			},
+			{
+				test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+				loader: 'file-loader',
+			},
+			{
+				test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+				loader: 'file-loader',
+			},
             {
                 test: /\.js$/,
-                exclude: /(node_modules|bower_components)/,
+				exclude: /(node_modules|bower_components)/,
                 use: {
                   loader: 'babel-loader',
                   options: {
@@ -37,6 +47,6 @@ module.exports = {
                 test: /\.pug$/,
                 use: ['pug-loader']
             }
-        ]
+        ],
     }
 }

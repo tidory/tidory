@@ -8,7 +8,7 @@
  * 
  *      Author. Mansu Jeong
  *      Alias. App Writer
- *      Homepage. http://appwriter.tistory.com
+ *      Homepage. http://www.tidory.com
  *      Github. https://github.com/pronist/
  */
 
@@ -22,19 +22,21 @@ const config = {
     pugTemplate: resolve('../src/index.pug'),
     exportHtmlFileName: resolve('../dist/skin.html'),
     build: {
-        filename: 'app.bundle.js',
+        filename: '[name].bundle.js',
         publicPath: 'images/',
         path: resolve('../dist/images'),
         staticCopyFrom: 'images',
         staticCopyTo : './',
         indexCopyFrom: 'docs',
         indexCopyTo: '../',
-        style: "../style.css"
+		style: "../style.css",
+		outputChunkFilename: '[id].[chunkhash].js',
+		chunkFilename: 'tidory.vendor'
     },
     dev: {
-        filename: 'app.bundle.js',
+        filename: '[name].bundle.js',
         publicPath: '/',
-        path: resolve('../dist'),
+		path: resolve('../dist'),
         index: 'skin.html'
     }
 }

@@ -1,0 +1,21 @@
+doctype html
+
+html(lang="ko")
+	head
+		//- BLOG NAME
+		title Tidory 
+		//- TISTORY RSS
+		link(rel="alternate", type="application/rss+xml", title="[##_title_##]", href="[##_rss_url_##]")
+		//- Only for PRODUCT
+		link(rel="stylesheet" href="./style.css")
+		block HEAD
+	body
+		//- TISTORY CONTAINER
+		s_t3
+			div#__tidory
+				block TISTORY
+
+	//- Only for PRODUCT
+	script(type="text/javascript", src="./images/tidory.vendor.bundle.js")
+	script(type="text/javascript", src="./images/tidory.bundle.js")
+	block FOOTER

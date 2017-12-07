@@ -13,9 +13,11 @@ Step 4. <a href="http://tidory.com/docs/distribution/" target="_blank" class="tx
 
 ## Other
 
-HTML, CSS 버전이 필요하신가요? 다음의 링크에서 찾을 수 있습니다.
+Tidory with HTML,CSS
+http://tidory.com/docs/others/no-extensions/
 
-https://github.com/pronist/tidory-with-html
+Tidory with TypeScript
+http://tidory.com/docs/others/typescript/
 
 ## License
 

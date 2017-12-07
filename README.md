@@ -13,10 +13,10 @@ Step 4. <a href="http://tidory.com/docs/distribution/" target="_blank" class="tx
 
 ## Other
 
-Tidory with HTML,CSS
+Tidory with HTML,CSS <br />
 http://tidory.com/docs/others/no-extensions/
 
-Tidory with TypeScript
+Tidory with TypeScript <br />
 http://tidory.com/docs/others/typescript/
 
 ## License

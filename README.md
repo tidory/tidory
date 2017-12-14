@@ -1,9 +1,5 @@
 ## Tidory
 
-<img src="http://tidory.com/intro.png">
-
-## PostScript
-
 Ref. <a href="http://tidory.com">Tidory Framework for Tistory Skin</a>
 
 Step 1. <a href="http://tidory.com/docs/introduction/" target="_blank" class="tx-link">[Tidory] 티스토리 스킨제작을 위한 Tidory 프레임워크</a> <br />

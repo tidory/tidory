@@ -11,16 +11,6 @@
         { text:"Documents",  href:"http://tidory.com/docs/introduction/" },
         { text:"Github",  href:"https://github.com/pronist/tidory" }
     ]
-    const copyright = {
-        author: {
-            text: "Author: App Writer(pronist@naver.com)",
-            href: "#"
-        },
-        blog: {
-            text: "Blog: appwriter.tistory.com",
-            href: "http://appwriter.tistory.com/"
-        }
-    }
 
 div#HelloWorld
     div.hello-world-inner
@@ -31,10 +21,5 @@ div#HelloWorld
         h2.tev(class="animated infinite rubberBand") #{data.tidory}
         div.refs
             each r in refs
-                span 
+                span
                     a(href=r.href)=r.text
-        div.copyright
-            div.author 
-                a(href=copyright.author.href) #{copyright.author.text}
-            div.blog 
-                a(href=copyright.blog.href) #{copyright.blog.text}

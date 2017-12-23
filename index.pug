@@ -1,16 +1,16 @@
-extends ../layouts/default
+extends ./layouts/default
 
-block HEAD
+block head
 	meta(charset="utf-8")
 	// Open Graph protocol
 	meta(property="og:description", content="Tidory Framework for Tistory Skin")
 	meta(property="og:title", content="Tidory")
 	meta(property="og:site_name", content="Tidory")
-	meta(property="og:url", content="http://tidory.com")
+	meta(property="og:url", content="http://www.tidory.com")
 
 block TISTORY
-	include templates/HelloWorld
+	include views/HelloWorld
 
-block FOOTER
+block scripts
 	// jQuery
 	// script(src="https://code.jquery.com/jquery-3.2.1.js")

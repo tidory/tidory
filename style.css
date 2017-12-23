@@ -1,0 +1,44 @@
+/*
+ * style.css
+ *
+ * view_styles are not auto contained by webpack
+ * so if you want to include stylesheets that is associated view(.pug), 
+ * import the files here.
+ */
+
+/* view_styles */
+  /* HelloWorld.pug */
+		@import url('./view_styles/HelloWorld.css');
+
+/* Tidory demo default style */
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'NanumGothic', sans-serif;
+}
+body, html, s_t3 {
+  background-color: #fefefe;
+  height: 100%;
+  width: 100%;
+}
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: gray;
+  font-weight: 200;
+  transition-duration: 0.3s;
+}
+a:hover {
+  color: black;
+}
+#tistorytoolbarid {
+  display: none;
+}
+#__tidory {
+  margin: 0 auto;
+  font-family: 'NanumGothic', sans-serif;
+  width: 820px;
+  height: inherit;
+}

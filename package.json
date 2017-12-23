@@ -1,6 +1,6 @@
 {
   "name": "tidory",
-  "version": "1.2.4",
+  "version": "1.3.4",
   "description": "Tidory",
   "scripts": {
     "start": "webpack-dev-server --open --config ./build/webpack.dev.conf.js",
@@ -20,8 +20,6 @@
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^2.30.1",
     "imports-loader": "^0.7.1",
-    "less": "^2.7.3",
-    "less-loader": "^4.0.5",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "pug": "^2.0.0-rc.4",
     "pug-cli": "^1.0.0-alpha6",

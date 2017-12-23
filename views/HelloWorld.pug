@@ -1,0 +1,24 @@
+- 
+	const data = {
+		title: "It's awesome framework for Tistory Skin",
+		subTitle: 'With Webpack, Pug',
+		logoPath: "./images/favicon.png",
+		tidory: "Tidory"
+	}
+	const refs = [
+		{ text:"Introduction",  href:"http://www.tidory.com/" },
+		{ text:"Get Started",  href:"http://www.tidory.com/docs/get-started/" },
+		{ text:"Documents",  href:"http://www.tidory.com/docs/introduction/" },
+		{ text:"Github",  href:"https://github.com/pronist/tidory" }
+	]
+
+main#td-hello-world
+	section.td-hello-world
+		header.td-header(role="header")
+			h1.td-title #{data.title}
+			h2.td-subtitle #{data.subTitle}
+			div.td-logo: img(src=data.logoPath, alt="tidory")
+			h2.td-tidory(class="animated infinite rubberBand") #{data.tidory}
+		nav.td-refs(role="navigation")
+			each r in refs
+				span.td-item: a(href=r.href)=r.text

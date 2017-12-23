@@ -1,15 +1,14 @@
 /**
  * @author Mansu Jeong
  * @description 
- *      Copyright (c) Mansu Jeong. All rights reserved.
+ * Copyright (c) Mansu Jeong. All rights reserved.
  * 
- *      Ref. https://webpack.js.org/configuration/dev-server/
- *      Webpack. https://webpack.js.org/
+ * Ref. https://webpack.js.org/configuration/dev-server/
+ * Webpack. https://webpack.js.org/
  * 
- *      Author. Mansu Jeong
- *      Alias. App Writer
- *      Homepage. http://www.tidory.com
- *      Github. https://github.com/pronist/
+ * Author. Mansu Jeong
+ * Homepage. http://www.tidory.com
+ * Github. https://github.com/pronist/
  */
 
 const webpack = require('webpack')
@@ -17,10 +16,10 @@ const path = require('path');
 
 module.exports = {
 	entry: {
-		tidory: './src/main.js'
+		tidory: './webpack.entry.js'
 	},
-    module: {
-        rules: [
+	module: {
+		rules: [
 			{
 				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
 				loader: 'file-loader',
@@ -33,20 +32,20 @@ module.exports = {
 				test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
 				loader: 'file-loader',
 			},
-            {
-                test: /\.js$/,
+			{
+				test: /\.js$/,
 				exclude: /(node_modules|bower_components)/,
-                use: {
-                  loader: 'babel-loader',
-                  options: {
-                    presets: ['es2015']
-                  }
-                }
-            },
-            {
-                test: /\.pug$/,
-                use: ['pug-loader']
-            }
-        ],
-    }
+				use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['es2015']
+					}
+				}
+			},
+			{
+				test: /\.pug$/,
+				use: ['pug-loader']
+			}
+		]
+	}
 }

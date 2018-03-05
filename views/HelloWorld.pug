@@ -1,3 +1,46 @@
+//- style
+style.
+	main#td-hello-world {
+		display: table;
+		text-align: center;
+		height: inherit;
+		width: inherit;
+	}
+	main#td-hello-world section.td-hello-world {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+	}
+	main#td-hello-world h1.td-title {
+		color: #525252;
+		text-align: center;
+		font-weight: 400;
+		font-size: 2.0em;
+		margin-bottom: 20px;
+	}
+	main#td-hello-world h2.td-subtitle {
+		color: #525252;
+		text-align: center;
+		font-weight: 200;
+	}
+	main#td-hello-world div.td-logo {
+		margin-top: 75px;
+	}
+	main#td-hello-world h2.td-tidory {
+		margin-top: 35px;
+		font-size: 32pt;
+		font-weight: 200;
+	}
+	main#td-hello-world nav.td-refs {
+		margin-top: 55px;
+	}
+	main#td-hello-world nav.td-refs span.td-item {
+		margin: 0 15px;
+	}
+	main#td-hello-world nav.td-refs span.td-item a {
+		font-size: 18pt;
+	}
+//- script
 - 
 	const data = {
 		title: "It's awesome framework for Tistory Skin",
@@ -7,18 +50,18 @@
 	}
 	const refs = [
 		{ text:"Introduction",  href:"http://www.tidory.com/" },
-		{ text:"Get Started",  href:"http://www.tidory.com/docs/get-started/" },
-		{ text:"Documents",  href:"http://www.tidory.com/docs/introduction/" },
-		{ text:"Github",  href:"https://github.com/pronist/tidory" }
+		{ text:"Get Started",  href:"http://www.tidory.com/docs/v2/get-started/" },
+		{ text:"Documents",  href:"http://www.tidory.com/docs/v2/introduction/" },
+		{ text:"Github",  href:"https://github.com/pronist/v2/tidory" }
 	]
-
+//- template
 main#td-hello-world
 	section.td-hello-world
 		header.td-header(role="header")
 			h1.td-title #{data.title}
 			h2.td-subtitle #{data.subTitle}
 			div.td-logo: img(src=data.logoPath, alt="tidory")
-			h2.td-tidory(class="animated infinite rubberBand") #{data.tidory}
+			h2.td-tidory #{data.tidory}
 		nav.td-refs(role="navigation")
 			each r in refs
 				span.td-item: a(href=r.href)=r.text

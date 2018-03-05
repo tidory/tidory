@@ -11,13 +11,10 @@
  * Github. https://github.com/pronist/
  */
 
-const webpack = require('webpack')
 const path = require('path');
 
 module.exports = {
-	entry: {
-		tidory: './webpack.entry.js'
-	},
+	entry:  path.resolve(__dirname, './webpack.entry.js'),
 	module: {
 		rules: [
 			{
@@ -41,6 +38,10 @@ module.exports = {
 						presets: ['es2015']
 					}
 				}
+			},
+			{
+				test: /\.css$/,
+				use:  ["style-loader", "css-loader"]
 			},
 			{
 				test: /\.pug$/,

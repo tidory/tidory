@@ -1,16 +1,23 @@
 extends ./layouts/default
 
-block head
-	meta(charset="utf-8")
-	// Open Graph protocol
-	meta(property="og:description", content="Tidory Framework for Tistory Skin")
-	meta(property="og:title", content="Tidory")
-	meta(property="og:site_name", content="Tidory")
-	meta(property="og:url", content="http://www.tidory.com")
+//- End of head
+block HEADER
+		//- Blog, or Page Name
+		title [##_title_##] :: [##_page_title_##]
 
-block TISTORY
+		//- Modify, or delete open graph protocol for your skin
+		meta(property="og:description", content="Tidory Framework for Tistory Skin")
+		meta(property="og:title", content="Tidory")
+		meta(property="og:site_name", content="Tidory")
+		meta(property="og:url", content="http://www.tidory.com")
+
+block TIDORY
 	include views/HelloWorld
 
-block scripts
-	// jQuery
-	// script(src="https://code.jquery.com/jquery-3.2.1.js")
+	//- End of body
+block FOOTER
+	//- script(src="https://code.jquery.com/jquery-3.3.1.min.js")
+	//- script.
+		$(document).ready(function(){
+			// ...
+		})

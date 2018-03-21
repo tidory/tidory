@@ -1,15 +1,18 @@
 {
   "name": "tidory-project",
-  "version": "2.0.0",
+  "version": "2.2.0",
   "description": "it's awesome framework for Tistory Skin",
   "scripts": {
-    "start": "tidory",
+    "start": "tidory start",
     "build": "tidory build",
-    "dist": "tidory dist",
-    "preview": "tidory preview"
+    "dist": "tidory dist"
   },
   "author": "Mansu Jeong<pronist@naver.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pronist/tidory"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",

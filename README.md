@@ -1,9 +1,9 @@
-## Tidory
+# Tidory
 
 Tidory Framework for Tistory Skin<br />
 <a href="http://www.tidory.com">http://www.tidory.com</a>
 
-## License
+# License
 
 MIT <br />
 

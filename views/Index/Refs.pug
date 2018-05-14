@@ -1,0 +1,24 @@
+//- style
+style.
+  main#td-index-wrapper nav.td-refs {
+    margin-top: 55px;
+  }
+  main#td-index-wrapper nav.td-refs div.td-item {
+    margin: 0 15px;
+    display: inline-block;
+  }
+  main#td-index-wrapper nav.td-refs div.td-item a {
+    font-size: 18pt;
+  }
+//- script
+- 
+  const refs = [
+    { text:"Introduction",  href:"http://www.tidory.com/" },
+    { text:"Get started",  href:"http://www.tidory.com/docs/v2/get-started/" },
+    { text:"Tidory module",  href:"https://www.npmjs.com/package/tidory" },
+    { text:"Github",  href:"https://github.com/pronist/tidory" }
+  ]
+//- template
+nav.td-refs(role="navigation")
+  each r in refs
+    div.td-item: a(href=r.href)=r.text

@@ -1,6 +1,6 @@
 {
   "name": "tidory-project",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description": "it's awesome framework for Tistory Skin",
   "scripts": {
     "start": "tidory start",
@@ -22,7 +22,9 @@
     "pug-cli": "^1.0.0-alpha6",
     "pug-loader": "^2.3.0",
     "style-loader": "^0.19.0",
-    "webpack": "^3.11.0"
+    "webpack": "^3.11.0",
+    "file-loader": "^1.1.11",
+    "url-loader": "^1.0.1"
   },
   "engines": {
     "node": ">= 4.0.0",

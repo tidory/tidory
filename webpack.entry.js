@@ -10,4 +10,4 @@
   * set the loaders in ./webpack.base.conf.js
   * 
   * after import assets it will be contained in tidory.bundle.js
- */
+  */

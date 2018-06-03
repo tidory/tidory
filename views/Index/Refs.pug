@@ -1,24 +1,27 @@
 //- style
 style.
-  main#td-index-wrapper nav.td-refs {
-    margin-top: 55px;
+  nav#td-refs-wrapper {
+    margin-top: 35px;
   }
-  main#td-index-wrapper nav.td-refs div.td-item {
+  nav#td-refs-wrapper li {
     margin: 0 15px;
     display: inline-block;
   }
-  main#td-index-wrapper nav.td-refs div.td-item a {
-    font-size: 18pt;
+  nav#td-refs-wrapper li a {
+    font-size: 1.05em;
+    color: @{FONT_COLOR};
+    font-weight: 300;
   }
 //- inline script
-- 
-  const refs = [
-    { text:"Introduction",  href:"http://www.tidory.com/" },
-    { text:"Get started",  href:"http://www.tidory.com/docs/v2/get-started/" },
-    { text:"Tidory module",  href:"https://www.npmjs.com/package/tidory" },
-    { text:"Github",  href:"https://github.com/pronist/tidory" }
-  ]
+-
+  const REFERENCES = [
+    { text:"시작하기",  href:"http://www.tidory.com/docs/v4/get-started/" },
+    { text:"프로젝트 템플릿",  href:"https://github.com/pronist/tidory" },
+    { text:"티도리 모듈",  href:"https://www.npmjs.com/package/tidory" },
+    { text:"티스토리 가이드",  href:"https://www.tistory.com/guide/skin/step0" }
+  ];
 //- template
-nav.td-refs(role="navigation")
-  each r in refs
-    div.td-item: a(href=r.href)=r.text
+nav#td-refs-wrapper(role="navigation")
+  ul
+    each ref in REFERENCES
+      li: a(href=ref.href)= ref.text

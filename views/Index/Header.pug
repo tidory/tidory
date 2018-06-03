@@ -1,37 +1,11 @@
 //- style
 style.
-  main#td-index-wrapper h1.td-title {
-    color: #525252;
-    text-align: center;
-    font-weight: 400;
-    font-size: 2.0em;
-    margin-bottom: 20px;
-  }
-  main#td-index-wrapper h2.td-subtitle {
-    color: #525252;
-    text-align: center;
-    font-weight: 200;
-  }
-  main#td-index-wrapper div.td-logo {
-    margin-top: 75px;
-  }
-  main#td-index-wrapper h2.td-tidory {
-    color: #525252;
+  header#td-header-wrapper h1 {
+    color: @{FONT_COLOR};
     margin-top: 35px;
-    font-size: 3.0em;
+    font-size: 2.8em;
     font-weight: 200;
-  }
-//- inline script
-- 
-  const data = {
-    title: "It's awesome framework for Tistory Skin",
-    subTitle: 'With Webpack, Pug',
-    logoPath: "./images/favicon.png",
-    tidory: "Tidory"
   }
 //- template
-header.td-header(role="header")
-  h1.td-title #{data.title}
-  h2.td-subtitle #{data.subTitle}
-  div.td-logo: img(src=data.logoPath, alt="tidory")
-  h2.td-tidory #{data.tidory}
+header#td-header-wrapper(role="header")
+  h1 TIDORY

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <skin>
    <information>
-      <name>Tidory Demo</name>
+      <name>TIDORY</name>
       <version>1.0</version>
       <description>
-         <![CDATA[Tidory 프레임워크의 데모페이지]]>
+         <![CDATA[티도리 프레임워크의 데모페이지]]>
       </description>
       <license>
          <![CDATA[MIT]]>

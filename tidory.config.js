@@ -9,4 +9,11 @@ const tidory = require('tidory');
  * When sources will be compiled, this is referenced
  */
 
-module.exports = tidory
+const globalVariable = tidory.GlobalVariable;
+
+globalVariable.register(function(done) {
+  /** FONT_COLOR */
+  done('FONT_COLOR', '#525252');
+});
+
+module.exports = tidory;

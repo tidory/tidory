@@ -1,14 +1,7 @@
 {
   "name": "tidory-project-template",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "it's awesome framework for Tistory Skin",
-  "scripts": {
-    "start": "tidory start",
-    "build": "tidory build",
-    "dist": "tidory dist",
-    "preview": "tidory preview",
-    "test": "tidory test"
-  },
   "author": "Mansu Jeong<pronist@naver.com>",
   "license": "MIT",
   "repository": {

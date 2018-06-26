@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+// Show logs
+process.env.DEBUG = process.env.DEBUG || 'tidory:*';
+
+const path = require('path');
+
+const defaultCommand = 'help';
+const commands = new Set([defaultCommand, 'start', 'init' ,'build', 'dist', 'preview', 'test']);
+
+var cmd = process.argv[2];
+
+if (commands.has(cmd)) {
+  process.argv.splice(2, 1)
+} else {
+  cmd = defaultCommand
+}
+
+if (cmd == defaultCommand) {
+  console.log(`
+  Description
+    It's awesome framework for Tistory Skin.
+  Usage
+    $ tidory <command>
+  Commands
+    init      Clone tidory template from git repository
+    start     Start webpack development server
+    build     Compressed build for developer
+    dist      Uncompressed Build for user
+    preview   Skin preview after translating tistory attributes
+    test      Testing for Tidory API
+  `)
+  process.exit(0);
+}
+
+const bin = path.join(__dirname, 'tidory-' + cmd);
+
+require(bin);

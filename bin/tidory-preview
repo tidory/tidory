@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+/* eslint-disable no-console */
+
+const shelljs = require('shelljs')
+const path = require('path');
+
+const _build = path.join(__dirname, './tidory-build');
+const _casperjs = path.join(__dirname, '../node_modules/casperjs/bin/casperjs');
+const _previewScript = path.join(__dirname, '../lib/preview/src/index.js');
+const _webpack = path.join(__dirname, '../node_modules/webpack-dev-server/bin/webpack-dev-server.js');
+const _webpackPreviewConfig = path.join(__dirname, '../lib/preview/webpack/webpack.preview.conf');
+
+shelljs.exec(`node ${_build}`, function() {
+  shelljs.exec(`${_casperjs} ${_previewScript}`, function() {
+    shelljs.exec(`node ${_webpack} --config ${_webpackPreviewConfig}`);
+  });
+});

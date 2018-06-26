@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+/* eslint-disable no-console */
+
+const shelljs = require('shelljs')
+const path = require('path');
+
+const _webpackBuildConfig = path.join(__dirname, '../webpack/webpack.minify.conf');
+const _webpack = path.join(__dirname, '../node_modules/webpack/bin/webpack.js');
+
+shelljs.exec(`node ${_webpack} --config ${_webpackBuildConfig}`);

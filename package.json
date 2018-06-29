@@ -1,4 +1,6 @@
 {
+  "name": "tidory",
+  "version": "5.0.0",
   "author": {
     "name": "Mansu Jeong",
     "email": "pronist@naver.com"
@@ -15,21 +17,24 @@
     "babel-preset-es2015": "^6.24.1",
     "casperjs": "^1.1.4",
     "cheerio": "^1.0.0-rc.2",
+    "chokidar": "^2.0.4",
     "clean-css": "^4.1.9",
     "colors": "^1.2.1",
     "copy-webpack-plugin": "^4.2.0",
-    "cross-env": "^5.1.6",
     "cssesc": "^2.0.0",
     "download-git-repo": "^1.0.2",
+    "filewatcher-webpack-plugin": "^1.2.0",
     "he": "^1.1.1",
-    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-watch-plugin": "^1.0.1",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^2.0.0",
     "pretty": "^2.0.0",
-    "qunit": "^2.6.1",
+    "pug": "^2.0.3",
     "rimraf": "^2.6.2",
     "shelljs": "^0.8.1",
-    "uglify-js": "^3.3.25",
+    "uglify-es": "^3.3.9",
+    "uglifyjs-webpack-plugin": "^1.2.6",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.1"
@@ -46,12 +51,15 @@
   },
   "files": [
     "bin",
+    "build",
+    "dev",
     "lib",
+    "loaders",
     "src",
-    "webpack",
+    "index.js",
     "LICENSE",
     "README.md",
-    "index.js"
+    "webpack.base.conf.js"
   ],
   "homepage": "http://www.tidory.com",
   "keywords": [
@@ -60,10 +68,8 @@
     "tidory"
   ],
   "license": "MIT",
-  "name": "tidory",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pronist/tidory.git"
-  },
-  "version": "4.0.1"
+    "url": "git+https://github.com/pronist/tidory-core.git"
+  }
 }

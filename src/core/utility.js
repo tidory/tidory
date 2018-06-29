@@ -1,4 +1,4 @@
-const UglifyJS = require("uglify-js");
+const UglifyJS = require("uglify-es");
 const babel = require("babel-core");
 
 /**

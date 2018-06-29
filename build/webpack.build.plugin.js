@@ -13,11 +13,11 @@
 
 const path = require('path');
 
-const config = path.join(process.cwd(), 'tidory.config.js');
+const config = path.join(process.cwd(), 'config/tidory.config.js');
 const event = require(config).Event;
 
 const { Core } = require('../lib/api');
-const { Builder, Transform, Directory } = require('../src/');
+const { Separator, Transform, Directory, Route } = require('../src/');
 
 /**
  * Tidory build webpack plugin
@@ -58,32 +58,16 @@ class TidoryBuildWebpackPlugin {
         event.emit('BeforeHTMLProcessing', _document);
         /** Fetch */
         Core.Async.fetch(_document, function() {
-          (function translate() {
-            (function before() {
-              /** Directive */
-              Core.Directive.before(_document);
-            })();
-            /** iteration */
-            Core.Iteration.translate(_document);
-            /** GlobalVariable */
-            Core.GlobalVariable.translate(_document);  
-            (function after() {
-              /** Directive */
-              Core.Directive.after(_document);
-              /** Condition */
-              Core.Condition.translate(_document);
-              /** Class */
-              Core.Class.bind(_document);
-            })();
-          })();
+          /** Append pages */
+           _document.$(Route.container).append(Route.views());
+          /** Directive */
+          Core.Directive.bind(_document);
           /** AfterHTMLProcessing */
           event.emit('AfterHTMLProcessing', _document);
-          (function builder() {
-            /** CSS Separation */
-            Builder.css(_document, _self._options);
-            /** Script Separation */
-            Builder.script(_document, _self._options);
-          })();
+          /** CSS Separation */
+          Separator.css(_document, _self._options);
+          /** Script Separation */
+          Separator.script(_document, _self._options);
           /** TISTORY attributes */
           let _html = Transform.tistory(_document.$.html());
           /** Allocate to htmlPluginData */
@@ -94,7 +78,7 @@ class TidoryBuildWebpackPlugin {
       });
       compilation.plugin('html-webpack-plugin-after-emit', function(htmlPluginData, callback) {
         /** Remove distribution directory for new files */
-        Directory.distribution(Builder._css, Builder._script, function() {
+        Directory.distribution(Separator._css, Separator._script, function() {
           /** AfterGeneration */ 
           event.emit('AfterGeneration');
           /** Finish! */

@@ -16,10 +16,10 @@ let _instance = null;
  * Builder
  * @class
  */ 
-class Builder {
+class Separator {
 // private:
   /** 
-   * Create Builder instance.
+   * Create Separator instance.
    * Don't create new instance outside
    * @private
    */
@@ -47,7 +47,7 @@ class Builder {
       return _instance;
     }
     else {
-      _instance = new Builder();
+      _instance = new Separator();
       return _instance;
     }
   }
@@ -124,4 +124,4 @@ class Builder {
   }
 }
 
-module.exports = Builder.getInstance();
+module.exports = Separator.getInstance();

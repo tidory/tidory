@@ -8,7 +8,7 @@ let config = {
    */
   assets: 'images',
 
-    /** 
+  /** 
    * Script File name
    */
   script: 'images/script.js',
@@ -17,6 +17,11 @@ let config = {
    * Stylesheet File name
    */
   stylesheet: 'style.css',
+
+  /**
+   * Route views
+   */
+  routeViews: './routes/views'
 };
 
 module.exports = config;

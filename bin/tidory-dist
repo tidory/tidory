@@ -4,7 +4,7 @@
 const shelljs = require('shelljs')
 const path = require('path');
 
-const _webpackProdConfig = path.join(__dirname, '../webpack/webpack.prod.conf');
+const _webpackProdConfig = path.join(__dirname, '../build/webpack.prod.conf');
 const _webpack = path.join(__dirname, '../node_modules/webpack/bin/webpack.js');
 
 shelljs.exec(`node ${_webpack} --config ${_webpackProdConfig}`);

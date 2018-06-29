@@ -16,8 +16,8 @@ const wd = process.cwd();
 const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const webpackBaseConfig = require(path.resolve(wd, './webpack.base.conf'));
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpackBaseConfig = require(path.resolve(__dirname, '../webpack.base.conf'));
+const HtmlWebpackWatchPlugin = require('html-webpack-watch-plugin');
 const TidoryDevWebpackPlugin = require('./webpack.dev.plugin');
 
 module.exports = merge(webpackBaseConfig, {
@@ -26,22 +26,23 @@ module.exports = merge(webpackBaseConfig, {
     watchContentBase: true,
     index: 'skin.html',
     open: 'http://localhost:8080',
-    stats: "errors-only",
-    watchOptions: {
-      poll: true
-    }
+    stats: "errors-only"
   },
   output: {
-    filename: 'images/tidory.bundle.js',
+    filename: 'images/[name].bundle.js',
     publicPath: '/'
   },
   plugins: [
-    new HtmlWebpackPlugin({
-        template: path.join(wd, './index.pug'),
-        filename: "skin.html",
-        inject: true
+    new HtmlWebpackWatchPlugin({
+      template: path.join(wd, './index.pug'),
+      filename: "skin.html",
+      inject: true,
+      watchOptions: {
+        files: [ 
+          path.resolve(wd, './routes/views/**/*.pug') 
+        ]
       }
-    ),
+    }),
     new TidoryDevWebpackPlugin()
   ]
 });

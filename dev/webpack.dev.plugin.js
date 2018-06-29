@@ -13,11 +13,11 @@
 
 const path = require('path');
 
-const config = path.join(process.cwd(), 'tidory.config.js');
+const config = path.join(process.cwd(), 'config/tidory.config.js');
 const event = require(config).Event;
 
-const { Core } = require('../../api');
-const { Builder, Transform, Directory } = require('../../../src/');
+const { Core } = require('../lib/api');
+const { Separator, Transform, Directory, Route } = require('../src/');
 
 /**
  * Tidory dev webpack plugin
@@ -48,24 +48,10 @@ class TidoryDevWebpackPlugin {
         event.emit('BeforeHTMLProcessing', _document);
         /** Fetch */
         Core.Async.fetch(_document, function() {
-          (function translate() {
-            (function before() {
-              /** Directive */
-              Core.Directive.before(_document);
-            })();
-            /** iteration */
-            Core.Iteration.translate(_document);
-            /** GlobalVariable */
-            Core.GlobalVariable.translate(_document);  
-            (function after() {
-              /** Directive */
-              Core.Directive.after(_document);
-              /** Condition */
-              Core.Condition.translate(_document);
-              /** Class */
-              Core.Class.bind(_document);
-            })();
-          })();
+          /** Append pages */
+          _document.$(Route.container).append(Route.views());
+          /** Directive */
+          Core.Directive.bind(_document);
           /** AfterHTMLProcessing */
           event.emit('AfterHTMLProcessing', _document);
           /** TISTORY attributes */
@@ -77,11 +63,11 @@ class TidoryDevWebpackPlugin {
         });
       });
       compilation.plugin('html-webpack-plugin-after-emit', function(htmlPluginData, callback) {
-        event.emit('AfterGeneration');
-        /** Finish! */
-        callback(null, htmlPluginData);
+      event.emit('AfterGeneration');
+      /** Finish! */
+      callback(null, htmlPluginData);
       });
-    });
+    })
   }
 }
 

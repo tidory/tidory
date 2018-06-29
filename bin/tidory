@@ -6,7 +6,7 @@ process.env.DEBUG = process.env.DEBUG || 'tidory:*';
 const path = require('path');
 
 const defaultCommand = 'help';
-const commands = new Set([defaultCommand, 'start', 'init' ,'build', 'dist', 'preview', 'test']);
+const commands = new Set([defaultCommand, 'start', 'init' ,'build', 'dist', 'preview']);
 
 var cmd = process.argv[2];
 
@@ -28,7 +28,6 @@ if (cmd == defaultCommand) {
     build     Compressed build for developer
     dist      Uncompressed Build for user
     preview   Skin preview after translating tistory attributes
-    test      Testing for Tidory API
   `)
   process.exit(0);
 }

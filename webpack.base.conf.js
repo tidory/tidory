@@ -11,10 +11,7 @@
  * Github. https://github.com/pronist/
  */
 
-const path = require('path');
-
 module.exports = {
-  entry:  path.resolve(__dirname, './webpack.entry.js'),
   module: {
     rules: [
       {
@@ -42,10 +39,6 @@ module.exports = {
       {
         test: /\.css$/,
         use:  ["style-loader", "css-loader"]
-      },
-      {
-        test: /\.pug$/,
-        use: ['pug-loader']
       }
     ]
   }

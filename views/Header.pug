@@ -1,0 +1,19 @@
+//- container
+header#td-header-wrapper(role="main")
+  //- style
+  style.
+    #td-header-wrapper {
+      display: table;
+      text-align: center;
+      height: inherit;
+      width: inherit;
+    }
+    #td-header-wrapper div {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+  //- template
+  div
+    include Header/BlogTitle
+    include Header/BlogMenu

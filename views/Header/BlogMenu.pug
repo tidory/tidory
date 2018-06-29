@@ -1,17 +1,3 @@
-//- style
-style.
-  nav#td-refs-wrapper {
-    margin-top: 35px;
-  }
-  nav#td-refs-wrapper li {
-    margin: 0 15px;
-    display: inline-block;
-  }
-  nav#td-refs-wrapper li a {
-    font-size: 1.05em;
-    color: @{FONT_COLOR};
-    font-weight: 300;
-  }
 //- inline script
 -
   const REFERENCES = [
@@ -20,8 +6,23 @@ style.
     { text:"티도리 모듈",  href:"https://www.npmjs.com/package/tidory" },
     { text:"티스토리 가이드",  href:"https://www.tistory.com/guide/skin/step0" }
   ];
-//- template
-nav#td-refs-wrapper(role="navigation")
+//- container
+nav#td-blogMenu-wrapper(role="navigation")
+  //- style
+  style.
+    #td-blogMenu-wrapper {
+      margin-top: 35px;
+    }
+    #td-blogMenu-wrapper li {
+      margin: 0 15px;
+      display: inline-block;
+    }
+    #td-blogMenu-wrapper li a {
+      font-size: 1.05em;
+      color: #{TIDORY.FONT_COLOR};
+      font-weight: 300;
+    }
+  //- template
   ul
     each ref in REFERENCES
       li: a(href=ref.href)= ref.text

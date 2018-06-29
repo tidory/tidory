@@ -1,3 +1,3 @@
 # test
 
-Testing for TIDORY API.
+Testing for Tidory API.

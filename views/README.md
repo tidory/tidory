@@ -1,4 +1,4 @@
 # views
 
-TISTORY skin templates.
+Tistory Skin Templates. \
 https://www.tistory.com/guide/skin/step2

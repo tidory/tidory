@@ -1,7 +1,7 @@
 # Tidory
 
-Tidory Framework for Tistory Skin<br />
-<a href="http://www.tidory.com">http://www.tidory.com</a>
+Tidory Framework for Tistory Skin \
+<http://www.tidory.com>
 
 # License
 

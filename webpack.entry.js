@@ -1,4 +1,4 @@
- /** webpack.entry.js
+/** webpack.entry.js
   * 
   * Entry for bundling by webpack.
   * for example, if you have your own script, or plguin,

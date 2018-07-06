@@ -1,6 +1,6 @@
 {
   "name": "tidory-project-template",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "it's awesome framework for Tistory Skin",
   "scripts": {
     "test": "cross-env NODE_ENV=test qunit test/QUnit-tidory-*.js"
@@ -28,7 +28,7 @@
     "axios": "^0.18.0",
     "js-cookie": "^2.2.0",
     "nedb": "^1.8.0",
-    "trickr": "^1.2.0"
+    "trickr": "^1.3.1"
   },
   "engines": {
     "node": ">= 4.0.0",

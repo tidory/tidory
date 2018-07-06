@@ -26,8 +26,7 @@ function __resolve(_path) {
 const assets = {
   tidory: [
     __resolve('./webpack.entry.js'),
-    __resolve('./routes/config/index.js'),
-    __resolve('./database/index.js')
+    __resolve('./routes/index.js')
   ]
 };
 
@@ -38,6 +37,7 @@ module.exports = merge(webpackBaseConfig, {
       "~": __resolve("."),
       "@assets": __resolve("./assets"),
       "@controllers": __resolve("./routes/controllers"),
+      "@middlewares": __resolve("./routes/middlewares"),
       "@models": __resolve("./database/models"),
       "@schemas": __resolve("./database/schemas")
     }

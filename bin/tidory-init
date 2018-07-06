@@ -17,7 +17,7 @@ console.log('\n\0\0Thank you for using Tidory\n'.yellow.bold);
 const spinner = ora('Trying to copy template from git...\n');
 spinner.start();
 
-download('github:pronist/tidory', path.join(process.cwd(), 'tidory'), false, function(err) {
+download('github:pronist/tidory-starter-template', path.join(process.cwd(), 'tidory'), false, function(err) {
   if(err) {
     spinner.stopAndPersist({ text:`\n\0\0${stderr}\n`.red.bold });
   }

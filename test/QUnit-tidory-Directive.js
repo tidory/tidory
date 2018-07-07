@@ -2,7 +2,7 @@
 const QUnit = require('qunit');
 
 /** TIDORY Core API */
-const { Core } = require('../../tidory');
+const { Core } = require('tidory');
 
 let document = new Core.Document('<p t-test="TIDORY"></p>');
 

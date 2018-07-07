@@ -10,6 +10,7 @@ const tidory = require('tidory');
  */
 
 const globalVariable = tidory.GlobalVariable;
+const Directive = tidory.Directive;
 
 globalVariable.register(function(done) {
   /** FONT_COLOR */

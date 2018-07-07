@@ -1,6 +1,6 @@
 {
   "name": "tidory",
-  "version": "5.0.3",
+  "version": "5.0.4",
   "author": {
     "name": "Mansu Jeong",
     "email": "pronist@naver.com"
@@ -19,6 +19,7 @@
     "cheerio": "^1.0.0-rc.2",
     "chokidar": "^2.0.4",
     "clean-css": "^4.1.9",
+    "clean-webpack-plugin": "^0.1.19",
     "colors": "^1.2.1",
     "copy-webpack-plugin": "^4.2.0",
     "cssesc": "^2.0.0",

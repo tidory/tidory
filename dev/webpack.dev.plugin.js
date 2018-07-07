@@ -62,12 +62,11 @@ class TidoryDevWebpackPlugin {
           callback(null, htmlPluginData);
         });
       });
-      compilation.plugin('html-webpack-plugin-after-emit', function(htmlPluginData, callback) {
+    });
+    compiler.plugin('done', function() {
+      /** AfterGeneration */ 
       event.emit('AfterGeneration');
-      /** Finish! */
-      callback(null, htmlPluginData);
-      });
-    })
+    });
   }
 }
 

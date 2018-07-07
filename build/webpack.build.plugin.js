@@ -76,14 +76,11 @@ class TidoryBuildWebpackPlugin {
           callback(null, htmlPluginData);
         });
       });
-      compilation.plugin('html-webpack-plugin-after-emit', function(htmlPluginData, callback) {
-        /** Remove distribution directory for new files */
-        Directory.distribution(Separator._css, Separator._script, function() {
-          /** AfterGeneration */ 
-          event.emit('AfterGeneration');
-          /** Finish! */
-          callback(null, htmlPluginData);
-        });
+    });
+    compiler.plugin('done', function() {
+      Directory.distribution(Separator._css, Separator._script, function() {
+        /** AfterGeneration */ 
+        event.emit('AfterGeneration');
       });
     });
   }

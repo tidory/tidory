@@ -22,6 +22,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TidoryBuildWebpackPlugin = require('./webpack.build.plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = merge(webpackBaseConfig, {
   output: {
@@ -57,6 +58,11 @@ module.exports = merge(webpackBaseConfig, {
         caseSensitive: true
       }
 		}),
-		new TidoryBuildWebpackPlugin()
+    new TidoryBuildWebpackPlugin(),
+    new CleanWebpackPlugin(['dist'], {
+      root: wd,
+      verbose: false,
+      dry: false
+    })
   ]
 });

@@ -17,7 +17,7 @@ const config = path.join(process.cwd(), 'config/tidory.config.js');
 const event = require(config).Event;
 
 const { Core } = require('../lib/api');
-const { Separator, Transform, Directory, Route } = require('../src/');
+const { Separator, Transform, Directory } = require('../src/');
 
 /**
  * Tidory build webpack plugin
@@ -58,8 +58,6 @@ class TidoryBuildWebpackPlugin {
         event.emit('BeforeHTMLProcessing', _document);
         /** Fetch */
         Core.Async.fetch(_document, function() {
-          /** Append pages */
-           _document.$(Route.container).append(Route.views());
           /** Directive */
           Core.Directive.bind(_document);
           /** AfterHTMLProcessing */

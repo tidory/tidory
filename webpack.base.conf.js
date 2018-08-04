@@ -16,17 +16,17 @@ const wd = process.cwd();
 const path = require('path');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require(path.resolve(wd, './webpack.base.conf'));
+const Util = require('./src/core/utility');
 
-const pugLoader = path.join(__dirname, './loaders/pug-loader/index.js');
+const pugLoader = path.join(__dirname, './loaders/pug-loader');
 
 function __resolve(_path) {
   return path.resolve(wd, _path);
 }
 
 const assets = {
-  tidory: [
-    __resolve('./webpack.entry.js'),
-    __resolve('./routes/index.js')
+  app: [
+    __resolve('./webpack.entry.js')
   ]
 };
 
@@ -35,18 +35,37 @@ module.exports = merge(webpackBaseConfig, {
   resolve: {
     alias: {
       "~": __resolve("."),
-      "@assets": __resolve("./assets"),
+      "@models": __resolve("./database/models"),
+      "@schemas": __resolve("./database/schemas"),
+      "@config": __resolve("./routes/config"),
       "@controllers": __resolve("./routes/controllers"),
       "@middlewares": __resolve("./routes/middlewares"),
-      "@models": __resolve("./database/models"),
-      "@schemas": __resolve("./database/schemas")
+      "@views": __resolve("./routes/views")
     }
   },
   module: {
     rules: [
       {
         test: /\.pug$/,
-        use: [ pugLoader ]
+        oneOf: [
+          {
+            resourceQuery: /^\?vue/,
+            use: {
+              loader: 'pug-plain-loader',
+              options: {
+                data: Util.getGlobalVariables(true)
+              } 
+            }
+          },
+          {
+            use: {
+              loader: pugLoader,
+              options: {
+                root: __resolve(".")
+              }
+            }
+          }
+        ]
       }
     ]
   }

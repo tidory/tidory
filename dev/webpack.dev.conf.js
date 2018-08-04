@@ -22,6 +22,11 @@ const TidoryDevWebpackPlugin = require('./webpack.dev.plugin');
 
 module.exports = merge(webpackBaseConfig, {
   devtool: 'inline-source-map',
+  resolve: {
+    alias: {
+      'vue': path.resolve(wd, 'node_modules/vue/dist/vue.js')
+    }
+  },
   devServer: {
     watchContentBase: true,
     index: 'skin.html',
@@ -29,9 +34,9 @@ module.exports = merge(webpackBaseConfig, {
     stats: "errors-only"
   },
   output: {
-    filename: 'images/[name].bundle.js',
+    filename: 'images/[name].js',
     publicPath: '/'
-  },
+  },  
   plugins: [
     new HtmlWebpackWatchPlugin({
       template: path.join(wd, './index.pug'),

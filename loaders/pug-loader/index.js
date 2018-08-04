@@ -4,6 +4,8 @@ var loaderUtils = require("loader-utils");
 var nodeResolve = require("resolve").sync;
 var walk = require('pug-walk');
 
+const Util = require('../../src/core/utility');
+
 module.exports = function(source) {
 	this.cacheable && this.cacheable();
 
@@ -157,26 +159,7 @@ module.exports = function(source) {
 			loaderContext.callback(e);
 			return;
 		}
-
-		/** CUSTOMIZE */
-		const config = require(path.join(process.cwd(), '/config/tidory.config'));
-
-		/** Getting globalVariables */
-		const variables = config.GlobalVariable._variables;
-		let result = new String();
-		
-		/** namespace TIDORY */
-		result += "var TIDORY = {";
-		
-		/** to Raw object string */
-		variables.forEach(function(e, i) {
-			result += `"${e._globalVariable}": ${JSON.stringify(e._value)},`;
-		});
-		
-		/** End */
-		result += "};";
-
-		var runtime = result + "var pug = require(" + loaderUtils.stringifyRequest(loaderContext, "!" + modulePaths.runtime) + ");\n\n";
+		var runtime = Util.getGlobalVariables(false) + "var pug = require(" + loaderUtils.stringifyRequest(loaderContext, "!" + modulePaths.runtime) + ");\n\n";
 		loaderContext.callback(null, runtime + tmplFunc.toString() + ";\nmodule.exports = template;");
 	}
 }

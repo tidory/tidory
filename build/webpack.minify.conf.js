@@ -25,8 +25,13 @@ const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = merge(webpackBaseConfig, {
+  resolve: {
+    alias: {
+      'vue': path.resolve(wd, 'node_modules/vue/dist/vue.min.js')
+    }
+  },
   output: {
-		filename: '[name].bundle.js',
+		filename: '[name].js',
     path: path.resolve(wd, './dist/images'),
     publicPath: "./images"
   },

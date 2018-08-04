@@ -1,19 +1,31 @@
 //- container
-header#td-header-wrapper(role="main")
+header#td-header-wrapper(role="header")
   //- style
   style.
     #td-header-wrapper {
       display: table;
+      vertical-align: middle;
       text-align: center;
-      height: inherit;
       width: inherit;
+      height: inherit;
     }
     #td-header-wrapper div {
       display: table-cell;
       vertical-align: middle;
       text-align: center;
     }
-  //- template
-  div
+
+  //- Vue & vue-router
+  div#app
+    blog-title
+    router-view
+
+  //- IF YOU WANT TO TEST Pug & history-router,
+  //- REMOVE COMMENT 'div#container' -> Header.pug 
+  //- AND 
+  //- 'require(@config)'-> webpack.entry.js
+
+  //- Pug & history-router
+  //- div#container
     include Header/BlogTitle
-    include Header/BlogMenu
+    blockquote(data-role="router-view")

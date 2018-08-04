@@ -10,4 +10,28 @@
   * set the loaders in ./webpack.base.conf.js
   * 
   * after import assets it will be contained in tidory.bundle.js
-  */
+  */ 
+  
+/** history-router */
+
+// require('@config');
+
+/** Vue.js */
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+
+Vue.use(VueRouter);
+
+Vue.component('blog-title', require('~/components/blog-title.vue').default);
+
+new Vue({
+  el: '#app',
+
+  /** vue-router */
+  router: new VueRouter({
+    mode: 'history',
+    routes: [
+      { path: '/', component: require('~/components/blog-menu.vue').default }
+    ]
+  })
+});

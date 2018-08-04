@@ -10,6 +10,7 @@
  * Homepage. http://www.tidory.com
  * Github. https://github.com/pronist/
  */
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
   module: {
@@ -39,7 +40,16 @@ module.exports = {
       {
         test: /\.css$/,
         use:  ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.vue$/,
+        use: {
+          loader: 'vue-loader'
+        }
       }
-    ]
-  }
+    ],
+  },
+  plugins: [
+    new VueLoaderPlugin()
+  ]
 }

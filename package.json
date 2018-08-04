@@ -1,6 +1,6 @@
 {
   "name": "tidory-starter-template",
-  "version": "5.0.3",
+  "version": "5.1.0",
   "description": "Tidory Framework Template for Starter",
   "scripts": {
     "test": "cross-env NODE_ENV=test qunit test/QUnit-tidory-*.js"
@@ -12,22 +12,29 @@
     "url": "https://github.com/pronist/tidory"
   },
   "devDependencies": {
+    "apply-loader": "^2.0.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "cross-env": "^5.2.0",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.11",
+    "pug": "^2.0.3",
     "qunit": "^2.6.1",
     "style-loader": "^0.19.0",
+    "tidory": "^5.1.0",
     "url-loader": "^1.0.1",
-    "webpack": "^3.11.0",
-    "tidory": "^5.0.4"
+    "vue-loader": "^15.2.6",
+    "vue-template-compiler": "^2.5.17",
+    "webpack": "^3.11.0"
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "history-router": "^1.1.1",
     "js-cookie": "^2.2.0",
     "nedb": "^1.8.0",
-    "trickr": "^1.3.1"
+    "vue": "^2.5.17",
+    "vuex": "^3.0.1",
+    "vue-router": "^3.0.1"
   }
 }

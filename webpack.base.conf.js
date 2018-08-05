@@ -58,6 +58,18 @@ module.exports = merge(webpackBaseConfig, {
             }
           },
           {
+            include: [__resolve('routes/views')],
+            use: [
+              'raw-loader',
+              {
+                loader: 'pug-plain-loader',
+                options: {
+                  data: Util.getGlobalVariables(true)
+                }
+              } 
+            ]
+          },
+          {
             use: {
               loader: pugLoader,
               options: {

@@ -3,7 +3,7 @@
   "version": "5.1.2",
   "description": "Tidory Framework Template for Starter",
   "scripts": {
-    "test": "cross-env NODE_ENV=test qunit test/QUnit-tidory-*.js",
+    "test": "cross-env NODE_ENV=test qunit test/QUnit-tidory-*.js"
   },
   "author": "Mansu Jeong<pronist@naver.com>",
   "license": "MIT",

@@ -19,5 +19,5 @@ module.exports = function (source) {
   ;
   Core.Directive.bind(document);
 
-  return html
+  return document.$.html();
 }

@@ -19,6 +19,7 @@ const webpackBaseConfig = require(path.resolve(wd, './webpack.base.conf'));
 const Util = require('./src/core/utility');
 
 const pugLoader = path.join(__dirname, './loaders/pug-loader');
+const pugPlainLoader = path.join(__dirname, './loaders/pug-plain-loader');
 
 function __resolve(_path) {
   return path.resolve(wd, _path);
@@ -51,7 +52,7 @@ module.exports = merge(webpackBaseConfig, {
           {
             resourceQuery: /^\?vue/,
             use: {
-              loader: 'pug-plain-loader',
+              loader: pugPlainLoader,
               options: {
                 data: Util.getGlobalVariables(true)
               } 
@@ -62,7 +63,7 @@ module.exports = merge(webpackBaseConfig, {
             use: [
               'raw-loader',
               {
-                loader: 'pug-plain-loader',
+                loader: pugPlainLoader,
                 options: {
                   data: Util.getGlobalVariables(true)
                 }

@@ -9,7 +9,7 @@ header#td-header-wrapper(role="header")
       width: inherit;
       height: inherit;
     }
-    #td-header-wrapper div {
+    #td-header-wrapper div:not(#router-view) {
       display: table-cell;
       vertical-align: middle;
       text-align: center;
@@ -28,4 +28,4 @@ header#td-header-wrapper(role="header")
   //- Pug & history-router
   //- div#container
     include Header/BlogTitle
-    blockquote(data-role="router-view")
+    div#router-view(data-role="router-view")

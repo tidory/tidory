@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "history-router": "^1.1.1",
+    "history-router": "^1.1.2",
     "js-cookie": "^2.2.0",
     "nedb": "^1.8.0",
     "vue": "^2.5.17",

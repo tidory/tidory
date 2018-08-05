@@ -1,10 +1,9 @@
 {
   "name": "tidory-starter-template",
-  "version": "5.1.1",
+  "version": "5.1.2",
   "description": "Tidory Framework Template for Starter",
   "scripts": {
     "test": "cross-env NODE_ENV=test qunit test/QUnit-tidory-*.js",
-    "start": "node ../../node_modules/tidory/bin/tidory-start"
   },
   "author": "Mansu Jeong<pronist@naver.com>",
   "license": "MIT",

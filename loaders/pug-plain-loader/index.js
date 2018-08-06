@@ -15,7 +15,9 @@ module.exports = function (source) {
 
   let 
     html = template(options.data || {}),
-    document = new Core.Document(html)
+    document = new Core.Document(html, {
+      xmlMode: true
+    })
   ;
   Core.Directive.bind(document);
 

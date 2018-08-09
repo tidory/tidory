@@ -120,6 +120,9 @@ class Separator {
       /** Minify javscript string */
       _self._script = Utility.toECMA5AndMinify(_self._script);
     }
+    else {
+      _self._script = Utility.toECMA5AndMinify(_self._script, false);
+    }
     _document.$('body').append(`<script type="text/javascript" src="./${config.script}">`);
   }
 }

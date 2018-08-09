@@ -14,14 +14,16 @@ class Utility {
    * 
    * @return script {string} - The code that is transformed
    */
-  static toECMA5AndMinify(code) {
+  static toECMA5AndMinify(code, minify = true) {
     let script = null;
     script = babel.transform(code, {
       "presets": [
         "es2015"
       ]
     }).code;
-    script = UglifyJS.minify(script).code;
+    if(minify) {
+      script = UglifyJS.minify(script).code;
+    }
     return script;
   }
 

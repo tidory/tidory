@@ -14,10 +14,9 @@
 const wd = process.cwd();
 
 const path = require('path');
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require(path.resolve(__dirname, '../webpack.base.conf'));
-const HtmlWebpackWatchPlugin = require('html-webpack-watch-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TidoryDevWebpackPlugin = require('./webpack.dev.plugin');
 
 module.exports = merge(webpackBaseConfig, {
@@ -38,15 +37,10 @@ module.exports = merge(webpackBaseConfig, {
     publicPath: '/'
   },  
   plugins: [
-    new HtmlWebpackWatchPlugin({
+    new HtmlWebpackPlugin({
       template: path.join(wd, './index.pug'),
       filename: "skin.html",
-      inject: true,
-      watchOptions: {
-        files: [ 
-          path.resolve(wd, './routes/views/**/*.pug') 
-        ]
-      }
+      inject: true
     }),
     new TidoryDevWebpackPlugin()
   ]

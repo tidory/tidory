@@ -1,8 +1,5 @@
-const rimraf = require('rimraf');
 const path = require('path');
 const fs = require('fs');
-
-const config = require('../core/config');
 
 /**
  * Builder
@@ -17,9 +14,9 @@ class Directory {
    */
   static distribution(_css, _script, _callback) {
     /** Create style.css */
-    fs.writeFileSync(path.join(config.distribution, config.stylesheet), _css);
+    fs.writeFileSync(path.join('./dist', 'style.css'), _css);
     /** Create script.js */
-    fs.writeFileSync(path.join(config.distribution, config.script), _script);
+    fs.writeFileSync(path.join('./dist', 'images/script.js'), _script);
     /** Callback */
     _callback();
   }

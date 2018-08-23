@@ -1,6 +1,6 @@
 {
   "name": "tidory",
-  "version": "5.1.5",
+  "version": "5.2.0",
   "author": {
     "name": "Mansu Jeong",
     "email": "pronist@naver.com"
@@ -23,6 +23,8 @@
     "colors": "^1.2.1",
     "copy-webpack-plugin": "^4.2.0",
     "cssesc": "^2.0.0",
+    "dotenv": "^6.0.0",
+    "dotenv-webpack": "^1.5.7",
     "download-git-repo": "^1.0.2",
     "filewatcher-webpack-plugin": "^1.2.0",
     "he": "^1.1.1",

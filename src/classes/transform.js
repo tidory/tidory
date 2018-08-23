@@ -1,13 +1,5 @@
-const wd = process.cwd();
-
-const fs = require('fs');
-const path = require('path');
-
 const pretty = require('pretty');
 const he = require('he');
-const pug = require('pug');
-
-const config = require('../core/config');
 
 /**
  * Transform

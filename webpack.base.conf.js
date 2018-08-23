@@ -21,6 +21,8 @@ const Util = require('./src/core/utility');
 const pugLoader = path.join(__dirname, './loaders/pug-loader');
 const pugPlainLoader = path.join(__dirname, './loaders/pug-plain-loader');
 
+const Dotenv = require('dotenv-webpack');
+
 function __resolve(_path) {
   return path.resolve(wd, _path);
 }
@@ -81,5 +83,8 @@ module.exports = merge(webpackBaseConfig, {
         ]
       }
     ]
-  }
+  },
+  plugins: [
+    new Dotenv()
+  ]
 });

@@ -2,6 +2,8 @@ const UglifyJS = require("uglify-es");
 const babel = require("babel-core");
 const path = require('path');
 
+require('dotenv').config();
+
 /**
  * Tidory Utility Class
  * @class
@@ -51,16 +53,13 @@ class Utility {
       /** End */
       result = result.substring(0, result.length-1);
       result += "}";
-      let tidory = JSON.parse(result);
-      let TIDORY = {
-        TIDORY: tidory
-      }
-      return TIDORY;
+
+      return { "process.env": process.env, "TIDORY": JSON.parse(result) };
     }
     else {
       /** End */
       result += "};";
-      return result;
+      return `process.env = ${JSON.stringify(process.env)};` + result;
     }
   }
 }

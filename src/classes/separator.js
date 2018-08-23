@@ -4,8 +4,6 @@ const cssesc = require('cssesc');
 const Utility = require('../core/utility');
 const Base = require('../core/base');
 
-const config = require('../core/config');
-
 /**
  * Builder instance
  * @static
@@ -89,7 +87,7 @@ class Separator {
         format: 'beautify'
       }).minify(_self._css).styles;
     }
-    _document.$('head').append(`<link rel="stylesheet" href="./${config.stylesheet}">`);
+    _document.$('head').append(`<link rel="stylesheet" href="./style.css">`);
   }
 
   /** 
@@ -123,7 +121,7 @@ class Separator {
     else {
       _self._script = Utility.toECMA5AndMinify(_self._script, false);
     }
-    _document.$('body').append(`<script type="text/javascript" src="./${config.script}">`);
+    _document.$('body').append(`<script type="text/javascript" src="./images/script.js">`);
   }
 }
 

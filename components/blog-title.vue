@@ -1,6 +1,10 @@
 <template lang="pug">
   section#td-blogTitle-wrapper
-    h1 #{TIDORY.title}
+    case process.env.APP_MODE 
+      when 'build'
+        h1 [##_title_##]
+      when 'development'
+        h1 TIDORY #[span(style="font-size:0.5em") with Vue.js] 
 </template>
 
 <style>

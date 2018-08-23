@@ -9,4 +9,8 @@ section#td-blogTitle-wrapper(role="header")
       font-weight: 200;
     }
   //- template
-  h1 #{TIDORY.title}
+  case process.env.APP_MODE  
+    when 'build'
+      h1 [##_title_##]
+    when 'development'
+      h1 TIDORY

@@ -1,5 +1,11 @@
-.DS_Store
-.vscode
+# Modules
 node_modules
+
+# Distribution
 dist
-preview.html
+
+# Preview
+index.html
+
+# Configuration
+.env

@@ -11,27 +11,30 @@
   * 
   * after import assets it will be contained in app.js
   */ 
-  
-/** history-router */
-
-// require('@config');
 
 /** Vue.js */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-Vue.use(VueRouter);
+if(process.env.APP_VIEW_TYPE == 'vue') {
 
-Vue.component('blog-title', require('~/components/blog-title.vue').default);
+  Vue.use(VueRouter);
+  Vue.component(
+    'blog-title', 
+    require('~/components/blog-title.vue').default
+  );
 
-new Vue({
-  el: '#app',
-
-  /** vue-router */
-  router: new VueRouter({
-    mode: 'history',
-    routes: [
-      { path: '/', component: require('~/components/blog-menu.vue').default }
-    ]
-  })
-});
+  new Vue({
+    el: '#app',
+    /** vue-router */
+    router: new VueRouter({
+      mode: 'history',
+      routes: [
+        { path: '/', component: require('~/components/blog-menu.vue').default }
+      ]
+    })
+  });
+}
+else {
+  require('@config');
+}

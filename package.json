@@ -23,7 +23,7 @@
     "qunit": "^2.6.1",
     "raw-loader": "^0.5.1",
     "style-loader": "^0.19.0",
-    "tidory": "^5.1.5",
+    "tidory": "^5.2.1",
     "url-loader": "^1.0.1",
     "vue-loader": "^15.2.6",
     "vue-template-compiler": "^2.5.17",
@@ -35,7 +35,6 @@
     "js-cookie": "^2.2.0",
     "nedb": "^1.8.0",
     "vue": "^2.5.17",
-    "vuex": "^3.0.1",
     "vue-router": "^3.0.1"
   }
 }

@@ -31,6 +31,3 @@ new Vue({
     }
   }),
 });
-
-/** Routes */
-require('@config');

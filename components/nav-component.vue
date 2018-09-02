@@ -38,9 +38,7 @@
           /** getting tistory blog info */
           api.blog.info({ output: 'json'}, (request, aEvt) => {
             let 
-              tistory = JSON.parse(request.responseText).tistory,
-              user = tistory.item,
-              represent = tistory.item.blogs[0]
+              represent = JSON.parse(request.responseText).tistory.item.blogs[0]
             ;
             /** update view model */
             self.thumbnail = represent.profileThumbnailImageUrl;

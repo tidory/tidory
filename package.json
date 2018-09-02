@@ -34,7 +34,9 @@
     "history-router": "^1.1.2",
     "js-cookie": "^2.2.0",
     "nedb": "^1.8.0",
+    "tistory": "^1.0.1",
     "vue": "^2.5.17",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   }
 }

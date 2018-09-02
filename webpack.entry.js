@@ -14,27 +14,23 @@
 
 /** Vue.js */
 import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vuex from 'vuex';
 
-if(process.env.APP_VIEW_TYPE == 'vue') {
+Vue.use(Vuex);
 
-  Vue.use(VueRouter);
-  Vue.component(
-    'blog-title', 
-    require('~/components/blog-title.vue').default
-  );
+Vue.component(
+  'nav-component', 
+  require('~/components/nav-component.vue').default
+);
 
-  new Vue({
-    el: '#app',
-    /** vue-router */
-    router: new VueRouter({
-      mode: 'history',
-      routes: [
-        { path: '/', component: require('~/components/blog-menu.vue').default }
-      ]
-    })
-  });
-}
-else {
-  require('@config');
-}
+new Vue({
+  el: '#td-sidebar-wrapper',
+  store: new Vuex.Store({
+    state: {
+      authorized: false
+    }
+  }),
+});
+
+/** Routes */
+require('@config');

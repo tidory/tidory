@@ -14,15 +14,7 @@ header#td-header-wrapper(role="header")
       vertical-align: middle;
       text-align: center;
     }
-  //- template
-  case process.env.APP_VIEW_TYPE
-    when 'vue'
-      //- Vue & vue-router
-      div#app
-        blog-title
-        router-view
-    default
-      //- Pug & history-router
-      div#container
-        include Header/BlogTitle
-        div#router-view(data-role="router-view")
+  //- Pug & history-router
+  div#container
+    include Header/BlogTitle
+    div#router-view(data-role="router-view")

@@ -14,7 +14,6 @@
 const wd = process.cwd();
 
 const path = require('path');
-const webpack = require('webpack');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require(path.resolve(__dirname, '../webpack.base.conf'));
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -33,7 +32,7 @@ module.exports = merge(webpackBaseConfig, {
   output: {
 		filename: '[name].js',
     path: path.resolve(wd, './dist/images'),
-    publicPath: "./images"
+    publicPath: "./images/"
   },
   stats: "errors-only",
   plugins: [

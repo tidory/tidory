@@ -43,23 +43,33 @@ class Utility {
     /** Getting globalVariables */
     const variables = config.GlobalVariable._variables;
     let result = new String();
-  
-    isObject? result += "{": result += "var TIDORY = {";
-    /** to Raw object string */
-    variables.forEach(function(e, i) {
-      result += `"${e._globalVariable}": ${JSON.stringify(e._value)},`;
-    });
-    if(isObject) {
-      /** End */
-      result = result.substring(0, result.length-1);
-      result += "}";
 
-      return { "process.env": process.env, "TIDORY": JSON.parse(result) };
+    if(variables.length > 0) {
+      isObject? result += "{": result += "var TIDORY = {";
+      /** to Raw object string */
+      variables.forEach(function(e, i) {
+        result += `"${e._globalVariable}": ${JSON.stringify(e._value)},`;
+      });
+      if(isObject) {
+        /** End */
+        result = result.substring(0, result.length-1);
+        result += "}";
+  
+        return { "process.env": process.env, "TIDORY": JSON.parse(result) };
+      }
+      else {
+        /** End */
+        result += "};";
+        return `process.env = ${JSON.stringify(process.env)};` + result;
+      }
     }
     else {
-      /** End */
-      result += "};";
-      return `process.env = ${JSON.stringify(process.env)};` + result;
+      if(isObject) {
+        return { "process.env": process.env };
+      }
+      else {
+        return `process.env = ${JSON.stringify(process.env)};`;
+      }
     }
   }
 }

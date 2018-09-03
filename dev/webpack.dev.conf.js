@@ -33,8 +33,7 @@ module.exports = merge(webpackBaseConfig, {
     stats: "errors-only"
   },
   output: {
-    filename: 'images/[name].js',
-    publicPath: '/'
+    filename: '[name].js'
   },  
   plugins: [
     new HtmlWebpackPlugin({

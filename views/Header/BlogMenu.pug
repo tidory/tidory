@@ -1,24 +1,31 @@
+//- inline script
+- 
+	const guidebook = [
+		{ text:"시작하기",  href:"https://tidory.com" },
+		{ text:"프레임워크 아키텍쳐",  href:"https://tidory.com/docs/v5/architecture/architecture/" },
+		{ text:"템플릿",  href:"https://tidory.com/docs/v5/template/get-started/" },
+		{ text:"빌드 및 배포",  href:"https://tidory.com/docs/v5/distribution/mode/" }
+	];
 //- container
 nav#td-blogMenu-wrapper(role="navigation")
-  //- style
-  style.
-    #td-blogMenu-wrapper {
-      margin-top: 35px;
-    }
-    #td-blogMenu-wrapper li {
-      margin: 0 15px;
-      display: inline-block;
-    }
-    #td-blogMenu-wrapper li a {
-      font-size: 1.05em;
-      color: #525252;
-      font-weight: 300;
-    }
-  //- template
-  case process.env.APP_MODE
-    when 'build'
-      | [##_blog_menu_##]
-    when 'development'
-      ul
-        each ref in TIDORY.references
-          li: a(href=ref.href)= ref.text
+	//- style
+	style.
+		#td-blogMenu-wrapper {
+			margin-top: 35px;
+		}
+		#td-blogMenu-wrapper li {
+			margin: 0 15px;
+			display: inline-block;
+		}
+		#td-blogMenu-wrapper li a {
+			font-size: 1.05em;
+			font-weight: 300;
+		}
+	//- template
+	case process.env.APP_MODE
+		when 'build'
+			| [##_blog_menu_##]
+		when 'development'
+			ul
+				each guide in guidebook
+					li: a(href=guide.href)= guide.text

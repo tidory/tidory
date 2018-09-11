@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 /**
  * @author Mansu Jeong
  * @description 
@@ -17,15 +19,24 @@ module.exports = {
     rules: [
       {
         test: /.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'file-loader'
+        loader: 'file-loader',
+        options: {
+          publicPath: process.env.PUBLIC_PATH
+        }
       },
       {
         test: /.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
-        loader: 'file-loader'
+        loader: 'file-loader',
+        options: {
+          publicPath: process.env.PUBLIC_PATH
+        }
       },
       {
         test: /.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: 'file-loader'
+        loader: 'file-loader',
+        options: {
+          publicPath: process.env.PUBLIC_PATH
+        }
       },
       {
         test: /\.js$/,

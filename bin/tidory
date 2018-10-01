@@ -1,37 +1,54 @@
 #!/usr/bin/env node
 
-// Show logs
-process.env.DEBUG = process.env.DEBUG || 'tidory:*';
+const tidory = require('commander');
 
-const path = require('path');
+const shelljs = require('shelljs')
+const ora = require('ora')
+const colors = require('colors')
+const download = require('download-git-repo')
+const pkg = require('../package.json')
+const path = require('path')
+const webpack = path.join(__dirname, '../node_modules/webpack/bin/webpack.js');
+const webpackDevServer = path.join(__dirname, '../node_modules/webpack-dev-server/bin/webpack-dev-server.js');
 
-const defaultCommand = 'help';
-const commands = new Set([defaultCommand, 'start', 'init' ,'build', 'dist', 'preview']);
+tidory
+  .version(pkg.version)
+tidory
+  .command('new <project_name>')
+  .description('download project template from git')
+  .action(function(project_name) {
+    console.log('\n\0\0Thank you for using Tidory\n'.yellow.bold);
+    const spinner = ora('Trying to copy template from git...\n');
+    spinner.start();
 
-var cmd = process.argv[2];
-
-if (commands.has(cmd)) {
-  process.argv.splice(2, 1)
-} else {
-  cmd = defaultCommand
-}
-
-if (cmd == defaultCommand) {
-  console.log(`
-  Description
-    It's awesome framework for Tistory Skin.
-  Usage
-    $ tidory <command>
-  Commands
-    init      Clone tidory template from git repository
-    start     Start webpack development server
-    build     Compressed build for developer
-    dist      Uncompressed Build for user
-    preview   Skin preview after translating tistory attributes
-  `)
-  process.exit(0);
-}
-
-const bin = path.join(__dirname, 'tidory-' + cmd);
-
-require(bin);
+    download('github:pronist/tidory-starter-template', path.join(process.cwd(), project_name), false, function(err) {
+      if(err) {
+        spinner.stopAndPersist({ text:`${stderr}\n`.red.bold });
+      }
+      else {
+        spinner.stopAndPersist({ text:`Successful\n`.green.bold });
+      }
+    })
+  });
+tidory
+  .command('start')
+  .description('start development server by webpack-dev-server')
+  .action(function() {
+    const webpackDevConfig = path.join(__dirname, '../dev/webpack/webpack.dev.conf');
+    shelljs.exec(`node ${webpackDevServer} --config ${webpackDevConfig}`);
+  });
+tidory
+  .command('build')
+  .description('build for distribution')
+  .option("-c, --compress", 'compress distribution code')
+  .action(function(cmd) {
+    if(cmd.compress) {
+      const webpackBuildConfig = path.join(__dirname, '../build/webpack/webpack.minify.conf');
+      shelljs.exec(`node ${webpack} --config ${webpackBuildConfig}`);
+    }
+    else {
+      const webpackProdConfig = path.join(__dirname, '../build/webpack/webpack.prod.conf');
+      shelljs.exec(`node ${webpack} --config ${webpackProdConfig}`);
+    }
+  });
+tidory.parse(process.argv);

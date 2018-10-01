@@ -16,10 +16,6 @@ const wd = process.cwd();
 const path = require('path');
 const merge = require('webpack-merge');
 const webpackBaseConfig = require(path.resolve(wd, './webpack.base.conf'));
-const Util = require('./src/core/utility');
-
-const pugLoader = path.join(__dirname, './loaders/pug-loader');
-const pugPlainLoader = path.join(__dirname, './loaders/pug-plain-loader');
 
 const Dotenv = require('dotenv-webpack');
 
@@ -37,52 +33,8 @@ module.exports = merge(webpackBaseConfig, {
   entry: assets,
   resolve: {
     alias: {
-      "~": __resolve("."),
-      "@models": __resolve("./database/models"),
-      "@schemas": __resolve("./database/schemas"),
-      "@config": __resolve("./routes/config"),
-      "@controllers": __resolve("./routes/controllers"),
-      "@middlewares": __resolve("./routes/middlewares"),
-      "@views": __resolve("./routes/views")
+      "~": __resolve(".")
     }
-  },
-  module: {
-    rules: [
-      {
-        test: /\.pug$/,
-        oneOf: [
-          {
-            resourceQuery: /^\?vue/,
-            use: {
-              loader: pugPlainLoader,
-              options: {
-                data: Util.getGlobalVariables(true)
-              } 
-            }
-          },
-          {
-            include: [__resolve('routes/views')],
-            use: [
-              'raw-loader',
-              {
-                loader: pugPlainLoader,
-                options: {
-                  data: Util.getGlobalVariables(true)
-                }
-              } 
-            ]
-          },
-          {
-            use: {
-              loader: pugLoader,
-              options: {
-                root: __resolve(".")
-              }
-            }
-          }
-        ]
-      }
-    ]
   },
   plugins: [
     new Dotenv()

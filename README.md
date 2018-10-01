@@ -9,16 +9,20 @@ Only for **Tidory Framework** \
 npm install -g tidory
 ```
 
+# Options
+
+Name|Description|
+----|-----------|
+|**-h, --help**|output the **version** number|
+|**-V, --version**|output **usage** information|
+
 # Commands
 
-Name|Description
-----|---------
-|**tidory**|See **commands** list|
-|**tidory init**|**download** project template from **git**|
-|**tidory start**|start **development server** by **webpack-dev-server**|
-|**tidory build**|**build** for developer. Code is **compressed**|
-|**tidory dist**|**distribute** for user. Code is **not compressed**|
-|**tidory preview**|**Preview** your skin|
+Name|Description|Options
+----|-----------|-------|
+|**new &lt;project_name&gt;**|**download** project template from **git**|None|
+|**start**|start **development server** by **webpack-dev-server**|None|
+|**build [options]**|**build** for **distribution**|-c, --compress|
 
 # License
 

@@ -11,13 +11,9 @@
  * Github. https://github.com/pronist/
  */
 
-const wd = process.cwd();
-
-const path = require('path');
 const merge = require('webpack-merge');
 const webpackMinifyConfig = require('./webpack.minify.conf');
 const TidoryBuildWebpackPlugin = require('./webpack.build.plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge({
 	customizeArray: merge.unique(
@@ -27,6 +23,6 @@ module.exports = merge({
 	)
 })({
 	plugins: [
-    new TidoryBuildWebpackPlugin({ build: false })
+	  new TidoryBuildWebpackPlugin({ build: false })
   ]
 }, webpackMinifyConfig);

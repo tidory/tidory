@@ -15,7 +15,7 @@ const wd = process.cwd();
 
 const path = require('path');
 const merge = require('webpack-merge');
-const webpackBaseConfig = require(path.resolve(__dirname, '../webpack.base.conf'));
+const webpackBaseConfig = require(path.resolve(__dirname, '../../webpack.base.conf'));
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TidoryDevWebpackPlugin = require('./webpack.dev.plugin');
 

@@ -8,13 +8,13 @@ const he = require('he');
 class Transform {
   /** 
    * Modify TISTORY attributes
-   * @private
+   * @static
    * 
-   * @param _html {string} - HTML String
+   * @param html {string} - HTML String
    * 
    * @return html - HTML String
    */
-  static tistory(_html) {
+  static tistory(html) {
     /**
      * IMPORTANT
      * 
@@ -27,29 +27,29 @@ class Transform {
      * it's correct transform
      * a([##_paging_rep_link_##]) -> <a [##_paging_rep_link_##]></a> 
      */
-    return _html.replace(/(\[##_.*?_##\])(\=\"\")?/gim, "$1");
+    return html.replace(/(\[##_.*?_##\])(\=\"\")?/gim, "$1");
   }
 
   /**
    * HTML optimaize
-   * @private
+   * @static
    * 
-   * @param _options {Object} - TIDORY Webpack build options
-   * @param _html {string} - HTML String
+   * @param options {Object} - TIDORY Webpack build options
+   * @param html {string} - HTML String
    * 
    * @return html - HTML String
    */
-  static html(_options, _html) {
+  static html(options, html) {
     /** for Production */
-    if(!_options.build) {
+    if(!options.build) {
       /** Beautify html string */
-      _html = pretty(_html, {
+      html = pretty(html, {
         ocd: false
       });
       /** Decode html string */
-      _html = he.decode(_html);
+      html = he.decode(html);
     };
-    return _html;
+    return html;
   }
 }
 

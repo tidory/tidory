@@ -44,7 +44,14 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['es2015']
+            presets: ['es2015', 'react'],
+            /** https://github.com/pugjs/babel-plugin-transform-react-pug */
+            plugins: [
+              "transform-react-pug",
+              "transform-react-jsx",
+              /** https://github.com/ezhlobo/babel-plugin-transform-jsx-classname-components */
+              "transform-jsx-classname-components"
+            ]
           }
         }
       },
@@ -57,8 +64,23 @@ module.exports = {
         use: {
           loader: 'vue-loader'
         }
+      },
+      {
+        /** https://vue-loader.vuejs.org/guide/pre-processors.html#pug */
+        test: /\.pug$/,
+        oneOf: [
+          // this applies to `<template lang="pug">` in Vue components
+          {
+            resourceQuery: /^\?vue/,
+            use: ['pug-plain-loader']
+          },
+          // this applies to pug imports inside JavaScript
+          {
+            use: ['raw-loader', 'pug-plain-loader']
+          }
+        ]
       }
-    ],
+    ]
   },
   plugins: [
     new VueLoaderPlugin()

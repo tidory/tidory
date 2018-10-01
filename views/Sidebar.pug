@@ -1,3 +1,48 @@
 //- template
-div#td-sidebar-wrapper
-  nav-component
+aside#td-sidebar-wrapper
+  //- style
+  style
+    :stylus
+      #td-sidebar-wrapper
+        position: absolute;
+        top: 20px;
+        width: 100%;
+        padding: 0 35px;
+        box-sizing: border-box;
+        height: 50px;
+      #td-sidebar-wrapper div
+        &.right
+          float: right;
+        &.left
+          float: left;
+        form button
+          border: none;
+          background: none;
+          font-size: 0.95em;
+          cursor: pointer;
+        img 
+          border-radius: 50%;
+          position: relative;
+          width: 32px;
+          height: 32px;
+          top: 9px;
+        a 
+          display: inline;
+        ul li
+          margin: 0 10px;
+          display: inline-block;
+          line-height: 50px;
+          a
+            font-size: 0.9em;
+            font-weight: 300;
+        .user
+          width: 38px;
+          height: 38px;
+          top: 5px;
+  //- template
+  nav#nav
+    //- React
+    div#react-references(class="left")
+    //- Vue.js
+    div#vue-tistory(class="right")
+      Tistory

@@ -1,19 +1,18 @@
 //- container
 header#td-header-wrapper(role="header")
   //- style
-  style.
-    #td-header-wrapper {
-      display: table;
-      vertical-align: middle;
-      text-align: center;
-      width: inherit;
-      height: inherit;
-    }
-    #td-header-wrapper div:not(#router-view) {
-      display: table-cell;
-      vertical-align: middle;
-      text-align: center;
-    }
+  style
+    :stylus
+      #td-header-wrapper
+        display: table;
+        vertical-align: middle;
+        text-align: center;
+        width: inherit;
+        height: inherit;
+        div:not(#router-view)
+          display: table-cell;
+          vertical-align: middle;
+          text-align: center;
   //- Pug & history-router
   div#container
     include Header/BlogTitle

@@ -4,8 +4,5 @@ node_modules
 # Distribution
 dist
 
-# Preview
-index.html
-
 # Configuration
 .env

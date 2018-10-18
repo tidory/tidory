@@ -31,6 +31,7 @@ Vue.component(
   'tistory', 
   require('~/assets/components/Tistory.vue').default
 );
+
 new Vue({
   el: '#vue-tistory',
   store: new Vuex.Store({

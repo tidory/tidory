@@ -1,29 +1,29 @@
 //- inline script
 - 
-	const guidebook = [
-		{ text:"시작하기",  href:"https://tidory.com" },
-		{ text:"프레임워크 아키텍쳐",  href:"https://tidory.com/docs/architecture/architecture/" },
-		{ text:"템플릿",  href:"https://tidory.com/docs/template/split/" },
-		{ text:"빌드 및 배포",  href:"https://tidory.com/docs/distribution/mode/" }
-	];
+  const guidebook = [
+    { text:"시작하기",  href:"https://tidory.com" },
+    { text:"프레임워크 아키텍쳐",  href:"https://tidory.com/docs/architecture/architecture/" },
+    { text:"템플릿",  href:"https://tidory.com/docs/template/split/" },
+    { text:"빌드 및 배포",  href:"https://tidory.com/docs/distribution/mode/" }
+  ];
 //- container
 nav#td-blogMenu-wrapper(role="navigation")
-	//- style
-	style
-		:stylus
-			#td-blogMenu-wrapper
-				margin-top: 35px;
-				li 
-					margin: 0 15px;
-					display: inline-block;
-					a
-						font-size: 1.05em;
-						font-weight: 300;
-	//- template
-	case process.env.APP_MODE
-		when 'build'
-			| [##_blog_menu_##]
-		when 'development'
-			ul
-				each guide in guidebook
-					li: a(href=guide.href)= guide.text
+  //- style
+  style
+    :stylus
+      #td-blogMenu-wrapper
+        margin-top: 35px;
+        li 
+          margin: 0 15px;
+          display: inline-block;
+          a
+            font-size: 1.05em;
+            font-weight: 300;
+  //- template
+  case process.env.APP_MODE
+    when 'build'
+      | [##_blog_menu_##]
+    when 'development'
+      ul
+        each guide in guidebook
+          li: a(href=guide.href)= guide.text

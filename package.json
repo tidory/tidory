@@ -29,10 +29,9 @@
     "webpack": "^3.11.0"
   },
   "dependencies": {
-    "js-cookie": "^2.2.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
-    "tistory": "^1.0.1",
+    "tistory": "^2.0.2",
     "vue": "^2.5.17",
     "vuex": "^3.0.1"
   }

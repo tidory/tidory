@@ -9,7 +9,7 @@ class References extends React.Component {
     ];
     return pug`
       ul
-        li: a(href="https://tidory.com")
+        li: a#logo(href="https://tidory.com")
           img(src=require("~/assets/images/logo.png"))
         each ref, index in references
           li(key=index): a(href=ref.href) #{ref.text}

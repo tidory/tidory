@@ -66,6 +66,14 @@ module.exports = {
         }
       },
       {
+        test: /\.styl(us)?$/,
+        use: [
+          'vue-style-loader',
+          'css-loader',
+          'stylus-loader'
+        ]
+      },
+      {
         /** https://vue-loader.vuejs.org/guide/pre-processors.html#pug */
         test: /\.pug$/,
         oneOf: [

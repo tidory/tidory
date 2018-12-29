@@ -7,11 +7,9 @@
         input(type="hidden" name="response_type" value="token")
         button(type="submit") 로그인
     li(v-if="$store.state.authorized")
-      a(href="#"): img.user(:src="thumbnail")
+      a(href="#"): img#user(:src="thumbnail")
 </template>
 <script>
-  import tistory from 'tistory';
-
   export default {
     mounted() {
       /** refrash, or new login */
@@ -37,3 +35,10 @@
     }
   }
 </script>
+
+<style lang="stylus">
+  #user
+    border-radius 50%
+    width 40x
+    height 40px
+</style>

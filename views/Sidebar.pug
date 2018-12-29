@@ -1,5 +1,5 @@
 //- template
-aside#td-sidebar-wrapper
+aside#td-sidebar-wrapper(role="sidebar")
   //- style
   style
     :stylus
@@ -20,7 +20,7 @@ aside#td-sidebar-wrapper
             background: none;
             font-size: 0.95em;
             cursor: pointer;
-          img 
+          #logo 
             position: relative;
             width: 24px;
             height: 24px;
@@ -39,7 +39,7 @@ aside#td-sidebar-wrapper
             height: 38px;
             top: 5px;
   //- template
-  nav#nav
+  nav#nav(role="navigation")
     //- React
     div#react-references(class="left")
     //- Vue.js

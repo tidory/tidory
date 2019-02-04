@@ -85,7 +85,7 @@ let response = await skin.prepare();
 
 Get TISTORY SKIN settings
 
-### Usage
+#### Usage
 
 ```javascript
 let response = await skin.settings();

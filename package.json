@@ -1,6 +1,6 @@
 {
   "name": "tistory-skin",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Javascript Tistory Skin package",
   "main": "index.js",
   "author": "Mansu Jeong<pronist@naver.com>",
@@ -24,6 +24,7 @@
   "homepage": "https://github.com/pronist/tistory-skin#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "form-data": "^2.3.3"
+    "form-data": "^2.3.3",
+    "walk": "^2.3.14"
   }
 }

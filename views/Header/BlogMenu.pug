@@ -1,4 +1,3 @@
-//- inline script
 - 
   const guidebook = [
     { text:"시작하기",  href:"https://tidory.com" },
@@ -6,7 +5,6 @@
     { text:"템플릿",  href:"https://tidory.com/docs/template/split/" },
     { text:"빌드 및 배포",  href:"https://tidory.com/docs/distribution/mode/" }
   ];
-//- container
 nav#td-blogMenu-wrapper(role="navigation")
   //- style
   style
@@ -22,6 +20,7 @@ nav#td-blogMenu-wrapper(role="navigation")
   //- template
   case process.env.APP_MODE
     when 'build'
+    when 'preview'
       | [##_blog_menu_##]
     when 'development'
       ul

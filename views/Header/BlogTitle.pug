@@ -1,4 +1,3 @@
-//- container
 section#td-blogTitle-wrapper(role="header")
   //- style
   style
@@ -9,8 +8,9 @@ section#td-blogTitle-wrapper(role="header")
         font-size: 2.8em;
         font-weight: 200;
   //- template
-  case process.env.APP_MODE  
+  case process.env.APP_MODE
     when 'build'
+    when 'preview'
       h1 [##_title_##]
     when 'development'
       h1 TIDORY

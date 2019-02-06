@@ -51,6 +51,17 @@ class Transform {
     };
     return html;
   }
+
+  static resolve(html) {
+    /**
+     * FOR PREVIEW
+     * 
+     * Replace TISTORY CDN PATH to local for preview
+     *
+     * <img src="https://tistory1.daumcdn.net/tistory/2710108/skin/images/logo.png" /> -> <img src="images/logo.png" />
+     */
+    return html.replace(/(src|href)=[\"\']https?:\/\/tistory[0-9]{1}.daumcdn.net\/tistory\/[0-9]*\/skin\/(images\/.*?)[\"\']/gim, "$1=\"$2\"");
+  }
 }
 
 module.exports = Transform;

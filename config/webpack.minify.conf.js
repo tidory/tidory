@@ -16,11 +16,11 @@ const wd = process.cwd();
 const path = require('path');
 const merge = require('webpack-merge');
 const webpack = require('webpack');
-const webpackBaseConfig = require(path.resolve(__dirname, '../../webpack.base.conf'));
+const webpackBaseConfig = require(path.resolve(__dirname, '../webpack.base.conf'));
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TidoryBuildWebpackPlugin = require('./webpack.build.plugin');
+const TidoryBuildWebpackPlugin = require('../plugins/webpack.build.plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
@@ -63,7 +63,7 @@ module.exports = merge(webpackBaseConfig, {
         caseSensitive: true
       }
 		}),
-    new TidoryBuildWebpackPlugin(),
+    new TidoryBuildWebpackPlugin({ build: true }),
     new CleanWebpackPlugin(['dist'], {
       root: wd,
       verbose: false,

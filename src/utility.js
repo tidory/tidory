@@ -20,7 +20,7 @@ class Utility {
   static ifScopedAttributeExist($, tag, _if, _else) {
     let scoped = 'scoped';
     $(tag).each(function() {
-      let 
+      let
         target = $(this),
         attr = target.attr(scoped)
       ;

@@ -14,10 +14,10 @@
 const 
   separator = require('../src/separator'),
   dist = require('../src/dist'),
-  cheerio = require('../../src/cheerio')
+  cheerio = require('../src/cheerio')
 ;
 
-const Transform = require('../../src/transform');
+const Transform = require('../src/transform');
 
 /**
  * Tidory build webpack plugin
@@ -30,13 +30,8 @@ class TidoryBuildWebpackPlugin {
    * @param {object} options - Plugin options
    */
   constructor(options) {
-    /** 
-     * Default options 
-     * @private
-     */
-    this._options = { build: true };
     /** Merge */
-    this._options = Object.assign(this._options, options);
+    this._options = Object.assign({}, options);
   }
 
   /** 
@@ -49,14 +44,14 @@ class TidoryBuildWebpackPlugin {
       separated = new Object()
     ;
     compiler.plugin('compilation', function(compilation) {
-      compilation.plugin('html-webpack-plugin-before-html-generation', function(htmlPluginData, callback) {
-        /** Finish! */
-        callback(null, htmlPluginData);
-      });
       compilation.plugin('html-webpack-plugin-after-html-processing', function(htmlPluginData, callback) {
         let $ = cheerio(htmlPluginData.html);
         /** Separation */
         separated = separator($, self._options);
+ 
+        $('head').append(`<link rel="stylesheet" href="./style.css">`);
+        $('body').append(`<script type="text/javascript" src="./images/script.js">`);
+        
         /** Allocate to htmlPluginData */
         htmlPluginData.html = Transform.html(self._options, Transform.tistory($.html()));
         /** Finish! */

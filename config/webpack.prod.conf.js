@@ -13,7 +13,7 @@
 
 const merge = require('webpack-merge');
 const webpackMinifyConfig = require('./webpack.minify.conf');
-const TidoryBuildWebpackPlugin = require('./webpack.build.plugin');
+const TidoryBuildWebpackPlugin = require('../plugins/webpack.build.plugin');
 
 module.exports = merge({
 	customizeArray: merge.unique(

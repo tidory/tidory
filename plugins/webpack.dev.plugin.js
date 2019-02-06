@@ -12,11 +12,11 @@
  */
 
 const 
-  separator = require('../src/seperator'),
-  cheerio = require('../../src/cheerio')
+  separator = require('../src/separator'),
+  cheerio = require('../src/cheerio')
 ;
 
-const Transform = require('../../src/transform');
+const Transform = require('../src/transform');
 
 /**
  * Tidory dev webpack plugin
@@ -34,14 +34,14 @@ class TidoryDevWebpackPlugin {
    */
   apply(compiler) {
     compiler.plugin('compilation', function(compilation) {
-      compilation.plugin('html-webpack-plugin-before-html-generation', function(htmlPluginData, callback) {
-        /** Finish! */
-        callback(null, htmlPluginData);
-      });
       compilation.plugin('html-webpack-plugin-after-html-processing', function(htmlPluginData, callback) {
         let $ = cheerio(htmlPluginData.html);
         /** Separate Style, Script */
-        separator($);
+        let separated = separator($, { build: false });
+
+        $('head').append(`<style>${separated.css}</style>`);
+        $('body').append(`<script type="text/javascript">${separated.script}</script>`);
+
         /** Allocate to htmlPluginData */
         htmlPluginData.html = Transform.tistory($.html());
         /** Finish! */

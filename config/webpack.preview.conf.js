@@ -15,9 +15,9 @@ const wd = process.cwd();
 
 const path = require('path');
 const merge = require('webpack-merge');
-const webpackBaseConfig = require(path.resolve(__dirname, '../../webpack.base.conf'));
+const webpackBaseConfig = require(path.resolve(__dirname, '../webpack.base.conf'));
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TidoryDevWebpackPlugin = require('./webpack.dev.plugin');
+const TidoryPreviewWebpackPlugin = require('../plugins/webpack.preview.plugin');
 
 module.exports = merge(webpackBaseConfig, {
   devtool: 'inline-source-map',
@@ -29,7 +29,8 @@ module.exports = merge(webpackBaseConfig, {
   devServer: {
     watchContentBase: true,
     index: 'skin.html',
-    open: 'http://localhost:8080',
+    open: 'http://localhost:3000',
+    port: 3000,
     stats: "errors-only"
   },
   output: {
@@ -41,6 +42,6 @@ module.exports = merge(webpackBaseConfig, {
       filename: "skin.html",
       inject: true
     }),
-    new TidoryDevWebpackPlugin()
+    new TidoryPreviewWebpackPlugin()
   ]
 });

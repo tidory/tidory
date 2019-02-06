@@ -3,7 +3,7 @@ const
   cssesc = require('cssesc')
 ;
 
-const Utility = require('../../src/utility');
+const Utility = require('./utility');
 
 /**
  * Separate
@@ -14,10 +14,8 @@ const Utility = require('../../src/utility');
  */
 function separate($, tag, scoped = new Function()) {
   let s = new String();
-  Utility.ifScopedAttributeExist($, tag, function(target) {
-    scoped(target);
-  }, function(target) {
-    s += target.html();
+  Utility.ifScopedAttributeExist($, tag, scoped, function(target) {
+    s += target.html(); 
     target.remove();
   });
   return s;
@@ -55,8 +53,6 @@ let separator = {
         format: 'beautify'
       }).minify(css).styles;
     }
-    $('head').append(`<link rel="stylesheet" href="./style.css">`);
-
     return css;
   },
 
@@ -69,23 +65,9 @@ let separator = {
   script: function($, options) {
     let script = new String();
     script = separate($, 'script:not([src])', function(target) {
-      /** for Build */
-      if(options.build) {
-        /** If keep using script tag in html, minify */
-        target.html(Utility.toECMA5AndMinify(target.html()));
-      }
+      target.html(Utility.toECMA5AndMinify(target.html(), options.build));
     });
-    /** for Build */
-    if(options.build) {
-      /** Minify javscript string */
-      script = Utility.toECMA5AndMinify(script);
-    }
-    else {
-      script = Utility.toECMA5AndMinify(script, false);
-    }
-    $('body').append(`<script type="text/javascript" src="./images/script.js">`);
-
-    return script;
+    return Utility.toECMA5AndMinify(script, options.build);
   }
 }
 
@@ -101,4 +83,3 @@ module.exports = function($, options) {
     script: separator.script($, options) 
   };
 };
-

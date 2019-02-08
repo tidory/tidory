@@ -10,6 +10,8 @@
       a(href="#"): img#user(:src="thumbnail")
 </template>
 <script>
+  import Tistory from 'tistory';
+
   export default {
     mounted() {
       /** refrash, or new login */

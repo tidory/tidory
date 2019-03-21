@@ -1,4 +1,4 @@
-/** webpack.entry.js
+/** app.js
   * 
   * Entry for bundling by webpack.
   * for example, if you have your own script, or plguin,
@@ -10,13 +10,13 @@
   * set the loaders in ./webpack.base.conf.js
   * 
   * after import assets it will be contained in app.js
-  */ 
+  */
 
 /** React */
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const References = require('~/assets/components/References');
+const References = require('./components/References');
 
 const rootElement = document.getElementById('react-references');
 ReactDOM.render(<References />, rootElement);
@@ -29,7 +29,7 @@ Vue.use(Vuex);
 
 Vue.component(
   'tistory', 
-  require('~/assets/components/Tistory.vue').default
+  require('./components/Tistory.vue').default
 );
 
 new Vue({

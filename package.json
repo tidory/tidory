@@ -9,30 +9,42 @@
   "bugs": {
     "email": "pronist@naver.com"
   },
-  "bundleDependencies": false,
   "dependencies": {
     "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-jsx-classname-components": "0.0.3",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-plugin-transform-react-pug": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "cheerio": "^1.0.0-rc.2",
     "clean-css": "^4.1.9",
     "clean-webpack-plugin": "^0.1.19",
     "colors": "^1.2.1",
     "commander": "^2.18.0",
     "copy-webpack-plugin": "^4.2.0",
+    "css-loader": "^0.28.7",
     "cssesc": "^2.0.0",
     "dotenv": "^6.0.0",
     "dotenv-webpack": "^1.5.7",
     "download-git-repo": "^1.0.2",
+    "file-loader": "^1.1.11",
     "form-data": "^2.3.3",
     "he": "^1.2.0",
     "html-webpack-plugin": "^3.2.0",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^2.0.0",
     "pretty": "^2.0.0",
+    "pug": "^2.0.3",
+    "pug-plain-loader": "^1.0.0",
+    "raw-loader": "^1.0.0",
     "shelljs": "^0.8.1",
-    "tistory-skin": "^1.2.1",
+    "style-loader": "^0.19.0",
+    "tistory-skin": "*",
     "uglify-es": "^3.3.9",
     "uglifyjs-webpack-plugin": "^1.2.6",
+    "vue-loader": "^15.6.4",
+    "vue-template-compiler": "^2.5.17",
     "webpack": "^3.11.0",
     "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.1"
@@ -64,5 +76,5 @@
     "type": "git",
     "url": "git+https://github.com/pronist/tidory.git"
   },
-  "version": "6.1.0"
+  "version": "7.0.0"
 }

@@ -22,6 +22,10 @@ const
 
 const Transform = require('../src/transform');
 
+const path = require('path');
+const wd = process.cwd();
+const tidoryConfig = require(path.resolve(wd, './tidory.config'));
+
 /**
  * Tidory dev webpack plugin
  * @class
@@ -46,12 +50,12 @@ class TidoryPreviewWebpackPlugin {
         $('head').append(`<link rel="stylesheet" href="./style.css">`);
         $('body').append(`<script type="text/javascript">${separated.script}</script>`);
 
-        let skin = new TistorySkin(process.env.BLOG_URL, process.env.TSSESSION);
+        let skin = new TistorySkin(tidoryConfig.url, tidoryConfig.ts_session);
         await skin.prepare();
         await skin.change(Transform.tistory($.html()), separated.css, true);
 
         /** Allocate to htmlPluginData */
-        htmlPluginData.html = Transform.resolve(await skin.preview(process.env.MODE));
+        htmlPluginData.html = Transform.resolve(await skin.preview(tidoryConfig.preview.mode));
 
         callback(null, htmlPluginData);
       });

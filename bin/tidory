@@ -3,12 +3,12 @@ require('dotenv').config();
 
 const tidory = require('commander');
 
-const shelljs = require('shelljs')
-const ora = require('ora')
-const colors = require('colors')
-const download = require('download-git-repo')
-const pkg = require('../package.json')
-const path = require('path')
+const shelljs = require('shelljs');
+const ora = require('ora');
+const colors = require('colors');
+const download = require('download-git-repo');
+const pkg = require('../package.json');
+const path = require('path');
 const webpack = path.join(__dirname, '../node_modules/webpack/bin/webpack.js');
 const webpackDevServer = path.join(__dirname, '../node_modules/webpack-dev-server/bin/webpack-dev-server.js');
 
@@ -16,7 +16,10 @@ const TistorySkin = require('tistory-skin');
 const wd = process.cwd();
 const dist = path.join(wd, './dist');
 
-let skin = new TistorySkin(process.env.BLOG_URL, process.env.TSSESSION)
+if(process.argv[2] !== 'new') {
+  var tidoryConfig = require(path.resolve(wd, './tidory.config'));
+  var skin = new TistorySkin(tidoryConfig.url, tidoryConfig.ts_session);
+}
 
 tidory
   .version(pkg.version)
@@ -74,7 +77,7 @@ tidory
   });
 tidory
   .command('store <skin_name>')
-  .description('deploy tistory skin')
+  .description('store tistory skin on skin storage')
   .action(async function(skin_name) {
     await skin.storage.clear();
     await skin.storage.store(dist, skin_name);

@@ -1,8 +1,5 @@
 const UglifyJS = require("uglify-es");
 const babel = require("babel-core");
-const path = require('path');
-
-require('dotenv').config();
 
 /**
  * Utility
@@ -33,6 +30,7 @@ class Utility {
       }
     });
   }
+  
   /** 
    * Transform and minify ECMA6 to ECMA5
    * @static
@@ -45,8 +43,8 @@ class Utility {
     let script = null;
     script = babel.transform(code, {
       "presets": [
-        "es2015"
-      ]
+        "babel-preset-es2015"
+      ].map(require.resolve)
     }).code;
 
     if(minify) {

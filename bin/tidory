@@ -16,7 +16,9 @@ const TistorySkin = require('tistory-skin');
 const wd = process.cwd();
 const dist = path.join(wd, './dist');
 
-if(process.argv[2] !== 'new') {
+const configRequireCommands = ['start', 'preview', 'build', 'deploy', 'store'];
+
+if(configRequireCommands.includes(process.argv[2])) {
   var tidoryConfig = require(path.resolve(wd, './tidory.config'));
   var skin = new TistorySkin(tidoryConfig.url, tidoryConfig.ts_session);
 }

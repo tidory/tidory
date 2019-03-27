@@ -9,8 +9,8 @@ const colors = require('colors');
 const download = require('download-git-repo');
 const pkg = require('../package.json');
 const path = require('path');
-const webpack = path.join(__dirname, '../node_modules/webpack/bin/webpack.js');
-const webpackDevServer = path.join(__dirname, '../node_modules/webpack-dev-server/bin/webpack-dev-server.js');
+const webpack = require.resolve('webpack/bin/webpack.js');
+const webpackDevServer = require.resolve('webpack-dev-server/bin/webpack-dev-server.js');
 
 const TistorySkin = require('tistory-skin');
 const wd = process.cwd();
@@ -33,7 +33,7 @@ tidory
     const spinner = ora('Trying to copy template from git...\n');
     spinner.start();
 
-    download('github:pronist/tidory-starter-template', path.join(process.cwd(), project_name), false, function(err) {
+    download('github:pronist/tidory-starter-template#7.1', path.join(process.cwd(), project_name), false, function(err) {
       if(err) {
         spinner.stopAndPersist({ text:`${stderr}\n`.red.bold });
       }

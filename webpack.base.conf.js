@@ -17,7 +17,7 @@ const tidoryConfig = require(path.resolve(wd, './tidory.config'));
 const Dotenv = require('dotenv-webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const fs = require('fs');
-const pugPluginAlias = require('./src/pug-plugin-alias');
+const pugPluginAlias = require('pug-alias');
 
 let WebpackBaseConfig = {
   entry: {
@@ -69,7 +69,7 @@ let WebpackBaseConfig = {
               plugins: [pugPluginAlias(Object.assign(tidoryConfig.alias || {}, {
                 '@tidory': function(filename) {
                   // @tidory/my-package -> node_modules/@tidory/my-package/index.pug
-                  return filename.replace(/^(@tidory)(\/||\\)(.*).pug$/, function(m, alias, pkg) {
+                  return filename.replace(/^(@tidory)\/(.*).pug$/, function(m, alias, pkg) {
                     const pkgPath = path.join('node_modules', alias, pkg);
                     if(fs.existsSync(pkgPath) && fs.statSync(pkgPath).isDirectory()) {
                       return path.join('node_modules', alias, pkg, 'index.pug');

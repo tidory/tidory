@@ -36,6 +36,7 @@
     "ora": "^2.0.0",
     "pretty": "^2.0.0",
     "pug": "^2.0.3",
+    "pug-alias": "^2.0.0",
     "pug-plain-loader": "^1.0.0",
     "raw-loader": "^1.0.0",
     "shelljs": "^0.8.1",

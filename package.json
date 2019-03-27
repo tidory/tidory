@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "Tidory Framework Template for Starter",
   "author": "Mansu Jeong<pronist@naver.com>",
+  "scripts": {
+    "start": "tidory start",
+    "preview": "tidory preview",
+    "build": "tidory build",
+    "build:compress": "tidory build --compress"
+  },
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -13,5 +19,8 @@
     "stylus": "^0.54.5",
     "@tidory/default-header": "github:pronist/tidory-default-header",
     "@tidory/default-sidebar": "github:pronist/tidory-default-sidebar"
+  },
+  "dependencies": {
+    "tidory": "^7.0.1"
   }
 }

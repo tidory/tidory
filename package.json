@@ -6,21 +6,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pronist/tidory"
+    "url": "https://github.com/pronist/tidory-starter-template"
   },
   "devDependencies": {
-    "css-loader": "^0.28.7",
     "jstransformer-stylus": "^1.5.0",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2",
-    "vue-style-loader": "^4.1.2",
-    "webpack": "^3.11.0"
-  },
-  "dependencies": {
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
-    "vue": "^2.5.17",
-    "vuex": "^3.0.1",
-    "tistory": "*"
+    "@tidory/default-header": "github:pronist/tidory-default-header",
+    "@tidory/default-sidebar": "github:pronist/tidory-default-sidebar"
   }
 }

@@ -12,31 +12,4 @@
   * after import assets it will be contained in app.js
   */
 
-/** React */
-import React from 'react'
-import ReactDOM from 'react-dom'
-
-const References = require('./components/References');
-
-const rootElement = document.getElementById('react-references');
-ReactDOM.render(<References />, rootElement);
-
-/** Vue.js */
-import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex);
-
-Vue.component(
-  'tistory', 
-  require('./components/Tistory.vue').default
-);
-
-new Vue({
-  el: '#vue-tistory',
-  store: new Vuex.Store({
-    state: {
-      authorized: false
-    }
-  }),
-});
+require('@tidory/default-sidebar')

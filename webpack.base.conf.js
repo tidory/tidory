@@ -13,18 +13,15 @@
 
 const wd = process.cwd();
 const path = require('path');
-const webpack = require('webpack');
 const tidoryConfig = require(path.resolve(wd, './tidory.config'));
 const Dotenv = require('dotenv-webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-
-function resolve(...paths) {
-  return path.resolve(wd, ...paths);
-}
+const fs = require('fs');
+const pugPluginAlias = require('./src/pug-plugin-alias');
 
 let WebpackBaseConfig = {
   entry: {
-    app: [].concat(resolve('./assets/app.js'))
+    app: path.resolve(wd, './assets/app.js')
   },
   module: {
     rules: [
@@ -62,56 +59,44 @@ let WebpackBaseConfig = {
       {
         /** https://vue-loader.vuejs.org/guide/pre-processors.html#pug */
         test: /\.pug$/,
-        oneOf: [
-          // this applies to `<template lang="pug">` in Vue components
+        use: [
           {
-            resourceQuery: /^\?vue/,
-            use: {
-              loader: require.resolve('pug-plain-loader'),
-              options: {
-                basedir: wd
-              }
-            }
+            loader: require.resolve('raw-loader')
           },
-          // this applies to pug imports inside JavaScript
           {
-            use: [
-              {
-                loader: require.resolve('raw-loader')
-              },
-              {
-                loader: require.resolve('pug-plain-loader'),
-                options: {
-                  basedir: wd
-                }
-              }
-            ]
+            loader: require.resolve('pug-plain-loader'),
+            options: {
+              plugins: [pugPluginAlias(Object.assign(tidoryConfig.alias || {}, {
+                '@tidory': function(filename) {
+                  // @tidory/my-package -> node_modules/@tidory/my-package/index.pug
+                  return filename.replace(/^(@tidory)(\/||\\)(.*).pug$/, function(m, alias, pkg) {
+                    const pkgPath = path.join('node_modules', alias, pkg);
+                    if(fs.existsSync(pkgPath) && fs.statSync(pkgPath).isDirectory()) {
+                      return path.join('node_modules', alias, pkg, 'index.pug');
+                    } else {
+                      return pkgPath + '.pug';
+                    }
+                  });
+                }}))
+              ],
+              basedir: wd
+            }
           }
         ]
       },
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
+        exclude: function(modulePath) {
+          return /(node_modules||bower_components)/.test(modulePath) && !/node_modules\\@tidory/.test(modulePath);
+        },
         use: {
           loader: require.resolve('babel-loader'),
           options: {
-            presets: ['babel-preset-es2015', 'babel-preset-react'].map(require.resolve),
-            /** https://github.com/pugjs/babel-plugin-transform-react-pug */
-            plugins: [
-              "babel-plugin-transform-react-pug",
-              "babel-plugin-transform-react-jsx",
-              /** https://github.com/ezhlobo/babel-plugin-transform-jsx-classname-components */
-              "babel-plugin-transform-jsx-classname-components"
-            ].map(require.resolve)
+            presets: ['babel-preset-es2015', 'babel-preset-react'].map(require.resolve)
           }
         }
       }
     ]
-  },
-  resolve: {
-    alias: {
-      "~": resolve(".")
-    }
   },
   plugins: [
     new Dotenv(),

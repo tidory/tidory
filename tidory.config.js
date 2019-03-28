@@ -1,4 +1,16 @@
+const $ = require('cheerio').load(
+  require('fs').readFileSync('docs/index.xml'), {
+    normalizeWhitespace: true,
+    xmlMode: true
+  }
+);
+
 module.exports = {
+  /**
+   * Tistory skin name
+   */
+  name: $('skin > information > name').text(),
+
   /**
    * Tistory session cookie value
    */

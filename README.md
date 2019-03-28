@@ -25,7 +25,7 @@ Name|Description|Options|
 |**preview**|start **preview server** by **webpack-dev-server**|None|
 |**build [options]**|**build** for **distribution**|-c, --compress|
 |**deploy**|**deploy** Tistory Skin|None|
-|**store &lt;skin_name&gt;**|store Tistory Skin on **Skin Storage**|None|
+|**store**|store Tistory Skin on **Skin Storage**|None|
 
 # License
 

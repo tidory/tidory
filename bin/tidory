@@ -78,10 +78,10 @@ tidory
     await skin.deploy(dist);
   });
 tidory
-  .command('store <skin_name>')
+  .command('store')
   .description('store tistory skin on skin storage')
-  .action(async function(skin_name) {
+  .action(async function() {
     await skin.storage.clear();
-    await skin.storage.store(dist, skin_name);
+    await skin.storage.store(dist, tidoryConfig.name);
   });
 tidory.parse(process.argv);

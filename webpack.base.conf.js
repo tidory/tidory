@@ -15,9 +15,21 @@ const wd = process.cwd();
 const path = require('path');
 const tidoryConfig = require(path.resolve(wd, './tidory.config'));
 const Dotenv = require('dotenv-webpack');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const fs = require('fs');
 const pugPluginAlias = require('pug-alias');
+
+const aliases = pugPluginAlias(Object.assign(tidoryConfig.alias || {}, {
+  '@tidory': function(filename) {
+    return filename.replace(/^(@tidory)\/(.*)\.(.*)$/, function(m, alias, pkg, ext) {
+      const pkgPath = path.join('node_modules', alias, pkg);
+      if(fs.existsSync(pkgPath) && fs.statSync(pkgPath).isDirectory()) {
+        return path.join('node_modules', alias, pkg, 'index.pug');
+      } else {
+        return `${pkgPath}.${ext}`;
+      }
+    });
+  }
+}));
 
 let WebpackBaseConfig = {
   entry: {
@@ -51,12 +63,6 @@ let WebpackBaseConfig = {
         use:  ["style-loader", "css-loader"].map(require.resolve)
       },
       {
-        test: /\.vue$/,
-        use: {
-          loader: require.resolve('vue-loader')
-        }
-      },
-      {
         /** https://vue-loader.vuejs.org/guide/pre-processors.html#pug */
         test: /\.pug$/,
         use: [
@@ -66,18 +72,8 @@ let WebpackBaseConfig = {
           {
             loader: require.resolve('pug-plain-loader'),
             options: {
-              plugins: [pugPluginAlias(Object.assign(tidoryConfig.alias || {}, {
-                '@tidory': function(filename) {
-                  // @tidory/my-package -> node_modules/@tidory/my-package/index.pug
-                  return filename.replace(/^(@tidory)\/(.*).pug$/, function(m, alias, pkg) {
-                    const pkgPath = path.join('node_modules', alias, pkg);
-                    if(fs.existsSync(pkgPath) && fs.statSync(pkgPath).isDirectory()) {
-                      return path.join('node_modules', alias, pkg, 'index.pug');
-                    } else {
-                      return pkgPath + '.pug';
-                    }
-                  });
-                }}))
+              plugins: [
+                aliases
               ],
               basedir: wd
             }
@@ -95,12 +91,22 @@ let WebpackBaseConfig = {
             presets: ['babel-preset-es2015', 'babel-preset-react'].map(require.resolve)
           }
         }
-      }
+      },
+      {
+        test: /\.vue$/,
+        use: {
+          loader: require.resolve('vue-loader'),
+          options: {
+            loaders: {
+              js: require.resolve('babel-loader')
+            }
+          }
+        }
+      },
     ]
   },
   plugins: [
-    new Dotenv(),
-    new VueLoaderPlugin()
+    new Dotenv()
   ]
 };
 

@@ -1,3 +1,3 @@
 # assets
 
-The files which will be contained in **app.js**
+The files which will be contained in **app.js**, or **templates**

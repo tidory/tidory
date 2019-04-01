@@ -1,0 +1,17 @@
+header#td-header-wrapper(role="header")
+  //- style
+  style.
+    #td-header-wrapper {
+      display: table;
+      vertical-align: middle;
+      text-align: center;
+      width: inherit;
+      height: inherit;
+    }
+    #td-header-wrapper > #default-header {
+      display: table-cell;
+      vertical-align: middle;
+      text-align: center;
+    }
+  //- template
+  include @tidory/default-header

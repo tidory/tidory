@@ -7,7 +7,7 @@
   * 
   * you are able to include js, css
   * if you want to contain other scripts like .ts, .less, .sass,
-  * set the loaders in ./webpack.base.conf.js
+  * set the loaders in tidory.config.js
   * 
   * after import assets it will be contained in app.js
   */

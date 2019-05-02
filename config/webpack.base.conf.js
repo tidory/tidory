@@ -8,30 +8,17 @@
  * 
  * Author. Mansu Jeong
  * Homepage. http://www.tidory.com
- * Github. https://github.com/pronist/
  */
+require('dotenv').config()
 
 const wd = process.cwd();
 const path = require('path');
-const tidoryConfig = require(path.resolve(wd, './tidory.config'));
 const Dotenv = require('dotenv-webpack');
-const fs = require('fs');
-const pugPluginAlias = require('pug-alias');
 
-const aliases = pugPluginAlias(Object.assign(tidoryConfig.alias || {}, {
-  '@tidory': function(filename) {
-    return filename.replace(/^(@tidory)\/(.*)\.(.*)$/, function(m, alias, pkg, ext) {
-      const pkgPath = path.join('node_modules', alias, pkg);
-      if(fs.existsSync(pkgPath) && fs.statSync(pkgPath).isDirectory()) {
-        return path.join('node_modules', alias, pkg, 'index.pug');
-      } else {
-        return `${pkgPath}.${ext}`;
-      }
-    });
-  }
-}));
+const pugAlias = require('../lib/pug-alias');
+const tidoryConfig = require(path.resolve(wd, './tidory.config'));
 
-let WebpackBaseConfig = {
+let webpackBaseConfig = {
   entry: {
     app: path.resolve(wd, './assets/app.js')
   },
@@ -63,7 +50,6 @@ let WebpackBaseConfig = {
         use:  ["style-loader", "css-loader"].map(require.resolve)
       },
       {
-        /** https://vue-loader.vuejs.org/guide/pre-processors.html#pug */
         test: /\.pug$/,
         use: [
           {
@@ -73,7 +59,7 @@ let WebpackBaseConfig = {
             loader: require.resolve('pug-plain-loader'),
             options: {
               plugins: [
-                aliases
+                pugAlias
               ],
               basedir: wd
             }
@@ -82,7 +68,7 @@ let WebpackBaseConfig = {
       },
       {
         test: /\.jsx?$/,
-        exclude: function(modulePath) {
+        exclude: modulePath => {
           return /(node_modules||bower_components)/.test(modulePath) && !/node_modules\\@tidory/.test(modulePath);
         },
         use: {
@@ -108,10 +94,10 @@ let WebpackBaseConfig = {
   plugins: [
     new Dotenv()
   ]
-};
-
-if(tidoryConfig.extends && typeof tidoryConfig.extends === 'function') {
-  tidoryConfig.extends(WebpackBaseConfig);
 }
 
-module.exports = WebpackBaseConfig;
+if(tidoryConfig.extends && typeof tidoryConfig.extends === 'function') {
+  tidoryConfig.extends(webpackBaseConfig);
+}
+
+module.exports = webpackBaseConfig;

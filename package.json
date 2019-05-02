@@ -1,8 +1,4 @@
 {
-  "name": "tidory-starter-template",
-  "version": "1.0.0",
-  "description": "Tidory Framework Template for Starter",
-  "author": "Mansu Jeong<pronist@naver.com>",
   "scripts": {
     "start": "tidory start",
     "preview": "tidory preview",
@@ -14,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pronist/tidory-starter-template"
+    "url": "https://github.com/tidory/tidory"
   },
   "devDependencies": {
     "jstransformer-stylus": "^1.5.0",
@@ -22,8 +18,9 @@
     "cheerio": "^1.0.0-rc.2"
   },
   "dependencies": {
-    "@tidory/default-header": "github:pronist/tidory-default-header",
-    "@tidory/default-sidebar": "github:pronist/tidory-default-sidebar",
+    "@tidory/default-header": "github:tidory/default-header",
+    "@tidory/default-sidebar": "github:tidory/default-sidebar",
     "tidory": "^7.1"
-  }
+  },
+  "author": "Mansu Jeong<pronist@naver.com>"
 }

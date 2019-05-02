@@ -14,12 +14,12 @@ module.exports = {
   /**
    * Tistory session cookie value
    */
-  ts_session: null,
+  ts_session: new String(),
 
   /**
    * Tistory blog URL
    */
-  url: null,
+  url: new String(),
 
   /** 
    * Preview
@@ -46,6 +46,6 @@ module.exports = {
     /**
      * Assets public path
      */
-    public_path: null
+    public_path: new String()
   }
 };

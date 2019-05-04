@@ -1,14 +1,13 @@
 extends app
 
 block TIDORY
-  //- container
   div#td-skin-container
     //- style
-    style
-      :stylus
-        #td-skin-container
-          width: 100%;
-          height: 100%
+    style.
+      #td-skin-container {
+        width: 100%;
+        height: 100%;
+      }
     //- template
     include views/Sidebar
     include views/Header

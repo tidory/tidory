@@ -18,30 +18,19 @@ html(lang="ko")
     script(src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-3.2.1.min.js")
     <!--<![endif]-->
 
-    style
-      :stylus
-        /*! Tidory demo default style */
-        @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
-        *
-          margin 0
-          padding 0
-          font-family 'Noto Sans KR', sans-serif
-        body, html, s_t3, #__tidory
-          background-color #fefefe
-          height 100%
-          width 100%
-        li
-          list-style-type none
-        a
-          text-decoration none
-          color black
-          font-weight 200
-          transition-duration 0.3s
-          &:hover
-            color #ed5207 !important
-        #tistorytoolbarid
-          display none
-
+    style.
+      /*! Tidory demo default style */
+      @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Noto Sans KR', sans-serif;
+      }
+      body, html, s_t3, #__tidory {
+        height: 100%;
+        width: 100%;
+      }
+      
   body(id="[##_body_id_##]")
     s_t3
       div#__tidory

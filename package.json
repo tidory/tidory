@@ -13,8 +13,6 @@
     "url": "https://github.com/tidory/tidory"
   },
   "devDependencies": {
-    "jstransformer-stylus": "^1.5.0",
-    "stylus": "^0.54.5",
     "cheerio": "^1.0.0-rc.2"
   },
   "dependencies": {

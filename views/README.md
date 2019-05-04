@@ -1,3 +1,0 @@
-# views
-
-Tistory Skin Templates

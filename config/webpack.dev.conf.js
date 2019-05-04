@@ -20,7 +20,7 @@ const webpackBaseConfig = require('./webpack.base.conf');
 const TidoryWebpackPlugin = require('../plugins/webpack.tidory.plugin');
 
 module.exports = env => {
-  return merge(webpackBaseConfig, {
+  return merge(webpackBaseConfig(env), {
     devtool: 'inline-source-map',
     resolve: {
       alias: {

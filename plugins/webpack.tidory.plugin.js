@@ -23,7 +23,6 @@ const cssesc = require('cssesc');
 const UglifyJS = require("uglify-es");
 const babel = require("babel-core");
 
-const parse = require('../lib/parse');
 const tidoryConfig = require(path.resolve(wd, './tidory.config'));
 
 /**
@@ -62,9 +61,32 @@ class TidoryWebpackPlugin {
         let $ = cheerio.load(htmlPluginData.html);
 
         /**
-         * Parse style, script tags
+         * @param {string} tagName - Tag name
+         * @param {Function} preprocessor - Preprocessor with element
          */
-        css = parse($, 'style', style => {
+        let parse = (tagName, preprocessor) => {
+          let separated = new String(),
+              scoped = 'scoped'
+          ;
+          $(tagName).each(function() {
+            let target = $(this),
+                attr = target.attr(scoped)
+            ;
+            preprocessor(target);
+            if(typeof attr !== typeof undefined && attr !== false) {
+              target.removeAttr(scoped);
+            } else {
+              separated += target.html();
+              target.remove();
+            }
+          })
+          return separated;
+        };
+
+        /**
+         * Separate style, script tags
+         */
+        css = parse('style', style => {
           style.html(style.html().replace(/content:\'(.*?)\'/gim,
             function(match, content, offset, string) {
               return `content:'${cssesc(content)}'`;
@@ -80,7 +102,7 @@ class TidoryWebpackPlugin {
           }).minify(css).styles;
         }  
 
-        js = parse($, 'script:not([src])', script => {
+        js = parse('script:not([src])', script => {
           /** to ECMA5 Script */
           script.html(babel.transform(script.html(), {
             "presets": [

@@ -59,7 +59,6 @@
   "files": [
     "bin",
     "config",
-    "lib",
     "plugins",
     "LICENSE",
     "README.md"
@@ -76,5 +75,5 @@
     "type": "git",
     "url": "git+https://github.com/tidory/cli.git"
   },
-  "version": "7.1.1"
+  "version": "7.1.2"
 }

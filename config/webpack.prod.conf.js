@@ -25,7 +25,7 @@ const webpackBaseConfig = require('./webpack.base.conf');
 const TidoryWebpackPlugin = require('../plugins/webpack.tidory.plugin');
 
 module.exports = env => {
-  return merge(webpackBaseConfig, {
+  return merge(webpackBaseConfig(env), {
     resolve: {
       alias: {
         'vue': path.resolve(wd, 'node_modules/vue/dist/vue.min.js')
@@ -51,8 +51,8 @@ module.exports = env => {
         cssProcessorOptions: { discardComments: { removeAll: true } },
         canPrint: true
       }),
-      new CopyWebpackPlugin([{ from: './images', to: './', ignore: ['*.md'], }]),
-      new CopyWebpackPlugin([{ from: 'docs', to: '../', ignore: ['*.md'] }]),
+      new CopyWebpackPlugin([{ from: './images', to: './' }]),
+      new CopyWebpackPlugin([{ from: 'docs', to: '../' }]),
       new HtmlWebpackPlugin({
         template: path.resolve(wd, './index.pug'),
         filename: path.resolve(wd, './dist/skin.html'),

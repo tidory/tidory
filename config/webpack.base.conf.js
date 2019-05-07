@@ -62,7 +62,7 @@ module.exports = env => {
                 basedir: wd,
                 plugins: [pugPluginAlias(Object.assign(tidoryConfig.alias || {}, {
                   '@tidory': fn => {
-                    return fn.replace(/^(@tidory)\/(.*)\.(.*)$/, (m, alias, pkg, ext) => {
+                    return fn.replace(/^(@tidory)(\/||\\)(.*)\.(.*)$/, (m, alias, sep, pkg, ext) => {
                       const pkgPath = path.join('node_modules', alias, pkg);
                       if(fs.existsSync(pkgPath) && fs.statSync(pkgPath).isDirectory()) {
                         return path.join('node_modules', alias, pkg, 'index.pug');
@@ -78,9 +78,7 @@ module.exports = env => {
         },
         {
           test: /\.jsx?$/,
-          exclude: modulePath => {
-            return /(node_modules||bower_components)/.test(modulePath) && !/node_modules\\@tidory/.test(modulePath);
-          },
+          exclude: /node_modules(?!(\/|\\)@tidory)/,
           use: {
             loader: require.resolve('babel-loader'),
             options: {

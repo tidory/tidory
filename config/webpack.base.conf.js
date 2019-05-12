@@ -15,9 +15,25 @@ const wd = process.cwd();
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 const fs = require('fs');
+const load = require('pug-load');
 
 const tidoryConfig = require(path.resolve(wd, './tidory.config'));
-const pugPluginAlias = require('pug-alias');
+
+let pugPluginAlias = aliases => ({
+  resolve(filename, source, loadOptions) {
+    for(let i = 0; i < Object.keys(aliases).length; i++) {
+      let alias = Object.keys(aliases)[i];
+      if(filename.indexOf(alias) === 0) {
+        return path.resolve(
+          aliases[alias] instanceof Function
+            ? aliases[alias](filename)
+            : filename.replace(alias, aliases[alias])
+        );
+      }
+    }
+    return load.resolve(filename, source, loadOptions);
+  }
+});
 
 module.exports = env => {
   let fileLoaderConfig = {

@@ -16,10 +16,14 @@ const TistorySkin = require('tistory-skin');
 
 const webpackDevConfig = path.join(__dirname, '../config/webpack.dev.conf');
 const webpackProdConfig = path.join(__dirname, '../config/webpack.prod.conf');
-const tidoryConfig = require('../tidory.config');
 
-const skin = new TistorySkin(tidoryConfig.url, tidoryConfig.ts_session);
-const dist = path.join(wd, tidoryConfig.path.build.dist);
+const configRequireCommands = ['start', 'preview', 'build', 'deploy', 'store'];
+
+if(configRequireCommands.includes(process.argv[2])) {
+  var tidoryConfig = require('../tidory.config');
+  var skin = new TistorySkin(tidoryConfig.url, tidoryConfig.ts_session);
+  var dist = path.join(wd, tidoryConfig.path.build.dist);
+}
 
 tidory.version(pkg.version);
 

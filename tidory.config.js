@@ -1,17 +1,10 @@
 const wd = process.cwd();
-
 const path = require('path');
-const $ = require('cheerio').load(
-  require('fs').readFileSync(path.resolve(wd, 'docs/index.xml')), {
-    normalizeWhitespace: true,
-    xmlMode: true
-  }
-);
 
 const tidoryConfig = require(path.resolve(wd, './tidory.config'));
 
 module.exports = Object.assign(Object.assign({
-  name: $('skin > information > name').text(),
+  name: new String(),
   ts_session: new String(),
   url: new String(),
   preview: {

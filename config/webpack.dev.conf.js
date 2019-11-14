@@ -16,8 +16,8 @@ const path = require('path');
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const TidoryWebpackPlugin = require('../lib/tidory-webpack-plugin');
 const webpackBaseConfig = require('./webpack.base.conf');
-const TidoryWebpackPlugin = require('../plugins/webpack.tidory.plugin');
 
 module.exports = env => {
   return merge(webpackBaseConfig(env), {

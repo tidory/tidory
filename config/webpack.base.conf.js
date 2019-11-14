@@ -14,26 +14,9 @@ require('dotenv').config()
 const wd = process.cwd();
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
-const fs = require('fs');
-const load = require('pug-load');
 
 const tidoryConfig = require(path.resolve(wd, './tidory.config'));
-
-let pugPluginAlias = aliases => ({
-  resolve(filename, source, loadOptions) {
-    for(let i = 0; i < Object.keys(aliases).length; i++) {
-      let alias = Object.keys(aliases)[i];
-      if(filename.indexOf(alias) === 0) {
-        return path.resolve(
-          aliases[alias] instanceof Function
-            ? aliases[alias](filename)
-            : filename.replace(alias, aliases[alias])
-        );
-      }
-    }
-    return load.resolve(filename, source, loadOptions);
-  }
-});
+const pugAliasPlugin = require('../lib/pug-alias-plugin');
 
 module.exports = env => {
   let fileLoaderConfig = {
@@ -76,18 +59,13 @@ module.exports = env => {
               loader: require.resolve('pug-plain-loader'),
               options: {
                 basedir: wd,
-                plugins: [pugPluginAlias(Object.assign(tidoryConfig.alias || {}, {
-                  '@tidory': fn => {
-                    return fn.replace(/^(@tidory)(\/||\\)(.*)\.(.*)$/, (m, alias, sep, pkg, ext) => {
-                      const pkgPath = path.join('node_modules', alias, pkg);
-                      if(fs.existsSync(pkgPath) && fs.statSync(pkgPath).isDirectory()) {
-                        return path.join('node_modules', alias, pkg, 'index.pug');
-                      } else {
-                        return `${pkgPath}.${ext}`;
-                      }
-                    });
-                  }
-                }))]
+                plugins: [
+                  pugAliasPlugin(Object.assign(tidoryConfig.alias || {}, 
+                    {
+                      '@tidory': require('../lib/@tidory')
+                    }
+                  ))
+                ]
               }
             }
           ]

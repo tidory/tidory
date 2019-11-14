@@ -8,8 +8,8 @@ const colors = require('colors');
 const download = require('download-git-repo');
 const pkg = require('../package.json');
 const path = require('path');
-const webpack = require.resolve('webpack/bin/webpack.js');
-const webpackDevServer = require.resolve('webpack-dev-server/bin/webpack-dev-server.js');
+const webpack = require.resolve('webpack/bin/webpack');
+const webpackDevServer = require.resolve('webpack-dev-server/bin/webpack-dev-server');
 
 const TistorySkin = require('tistory-skin');
 const wd = process.cwd();
@@ -25,8 +25,13 @@ if(configRequireCommands.includes(process.argv[2])) {
   var skin = new TistorySkin(tidoryConfig.url, tidoryConfig.ts_session);
 }
 
-tidory
-  .version(pkg.version)
+tidory.version(pkg.version)
+
+/**
+ * Create new tidory project
+ * 
+ * -> tidory new MyApp
+ */
 tidory
   .command('new <project_name>')
   .description('download project template from git')
@@ -42,18 +47,37 @@ tidory
       }
     })
   });
+
+/**
+ * Start development server
+ * 
+ * -> tidory start
+ */
 tidory
   .command('start')
   .description('start development server by webpack-dev-server')
   .action(() => {
     shelljs.exec(`node ${webpackDevServer} --env.MODE=development --config ${webpackDevConfig}`);
   });
+
+/**
+ * Start preview server
+ * 
+ * -> tidory preview
+ */
 tidory
   .command('preview')
   .description('start preview server by webpack-dev-server')
   .action(() => {
     shelljs.exec(`node ${webpackDevServer} --env.MODE=preview --config ${webpackDevConfig}`);
   });
+
+/**
+ * Build tidory project for production
+ * 
+ * -> tidory build
+ * -> tidory build --compress
+ */
 tidory
   .command('build')
   .description('build for distribution')
@@ -65,6 +89,12 @@ tidory
       shelljs.exec(`node ${webpack} --env.MODE=production --config ${webpackProdConfig}`);
     }
   });
+
+/**
+ * Deploy tistory skin
+ * 
+ * -> tidory deploy
+ */
 tidory
   .command('deploy')
   .description('deploy tistory skin')
@@ -72,6 +102,12 @@ tidory
     await skin.clear();
     await skin.deploy(dist);
   });
+
+/**
+ * Store tistory skin on storage
+ * 
+ * -> tidory store
+ */
 tidory
   .command('store')
   .description('store tistory skin on skin storage')
@@ -79,4 +115,5 @@ tidory
     await skin.storage.clear();
     await skin.storage.store(dist, tidoryConfig.name);
   });
+
 tidory.parse(process.argv);

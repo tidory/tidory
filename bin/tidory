@@ -2,6 +2,8 @@
 
 const tidory = require('commander');
 
+const wd = process.cwd();
+
 const shelljs = require('shelljs');
 const ora = require('ora');
 const colors = require('colors');
@@ -10,22 +12,16 @@ const pkg = require('../package.json');
 const path = require('path');
 const webpack = require.resolve('webpack/bin/webpack');
 const webpackDevServer = require.resolve('webpack-dev-server/bin/webpack-dev-server');
-
 const TistorySkin = require('tistory-skin');
-const wd = process.cwd();
-const dist = path.join(wd, './dist');
 
 const webpackDevConfig = path.join(__dirname, '../config/webpack.dev.conf');
 const webpackProdConfig = path.join(__dirname, '../config/webpack.prod.conf');
+const tidoryConfig = require('../tidory.config');
 
-const configRequireCommands = ['start', 'preview', 'build', 'deploy', 'store'];
+const skin = new TistorySkin(tidoryConfig.url, tidoryConfig.ts_session);
+const dist = path.join(wd, tidoryConfig.path.build.dist);
 
-if(configRequireCommands.includes(process.argv[2])) {
-  var tidoryConfig = require(path.resolve(wd, './tidory.config'));
-  var skin = new TistorySkin(tidoryConfig.url, tidoryConfig.ts_session);
-}
-
-tidory.version(pkg.version)
+tidory.version(pkg.version);
 
 /**
  * Create new tidory project

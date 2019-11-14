@@ -18,6 +18,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const TidoryWebpackPlugin = require('../lib/tidory-webpack-plugin');
 const webpackBaseConfig = require('./webpack.base.conf');
+const tidoryConfig = require('../tidory.config');
 
 module.exports = env => {
   return merge(webpackBaseConfig(env), {
@@ -29,7 +30,7 @@ module.exports = env => {
     },
     devServer: {
       watchContentBase: true,
-      index: 'skin.html',
+      index: tidoryConfig.path.public.index,
       open: true,
       port: env.MODE == 'development'? '8080': '3000',
       stats: "errors-only"
@@ -39,8 +40,8 @@ module.exports = env => {
     },  
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.join(wd, './index.pug'),
-        filename: "skin.html",
+        template: path.join(wd, tidoryConfig.path.build.template),
+        filename: tidoryConfig.path.public.index,
         inject: true
       }),
       new TidoryWebpackPlugin(env)

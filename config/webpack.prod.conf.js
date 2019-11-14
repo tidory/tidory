@@ -23,6 +23,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const TidoryWebpackPlugin = require('../lib/tidory-webpack-plugin');
 const webpackBaseConfig = require('./webpack.base.conf');
+const tidoryConfig = require('../tidory.config');
 
 module.exports = env => {
   return merge(webpackBaseConfig(env), {
@@ -33,8 +34,8 @@ module.exports = env => {
     },
     output: {
       filename: '[name].[hash].js',
-      path: path.resolve(wd, './dist/images'),
-      publicPath: "./images/"
+      path: path.resolve(wd, tidoryConfig.path.build.dist, tidoryConfig.path.public.publicPath),
+      publicPath: tidoryConfig.path.public.publicPath
     },
     stats: "errors-only",
     plugins: [
@@ -51,11 +52,11 @@ module.exports = env => {
         cssProcessorOptions: { discardComments: { removeAll: true } },
         canPrint: true
       }),
-      new CopyWebpackPlugin([{ from: './images', to: './' }]),
-      new CopyWebpackPlugin([{ from: 'docs', to: '../' }]),
+      new CopyWebpackPlugin([{ from: tidoryConfig.path.public.publicPath, to: './' }]),
+      new CopyWebpackPlugin([{ from: tidoryConfig.path.build.docs, to: '../' }]),
       new HtmlWebpackPlugin({
-        template: path.resolve(wd, './index.pug'),
-        filename: path.resolve(wd, './dist/skin.html'),
+        template: path.resolve(wd, tidoryConfig.path.build.template),
+        filename: path.resolve(wd, tidoryConfig.path.build.dist, tidoryConfig.path.public.index),
         inject: true,
         dev: false,
         minify: {
@@ -64,7 +65,7 @@ module.exports = env => {
           caseSensitive: true
         }
       }),
-      new CleanWebpackPlugin(['dist'], {
+      new CleanWebpackPlugin([tidoryConfig.path.build.dist], {
         root: wd,
         verbose: false,
         dry: false

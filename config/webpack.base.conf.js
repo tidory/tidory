@@ -15,7 +15,7 @@ const wd = process.cwd();
 const path = require('path');
 const Dotenv = require('dotenv-webpack');
 
-const tidoryConfig = require(path.resolve(wd, './tidory.config'));
+const tidoryConfig = require('../tidory.config');
 const pugAliasPlugin = require('../lib/pug-alias-plugin');
 
 module.exports = env => {
@@ -29,7 +29,7 @@ module.exports = env => {
   };
   let webpackBaseConfig = { 
     entry: {
-      app: path.resolve(wd, './assets/app.js')
+      app: path.resolve(wd, tidoryConfig.path.build.entry)
     },
     module: {
       rules: [

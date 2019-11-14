@@ -59,6 +59,7 @@
     "bin",
     "config",
     "lib",
+    "tidory.config.js",
     "LICENSE",
     "README.md"
   ],
@@ -74,5 +75,5 @@
     "type": "git",
     "url": "git+https://github.com/tidory/cli.git"
   },
-  "version": "7.1.6"
+  "version": "7.1.7"
 }

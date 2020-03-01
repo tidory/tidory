@@ -5,7 +5,8 @@
     "build": "tidory build",
     "build:compress": "tidory build --compress",
     "deploy": "tidory deploy",
-    "store": "tidory store"
+    "store": "tidory store",
+    "lint": "eslint --ext=js asserts tidory.config.js"
   },
   "license": "MIT",
   "repository": {
@@ -13,12 +14,17 @@
     "url": "https://github.com/tidory/tidory"
   },
   "devDependencies": {
-    "cheerio": "^1.0.0-rc.2"
+    "cheerio": "^1.0.0-rc.2",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   },
   "dependencies": {
     "@tidory/default-header": "github:tidory/default-header",
     "@tidory/default-sidebar": "github:tidory/default-sidebar",
-    "tidory": "^7.1"
-  },
-  "author": "Mansu Jeong<pronist@naver.com>"
+    "tidory": "^7.2"
+  }
 }

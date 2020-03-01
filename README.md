@@ -1,12 +1,10 @@
-# Tidory
+# Tidory Framework
 
-Tidory Framework for Tistory Skin \
-<http://www.tidory.com>
+[Tidory Framework](http://www.tidory.com) is a framework for [Tistory Skin](https://www.tistory.com/). \
+This template is for **tidory 7.2.x**.
 
-This template is for **tidory 7.1.x**
+## License
 
-# License
+[MIT](https://github.com/tidory/tidory/blob/master/LICENSE)
 
-MIT <br />
-
-Copyright (c) Mansu Jeong. All rights reserved.
+Copyright 2018-2020. [SangWoo Jeong](https://github.com/pronist). All rights reserved.

@@ -3,7 +3,7 @@ const $ = require('cheerio').load(
     normalizeWhitespace: true,
     xmlMode: true
   }
-);
+)
 
 module.exports = {
   /**
@@ -14,23 +14,23 @@ module.exports = {
   /**
    * Tistory session cookie value
    */
-  ts_session: new String(),
+  ts_session: null,
 
   /**
    * Tistory blog URL
    */
-  url: new String(),
+  url: null,
 
-  /** 
+  /**
    * Preview
    */
   preview: {
     /**
      * Preview Mode
-     * 
+     *
      * index
-     * entry 
-     * category 
+     * entry
+     * category
      * tag,
      * location
      * media,
@@ -46,6 +46,6 @@ module.exports = {
     /**
      * Assets public path
      */
-    public_path: new String()
+    public_path: null
   }
-};
+}

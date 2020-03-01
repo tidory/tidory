@@ -5,6 +5,6 @@ This template is for **tidory 7.2.x**.
 
 ## License
 
-[MIT](https://github.com/tidory/tidory/blob/master/LICENSE)
+[MIT](https://github.com/tidory/tidory/blob/7.2/LICENSE)
 
 Copyright 2018-2020. [SangWoo Jeong](https://github.com/pronist). All rights reserved.

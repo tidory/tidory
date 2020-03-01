@@ -1,119 +1,95 @@
 #!/usr/bin/env node
 
-const tidory = require('commander');
+const tidory = require('commander')
 
-const wd = process.cwd();
+const wd = process.cwd()
 
-const shelljs = require('shelljs');
-const ora = require('ora');
-const colors = require('colors');
-const download = require('download-git-repo');
-const pkg = require('../package.json');
-const path = require('path');
-const webpack = require.resolve('webpack/bin/webpack');
-const webpackDevServer = require.resolve('webpack-dev-server/bin/webpack-dev-server');
-const TistorySkin = require('tistory-skin');
+const shelljs = require('shelljs')
+const pkg = require('../package.json')
+const path = require('path')
+const webpack = require.resolve('webpack/bin/webpack')
+const webpackDevServer = require.resolve('webpack-dev-server/bin/webpack-dev-server')
+const TistorySkin = require('tistory-skin')
 
-const webpackDevConfig = path.join(__dirname, '../config/webpack.dev.conf');
-const webpackProdConfig = path.join(__dirname, '../config/webpack.prod.conf');
+const webpackDevConfig = path.join(__dirname, '../config/webpack.dev.conf')
+const webpackProdConfig = path.join(__dirname, '../config/webpack.prod.conf')
 
-const configRequireCommands = ['start', 'preview', 'build', 'deploy', 'store'];
+const configRequireCommands = ['start', 'preview', 'build', 'deploy', 'store']
 
-if(configRequireCommands.includes(process.argv[2])) {
-  var tidoryConfig = require('../tidory.config');
-  var skin = new TistorySkin(tidoryConfig.url, tidoryConfig.ts_session);
-  var dist = path.join(wd, tidoryConfig.path.build.dist);
+if (configRequireCommands.includes(process.argv[2])) {
+  var tidoryConfig = require('../tidory.config')
+  var skin = new TistorySkin(tidoryConfig.url, tidoryConfig.ts_session)
+  var dist = path.join(wd, tidoryConfig.path.build.dist)
 }
 
-tidory.version(pkg.version);
-
-/**
- * Create new tidory project
- * 
- * -> tidory new MyApp
- */
-tidory
-  .command('new <project_name>')
-  .description('download project template from git')
-  .action(project_name => {
-    console.log('\n\0\0Thank you for using Tidory\n'.yellow.bold);
-    const spinner = ora('Trying to copy template from git...\n');
-    spinner.start();
-    download('github:tidory/tidory#7.1', path.join(process.cwd(), project_name), false, function(err) {
-      if(err) {
-        spinner.stopAndPersist({ text:`${stderr}\n`.red.bold });
-      } else {
-        spinner.stopAndPersist({ text:`Successful\n`.green.bold });
-      }
-    })
-  });
+tidory.version(pkg.version)
 
 /**
  * Start development server
- * 
+ *
  * -> tidory start
  */
 tidory
   .command('start')
   .description('start development server by webpack-dev-server')
   .action(() => {
-    shelljs.exec(`node ${webpackDevServer} --env.MODE=development --config ${webpackDevConfig}`);
-  });
+    shelljs.exec(`node ${webpackDevServer} --env.MODE=development --config ${webpackDevConfig}`)
+  })
 
 /**
  * Start preview server
- * 
+ *
  * -> tidory preview
  */
 tidory
   .command('preview')
   .description('start preview server by webpack-dev-server')
   .action(() => {
-    shelljs.exec(`node ${webpackDevServer} --env.MODE=preview --config ${webpackDevConfig}`);
-  });
+    shelljs.exec(`node ${webpackDevServer} --env.MODE=preview --config ${webpackDevConfig}`)
+  })
 
 /**
  * Build tidory project for production
- * 
+ *
  * -> tidory build
  * -> tidory build --compress
  */
 tidory
   .command('build')
   .description('build for distribution')
-  .option("-c, --compress", 'compress distribution code')
+  .option('-c, --compress', 'compress distribution code')
   .action(cmd => {
-    if(cmd.compress) {
-      shelljs.exec(`node ${webpack} --env.MODE=build --config ${webpackProdConfig}`);
+    if (cmd.compress) {
+      shelljs.exec(`node ${webpack} --env.MODE=build --config ${webpackProdConfig}`)
     } else {
-      shelljs.exec(`node ${webpack} --env.MODE=production --config ${webpackProdConfig}`);
+      shelljs.exec(`node ${webpack} --env.MODE=production --config ${webpackProdConfig}`)
     }
-  });
+  })
 
 /**
  * Deploy tistory skin
- * 
+ *
  * -> tidory deploy
  */
 tidory
   .command('deploy')
   .description('deploy tistory skin')
   .action(async () => {
-    await skin.clear();
-    await skin.deploy(dist);
-  });
+    await skin.clear()
+    await skin.deploy(dist)
+  })
 
 /**
  * Store tistory skin on storage
- * 
+ *
  * -> tidory store
  */
 tidory
   .command('store')
   .description('store tistory skin on skin storage')
   .action(async () => {
-    await skin.storage.clear();
-    await skin.storage.store(dist, tidoryConfig.name);
-  });
+    await skin.storage.clear()
+    await skin.storage.store(dist, tidoryConfig.name)
+  })
 
-tidory.parse(process.argv);
+tidory.parse(process.argv)

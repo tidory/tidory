@@ -1,13 +1,17 @@
 {
-  "author": {
-    "name": "Mansu Jeong",
-    "email": "pronist@naver.com"
+  "name": "tidory",
+  "description": "It's awesome framework for Tistory Skin",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tidory/cli.git"
   },
+  "version": "7.2.0",
   "bin": {
     "tidory": "./bin/tidory"
   },
-  "bugs": {
-    "email": "pronist@naver.com"
+  "scripts": {
+    "lint": "eslint tidory.config.js lib config bin/tidory"
   },
   "dependencies": {
     "babel-core": "^6.26.3",
@@ -20,20 +24,17 @@
     "cheerio": "^1.0.0-rc.2",
     "clean-css": "^4.1.9",
     "clean-webpack-plugin": "^0.1.19",
-    "colors": "^1.2.1",
     "commander": "^2.18.0",
     "copy-webpack-plugin": "^4.2.0",
     "css-loader": "^0.28.7",
     "cssesc": "^2.0.0",
     "dotenv": "^6.0.0",
     "dotenv-webpack": "^1.5.7",
-    "download-git-repo": "^1.0.2",
     "file-loader": "^1.1.11",
     "form-data": "^2.3.3",
     "he": "^1.2.0",
     "html-webpack-plugin": "^3.2.0",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
-    "ora": "^2.0.0",
     "pretty": "^2.0.0",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
@@ -49,11 +50,16 @@
     "webpack-dev-server": "^2.11.1",
     "webpack-merge": "^4.1.1"
   },
-  "deprecated": false,
-  "description": "It's awesome framework for Tistory Skin",
   "devDependencies": {
     "ajv": "^6.5.4",
-    "ajv-keywords": "^3.1.0"
+    "ajv-keywords": "^3.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   },
   "files": [
     "bin",
@@ -68,12 +74,5 @@
     "tistory",
     "tistory skin",
     "tidory"
-  ],
-  "license": "MIT",
-  "name": "tidory",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tidory/cli.git"
-  },
-  "version": "7.1.8"
+  ]
 }

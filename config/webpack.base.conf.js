@@ -1,33 +1,22 @@
-/**
- * @author Mansu Jeong
- * @description 
- * Copyright (c) Mansu Jeong. All rights reserved.
- * 
- * Ref. https://webpack.js.org/configuration/dev-server/
- * Webpack. https://webpack.js.org/
- * 
- * Author. Mansu Jeong
- * Homepage. http://www.tidory.com
- */
 require('dotenv').config()
 
-const wd = process.cwd();
-const path = require('path');
-const Dotenv = require('dotenv-webpack');
+const wd = process.cwd()
+const path = require('path')
+const Dotenv = require('dotenv-webpack')
 
-const tidoryConfig = require('../tidory.config');
-const pugAliasPlugin = require('../lib/pug-alias-plugin');
+const tidoryConfig = require('../tidory.config')
+const pugAliasPlugin = require('../lib/pug-alias-plugin')
 
 module.exports = env => {
-  let fileLoaderConfig = {
+  const fileLoaderConfig = {
     loader: require.resolve('file-loader'),
     options: {
-      publicPath: (env.MODE == 'build' || env.MODE == 'production')
+      publicPath: (env.MODE === 'build' || env.MODE === 'production')
         ? tidoryConfig.build.public_path
         : '/'
     }
-  };
-  let webpackBaseConfig = { 
+  }
+  const webpackBaseConfig = {
     entry: {
       app: path.resolve(wd, tidoryConfig.path.build.entry)
     },
@@ -47,7 +36,7 @@ module.exports = env => {
         },
         {
           test: /\.css$/,
-          use:  ["style-loader", "css-loader"].map(require.resolve)
+          use: ['style-loader', 'css-loader'].map(require.resolve)
         },
         {
           test: /\.pug$/,
@@ -60,7 +49,7 @@ module.exports = env => {
               options: {
                 basedir: wd,
                 plugins: [
-                  pugAliasPlugin(Object.assign(tidoryConfig.alias || {}, 
+                  pugAliasPlugin(Object.assign(tidoryConfig.alias || {},
                     {
                       '@tidory': require('../lib/@tidory')
                     }
@@ -90,15 +79,15 @@ module.exports = env => {
               }
             }
           }
-        },
+        }
       ]
     },
     plugins: [
       new Dotenv()
     ]
   }
-  if(tidoryConfig.extends && typeof tidoryConfig.extends === 'function') {
-    tidoryConfig.extends(webpackBaseConfig);
+  if (tidoryConfig.extends && typeof tidoryConfig.extends === 'function') {
+    tidoryConfig.extends(webpackBaseConfig)
   }
-  return webpackBaseConfig;
-};
+  return webpackBaseConfig
+}

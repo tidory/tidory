@@ -1,34 +1,27 @@
-# What is this?
+# Tidory Framework
 
-Only for **Tidory Framework** \
-<http://www.tidory.com>
+[Tidory Framework](http://www.tidory.com) is a framework for [Tistory Skin](https://www.tistory.com/).
 
-# Installation
+## Installation
 
 ```bash
 npm install -g tidory
 ```
 
-# Options
-
-Name|Description|
-----|-----------|
-|**-h, --help**|output the **version** number|
-|**-V, --version**|output **usage** information|
-
-# Commands
+## Commands
 
 Name|Description|Options|
 ----|-----------|-------|
-|**new &lt;project_name&gt;**|**download** project template from **git**|None|
 |**start**|start **development server** by **webpack-dev-server**|None|
 |**preview**|start **preview server** by **webpack-dev-server**|None|
 |**build [options]**|**build** for **distribution**|-c, --compress|
 |**deploy**|**deploy** Tistory Skin|None|
 |**store**|store Tistory Skin on **Skin Storage**|None|
+|**-h, --help**|output the **version** number|
+|**-V, --version**|output **usage** information|
 
-# License
+## License
 
-MIT
+[MIT](https://github.com/tidory/cli/blob/master/LICENSE)
 
-Copyright (c) Mansu Jeong. All rights reserved.
+Copyright 2018-2020. [SangWoo Jeong](https://github.com/pronist). All rights reserved.

@@ -1,18 +1,18 @@
-const wd = process.cwd();
-const path = require('path');
+const wd = process.cwd()
+const path = require('path')
 
-const tidoryConfig = require(path.resolve(wd, './tidory.config'));
+const tidoryConfig = require(path.resolve(wd, './tidory.config'))
 
 module.exports = Object.assign(Object.assign({
-  name: new String(),
-  ts_session: new String(),
-  url: new String(),
+  name: null,
+  ts_session: null,
+  url: null,
   preview: {
     mode: 'index'
   },
-  alias: new Object(),
+  alias: null,
   build: {
-    public_path: new String()
+    public_path: null
   }
 }, tidoryConfig || {}), {
   /**
@@ -39,4 +39,4 @@ module.exports = Object.assign(Object.assign({
       publicPath: './images'
     }
   }
-});
+})

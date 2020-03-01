@@ -1,35 +1,23 @@
-/**
- * @author Mansu Jeong
- * @description 
- * Copyright (c) Mansu Jeong. All rights reserved.
- * 
- * Ref. https://webpack.js.org/configuration/dev-server/
- * Webpack. https://webpack.js.org/
- * 
- * Author. Mansu Jeong
- * Homepage. http://www.tidory.com
- */
+const wd = process.cwd()
 
-const wd = process.cwd();
+const path = require('path')
+const merge = require('webpack-merge')
+const webpack = require('webpack')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-const path = require('path');
-const merge = require('webpack-merge');
-const webpack = require('webpack');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-
-const TidoryWebpackPlugin = require('../lib/tidory-webpack-plugin');
-const webpackBaseConfig = require('./webpack.base.conf');
-const tidoryConfig = require('../tidory.config');
+const TidoryWebpackPlugin = require('../lib/tidory-webpack-plugin')
+const webpackBaseConfig = require('./webpack.base.conf')
+const tidoryConfig = require('../tidory.config')
 
 module.exports = env => {
   return merge(webpackBaseConfig(env), {
     resolve: {
       alias: {
-        'vue': path.resolve(wd, 'node_modules/vue/dist/vue.min.js')
+        vue: path.resolve(wd, 'node_modules/vue/dist/vue.min.js')
       }
     },
     output: {
@@ -37,12 +25,12 @@ module.exports = env => {
       path: path.resolve(wd, tidoryConfig.path.build.dist, tidoryConfig.path.public.publicPath),
       publicPath: tidoryConfig.path.public.publicPath
     },
-    stats: "errors-only",
+    stats: 'errors-only',
     plugins: [
       new UglifyJsPlugin({
         uglifyOptions: {
           warnings: false,
-          ecma: 5,
+          ecma: 5
         },
         sourceMap: true
       }),
@@ -75,5 +63,5 @@ module.exports = env => {
       }),
       new TidoryWebpackPlugin(env)
     ]
-  });
+  })
 }

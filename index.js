@@ -1,1 +1,1 @@
-module.exports = require('./lib/TistorySkin');
+module.exports = require('./lib/TistorySkin')

@@ -1,13 +1,15 @@
 {
   "name": "tistory-skin",
-  "version": "1.2.1",
-  "description": "Javascript Tistory Skin package",
+  "version": "1.2.2",
+  "description": "Unofficial Tistory Skin API for Javascript",
   "main": "index.js",
-  "author": "Mansu Jeong<pronist@naver.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pronist/tistory-skin.git"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js index.js lib"
   },
   "keywords": [
     "tistory",
@@ -19,13 +21,17 @@
     "LICENSE",
     "README.md"
   ],
-  "bugs": {
-    "url": "https://github.com/pronist/tistory-skin/issues"
-  },
-  "homepage": "https://github.com/pronist/tistory-skin#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "form-data": "^2.3.3",
     "walk": "^2.3.14"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
   }
 }

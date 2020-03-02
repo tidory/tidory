@@ -6,7 +6,7 @@
     "build:compress": "tidory build --compress",
     "deploy": "tidory deploy",
     "store": "tidory store",
-    "lint": "eslint --ext=js asserts tidory.config.js"
+    "lint": "eslint --ext .js assets tidory.config.js"
   },
   "license": "MIT",
   "repository": {

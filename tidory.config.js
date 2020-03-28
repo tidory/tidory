@@ -7,12 +7,12 @@ module.exports = {
   /**
    * Tistory session cookie value
    */
-  ts_session: '93c2e0e93e3b2046032f65fe12674c9080806271',
+  ts_session: null,
 
   /**
    * Tistory blog URL
    */
-  url: 'https://appwriter.tistory.com',
+  url: null,
 
   /**
    * Preview

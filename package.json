@@ -1,9 +1,9 @@
 {
   "scripts": {
-    "start": "tidory start",
-    "preview": "tidory preview",
-    "build": "tidory build",
-    "build:compress": "tidory build --compress",
+    "start": "cross-env NODE_ENV=development tidory start",
+    "preview": "cross-env NODE_ENV=development tidory preview",
+    "build": "cross-env NODE_ENV=production tidory build",
+    "build:compress": "cross-env NODE_ENV=build tidory build --compress",
     "deploy": "tidory deploy",
     "store": "tidory store",
     "lint": "eslint --ext .js assets tidory.config.js"
@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "cross-env": "^7.0.2",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.20.0",

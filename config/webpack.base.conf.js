@@ -4,15 +4,17 @@ const wd = process.cwd()
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
 
-const tidoryConfig = require('../tidory.config')
 const pugAliasPlugin = require('../lib/pug-alias-plugin')
+const publicPath = require('../lib/publicPath')
 
-module.exports = env => {
+const tidoryConfig = require('../tidory.config')
+
+module.exports = async env => {
   const fileLoaderConfig = {
     loader: require.resolve('file-loader'),
     options: {
       publicPath: (env.MODE === 'build' || env.MODE === 'production')
-        ? tidoryConfig.build.public_path
+        ? tidoryConfig.build.public_path || await publicPath(tidoryConfig)
         : '/'
     }
   }
@@ -65,7 +67,7 @@ module.exports = env => {
           use: {
             loader: require.resolve('babel-loader'),
             options: {
-              presets: ['babel-preset-es2015', 'babel-preset-react'].map(require.resolve)
+              presets: ['babel-preset-es2015-nostrict', 'babel-preset-react'].map(require.resolve)
             }
           }
         },

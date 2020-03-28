@@ -13,8 +13,8 @@ const TidoryWebpackPlugin = require('../lib/tidory-webpack-plugin')
 const webpackBaseConfig = require('./webpack.base.conf')
 const tidoryConfig = require('../tidory.config')
 
-module.exports = env => {
-  return merge(webpackBaseConfig(env), {
+module.exports = async env => {
+  return merge(await webpackBaseConfig(env), {
     resolve: {
       alias: {
         vue: path.resolve(wd, 'node_modules/vue/dist/vue.min.js')

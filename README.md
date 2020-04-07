@@ -81,6 +81,16 @@ Get TISTORY SKIN settings
 skin.settings();
 ```
 
+### TistorySkin.config(settings: object)
+
+Set TISTORY SKIN settings
+
+* settings: Tistory Skin **settings**
+
+```javascript
+skin.config({ homeType: 'NONE' });
+```
+
 ### TistorySkin.change(html: string, css: string, isPreview)
 
 Change Tistory Skin
@@ -145,16 +155,14 @@ Deploy Tistory Skin
 skin.deploy('./dist');
 ```
 
-### TistorySkin.preview(mode: string)
+### TistorySkin.preview(settings: object)
 
 Get preview
 
-* mode: **preview** mode
-
-mode is able to be **index**, **entry**, **category**, **tag**, **location**, **media**, **guestbook**
+* settings: Tistory Skin **preview settings**
 
 ```javascript
-skin.preview('index');
+skin.preview({ mode: 'index' });
 ```
 
 ### TistorySkin.storage.upload(path: string)

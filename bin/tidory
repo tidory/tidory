@@ -14,82 +14,72 @@ const TistorySkin = require('tistory-skin')
 const webpackDevConfig = path.join(__dirname, '../config/webpack.dev.conf')
 const webpackProdConfig = path.join(__dirname, '../config/webpack.prod.conf')
 
-const configRequireCommands = ['start', 'preview', 'build', 'deploy', 'store']
-
-if (configRequireCommands.includes(process.argv[2])) {
-  var tidoryConfig = require('../tidory.config')
-  var skin = new TistorySkin(tidoryConfig.url, tidoryConfig.ts_session)
-  var dist = path.join(wd, tidoryConfig.path.build.dist)
-}
+const tidoryConfig = require('../tidory.config')
+const skin = new TistorySkin(tidoryConfig.url, tidoryConfig.ts_session)
+const dist = path.join(wd, tidoryConfig.path.dist)
 
 tidory.version(pkg.version)
 
 /**
- * Start development server
- *
  * -> tidory start
  */
 tidory
   .command('start')
-  .description('start development server by webpack-dev-server')
+  .description('Start development server')
   .action(() => {
-    shelljs.exec(`node ${webpackDevServer} --env.MODE=development --config ${webpackDevConfig}`)
+    shelljs.exec(`node ${webpackDevServer} --config ${webpackDevConfig} --env.development`)
   })
 
 /**
- * Start preview server
- *
  * -> tidory preview
  */
 tidory
   .command('preview')
-  .description('start preview server by webpack-dev-server')
+  .description('Start preview server')
   .action(() => {
-    shelljs.exec(`node ${webpackDevServer} --env.MODE=preview --config ${webpackDevConfig}`)
+    shelljs.exec(`node ${webpackDevServer} --config ${webpackDevConfig} --env.preview`)
   })
 
 /**
- * Build tidory project for production
- *
  * -> tidory build
- * -> tidory build --compress
  */
 tidory
   .command('build')
-  .description('build for distribution')
-  .option('-c, --compress', 'compress distribution code')
-  .action(cmd => {
-    if (cmd.compress) {
-      shelljs.exec(`node ${webpack} --env.MODE=build --config ${webpackProdConfig}`)
-    } else {
-      shelljs.exec(`node ${webpack} --env.MODE=production --config ${webpackProdConfig}`)
-    }
+  .description('Build tidory project')
+  .action(() => {
+    shelljs.exec(`node ${webpack} --config ${webpackProdConfig} --env.build`)
   })
 
 /**
- * Deploy tistory skin
- *
+ * -> tidory production
+ */
+tidory
+  .command('production')
+  .description('Build tidory project for production')
+  .action(() => {
+    shelljs.exec(`node ${webpack} --config ${webpackProdConfig} --env.production`)
+  })
+
+/**
  * -> tidory deploy
  */
 tidory
   .command('deploy')
-  .description('deploy tistory skin')
+  .description('Deploy tistory skin')
   .action(async () => {
     await skin.clear()
     await skin.deploy(dist)
   })
 
 /**
- * Store tistory skin on storage
- *
  * -> tidory store
  */
 tidory
   .command('store')
-  .description('store tistory skin on skin storage')
+  .description('Store tistory skin on skin storage')
   .action(async () => {
     await skin.storage.clear()
-    await skin.storage.store(dist, tidoryConfig.name)
+    await skin.storage.store(dist, tidoryConfig.skinname)
   })
 
 tidory.parse(process.argv)

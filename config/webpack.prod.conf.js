@@ -9,7 +9,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
-const TidoryWebpackPlugin = require('../lib/tidory-webpack-plugin')
 const webpackBaseConfig = require('./webpack.base.conf')
 const tidoryConfig = require('../tidory.config')
 
@@ -22,8 +21,8 @@ module.exports = async env => {
     },
     output: {
       filename: '[name].[hash].js',
-      path: path.resolve(wd, tidoryConfig.path.build.dist, tidoryConfig.path.public.publicPath),
-      publicPath: tidoryConfig.path.public.publicPath
+      path: path.resolve(wd, tidoryConfig.path.dist, tidoryConfig.path.publicPath),
+      publicPath: tidoryConfig.path.publicPath
     },
     stats: 'errors-only',
     plugins: [
@@ -40,11 +39,11 @@ module.exports = async env => {
         cssProcessorOptions: { discardComments: { removeAll: true } },
         canPrint: true
       }),
-      new CopyWebpackPlugin([{ from: tidoryConfig.path.public.publicPath, to: './' }]),
-      new CopyWebpackPlugin([{ from: tidoryConfig.path.build.docs, to: '../' }]),
+      new CopyWebpackPlugin([{ from: tidoryConfig.path.publicPath, to: './' }]),
+      new CopyWebpackPlugin([{ from: tidoryConfig.path.docs, to: '../' }]),
       new HtmlWebpackPlugin({
-        template: path.resolve(wd, tidoryConfig.path.build.template),
-        filename: path.resolve(wd, tidoryConfig.path.build.dist, tidoryConfig.path.public.index),
+        template: path.resolve(wd, tidoryConfig.path.template),
+        filename: path.resolve(wd, tidoryConfig.path.dist, tidoryConfig.path.index),
         inject: true,
         dev: false,
         minify: {
@@ -53,15 +52,14 @@ module.exports = async env => {
           caseSensitive: true
         }
       }),
-      new CleanWebpackPlugin([tidoryConfig.path.build.dist], {
+      new CleanWebpackPlugin([tidoryConfig.path.dist], {
         root: wd,
         verbose: false,
         dry: false
       }),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': JSON.stringify('production')
-      }),
-      new TidoryWebpackPlugin(env)
+      })
     ]
   })
 }

@@ -4,7 +4,6 @@ const path = require('path')
 const merge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const TidoryWebpackPlugin = require('../lib/tidory-webpack-plugin')
 const webpackBaseConfig = require('./webpack.base.conf')
 const tidoryConfig = require('../tidory.config')
 
@@ -18,9 +17,8 @@ module.exports = async env => {
     },
     devServer: {
       watchContentBase: true,
-      index: tidoryConfig.path.public.index,
-      open: true,
-      port: env.MODE === 'development' ? '8080' : '3000',
+      index: tidoryConfig.path.index,
+      port: env.development ? '8080' : '3000',
       stats: 'errors-only'
     },
     output: {
@@ -28,11 +26,10 @@ module.exports = async env => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.join(wd, tidoryConfig.path.build.template),
-        filename: tidoryConfig.path.public.index,
+        template: path.join(wd, tidoryConfig.path.template),
+        filename: tidoryConfig.path.index,
         inject: true
-      }),
-      new TidoryWebpackPlugin(env)
+      })
     ]
   })
 }

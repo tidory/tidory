@@ -10,15 +10,16 @@ npm install -g tidory
 
 ## Commands
 
-Name|Description|Options|
-----|-----------|-------|
-|**start**|start **development server** by **webpack-dev-server**|None|
-|**preview**|start **preview server** by **webpack-dev-server**|None|
-|**build [options]**|**build** for **distribution**|-c, --compress|
-|**deploy**|**deploy** Tistory Skin|None|
-|**store**|store Tistory Skin on **Skin Storage**|None|
-|**-h, --help**|output the **version** number|
-|**-V, --version**|output **usage** information|
+Name|Description|
+----|-----------|
+|**start**|Start **development server**
+|**preview**|Start **preview server**
+|**build**|**Build** tidory project
+|**production**|**Build** tidory project for **production**
+|**deploy**|**Deploy** tistory skin
+|**store**|Store tistory skin on **skin storage**
+|**-h, --help**|Output the **version** number
+|**-V, --version**|Output **usage** information
 
 ## License
 

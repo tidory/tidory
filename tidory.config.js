@@ -16,35 +16,23 @@ module.exports = Object.freeze(Object.assign(Object.assign({
   ts_session: null,
   url: null,
   preview: {
-    mode: 'index'
+    mode: 'index',
+    variableSettings: {}
   },
   alias: null,
   build: {
     public_path: null
   }
 }, tidoryConfig || {}), {
-  /**
-   * Tistory Skin name
-   */
-  name: $('skin > information > name').text(),
-
-  /**
-   * Assets path
-   */
+  skinname: $('skin > information > name').text(),
   path: {
-    /** ./ -> Project directory */
-    build: {
-      dist: './dist',
-      entry: './assets/app.js',
-      template: './index.pug',
-      docs: './docs'
-    },
-    /** ./ -> dist */
-    public: {
-      index: './skin.html',
-      stylesheet: './style.css',
-      script: `./images/script.${randomstring.generate(20)}.js`,
-      publicPath: './images'
-    }
+    dist: './dist',
+    entry: './assets/app.js',
+    template: './index.pug',
+    docs: './docs',
+    index: './skin.html',
+    stylesheet: './style.css',
+    script: `./images/script.${randomstring.generate(20)}.js`,
+    publicPath: './images'
   }
 }))

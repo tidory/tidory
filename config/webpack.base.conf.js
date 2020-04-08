@@ -6,6 +6,7 @@ const Dotenv = require('dotenv-webpack')
 
 const pugAliasPlugin = require('../lib/pug-alias-plugin')
 const publicPath = require('../lib/publicPath')
+const TidoryWebpackPlugin = require('../lib/tidory-webpack-plugin')
 
 const tidoryConfig = require('../tidory.config')
 
@@ -13,14 +14,14 @@ module.exports = async env => {
   const fileLoaderConfig = {
     loader: require.resolve('file-loader'),
     options: {
-      publicPath: (env.MODE === 'build' || env.MODE === 'production')
+      publicPath: (env.build || env.production)
         ? tidoryConfig.build.public_path || await publicPath(tidoryConfig)
         : '/'
     }
   }
   const webpackBaseConfig = {
     entry: {
-      app: path.resolve(wd, tidoryConfig.path.build.entry)
+      app: path.resolve(wd, tidoryConfig.path.entry)
     },
     module: {
       rules: [
@@ -85,7 +86,8 @@ module.exports = async env => {
       ]
     },
     plugins: [
-      new Dotenv()
+      new Dotenv(),
+      new TidoryWebpackPlugin(env)
     ]
   }
   if (tidoryConfig.extends && typeof tidoryConfig.extends === 'function') {

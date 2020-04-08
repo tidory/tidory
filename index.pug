@@ -1,6 +1,15 @@
 extends app
 
 block TIDORY
-  include views/Sidebar
-  include views/Header
-  include views/Footer
+  s_t3
+    #__tidory
+      include views/Tidory
+
+  style.
+    #__tidory {
+      height: 100vh;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+    }

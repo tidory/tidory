@@ -11,5 +11,3 @@
  *
  * after import assets it will be contained in app.js
  */
-
-require('@tidory/default-sidebar')

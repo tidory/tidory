@@ -1,7 +1,7 @@
 # Tidory Framework
 
 [Tidory Framework](http://www.tidory.com) is a framework for [Tistory Skin](https://www.tistory.com/). \
-This template is for **tidory 7.2.x**.
+This template is for **tidory 7.3.x**.
 
 ## License
 

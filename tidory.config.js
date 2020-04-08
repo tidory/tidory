@@ -2,7 +2,6 @@
  * Tidory Configuration
  * https://tidory.com/docs/configuration/
  */
-
 module.exports = {
   /**
    * Tistory session cookie value

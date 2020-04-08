@@ -1,31 +1,18 @@
 {
   "scripts": {
-    "start": "cross-env NODE_ENV=development tidory start",
-    "preview": "cross-env NODE_ENV=development tidory preview",
-    "build": "cross-env NODE_ENV=production tidory build",
-    "build:compress": "cross-env NODE_ENV=build tidory build --compress",
-    "deploy": "tidory deploy",
+    "start": "tidory start",
+    "preview": "tidory preview",
+    "build": "tidory build",
+    "production": "tidory production",
     "store": "tidory store",
-    "lint": "eslint --ext .js assets tidory.config.js"
+    "deploy": "tidory deploy"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/tidory/tidory"
   },
-  "devDependencies": {
-    "cheerio": "^1.0.0-rc.2",
-    "cross-env": "^7.0.2",
-    "eslint": "^6.8.0",
-    "eslint-config-standard": "^14.1.0",
-    "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-node": "^11.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1"
-  },
   "dependencies": {
-    "@tidory/default-header": "github:tidory/default-header",
-    "@tidory/default-sidebar": "github:tidory/default-sidebar",
-    "tidory": "^7.2"
+    "tidory": "^7.3"
   }
 }

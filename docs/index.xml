@@ -15,27 +15,4 @@
       <homepage>http://www.tidory.com</homepage>
       <email>pronist@naver.com</email>
    </author>
-   <default>
-      <recentEntries>5</recentEntries>
-      <recentComments>5</recentComments>
-      <recentTrackbacks>5</recentTrackbacks>
-      <itemsOnGuestbook>10</itemsOnGuestbook>
-      <tagsInCloud>30</tagsInCloud>
-      <sortInCloud>3</sortInCloud>
-      <expandComment>0</expandComment>
-      <expandTrackback>0</expandTrackback>
-      <lengthOfRecentNotice>25</lengthOfRecentNotice>
-      <lengthOfRecentEntry>25</lengthOfRecentEntry>
-      <lengthOfRecentComment>25</lengthOfRecentComment>
-      <lengthOfRecentTrackback>25</lengthOfRecentTrackback>
-      <lengthOfLink>30</lengthOfLink>
-      <entriesOnPage>5</entriesOnPage>
-      <entriesOnList>5</entriesOnList>
-      <showListOnCategory>1</showListOnCategory>
-      <tree>
-         <labelLength>27</labelLength>
-         <showValue>1</showValue>
-      </tree>
-      <contentWidth>820</contentWidth>
-   </default>
 </skin>

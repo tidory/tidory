@@ -17,9 +17,11 @@ module.exports = Object.freeze(Object.assign(Object.assign({
   url: null,
   preview: {
     mode: 'index',
-    variableSettings: {}
+    variableSettings: {},
+    homeType: 'NONE',
+    coverSettings: []
   },
-  alias: null,
+  alias: {},
   build: {
     public_path: null
   }

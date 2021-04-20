@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pronist/tistory-skin.git"
+    "url": "git+https://github.com/tistory-project/tistory-skin.git"
   },
   "scripts": {
     "lint": "eslint --ext .js index.js lib"

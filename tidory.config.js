@@ -3,31 +3,49 @@
  * https://tidory.com/docs/configuration/
  */
 module.exports = {
-  /**
-   * Tistory session cookie value
-   */
   ts_session: null,
-
-  /**
-   * Tistory blog URL
-   */
   url: null,
 
   /**
-   * Preview
-   */
+  * Preview
+  */
   preview: {
     /**
-     * Preview Mode
+     * homeType
      *
-     * index
-     * entry
-     * category
-     * tag,
-     * location
-     * media,
-     * guestbook
+     * NONE
+     * COVER
      */
+    homeType: 'NONE',
+
+    /**
+    * Preview Mode
+    *
+    * index
+    * entry
+    * category
+    * tag,
+    * location
+    * media,
+    * guestbook
+    */
     mode: 'index'
+  },
+
+  /**
+  * Webpack Configuration
+  *
+  * @param {object} webpackConfig
+  */
+  extends (webpackConfig) {
+    webpackConfig.module.rules = [
+      {
+        enforce: 'pre',
+        test: /\.(js|vue)$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader'
+      },
+      ...webpackConfig.module.rules
+    ]
   }
 }

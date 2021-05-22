@@ -5,7 +5,8 @@
     "build": "tidory build",
     "production": "tidory production",
     "store": "tidory store",
-    "deploy": "tidory deploy"
+    "deploy": "tidory deploy",
+    "lint": "eslint --ext .js --ignore-path .gitignore . && pug-lint ."
   },
   "license": "MIT",
   "repository": {
@@ -13,6 +14,16 @@
     "url": "https://github.com/tidory/tidory"
   },
   "dependencies": {
-    "tidory": "*"
+    "tidory": "latest"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-loader": "^4.0.0",
+    "eslint-plugin-import": "^2.23.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "pug-lint": "^2.6.0"
   }
 }

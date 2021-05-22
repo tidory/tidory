@@ -6,7 +6,7 @@
     "type": "git",
     "url": "git+https://github.com/tidory/cli.git"
   },
-  "version": "7.4.2",
+  "version": "7.5.0",
   "bin": {
     "tidory": "./bin/tidory"
   },

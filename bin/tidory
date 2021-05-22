@@ -41,16 +41,6 @@ tidory
   })
 
 /**
- * -> tidory build
- */
-tidory
-  .command('build')
-  .description('Build tidory project')
-  .action(() => {
-    shelljs.exec(`node ${webpack} --config ${webpackProdConfig} --env.build`)
-  })
-
-/**
  * -> tidory production
  */
 tidory

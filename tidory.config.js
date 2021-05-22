@@ -2,15 +2,20 @@ const wd = process.cwd()
 
 const randomstring = require('randomstring')
 const path = require('path')
+const fs = require('fs')
 
 const $ = require('cheerio').load(
-  require('fs').readFileSync(path.join(wd, 'docs/index.xml')), {
+  fs.readFileSync(path.join(wd, 'docs/index.xml')), {
     normalizeWhitespace: true,
     xmlMode: true
   }
 )
 
-const tidoryConfig = require(path.resolve(wd, './tidory.config'))
+const config = path.resolve(wd, './tidory.config.js')
+
+const tidoryConfig = require(fs.existsSync(config)
+  ? config
+  : path.resolve(wd, './tidory.config.example.js'))
 
 module.exports = Object.freeze(Object.assign(Object.assign({
   ts_session: null,

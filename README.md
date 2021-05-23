@@ -1,6 +1,6 @@
 # tidory
 
-**tidory** 는 [티도리 프레임워크](http://www.tidory.com)를 위한 공식 템플릿입니다.
+[티도리 프레임워크](http://www.tidory.com)를 위한 공식 템플릿입니다.
 
 ## License
 

@@ -1,10 +1,10 @@
 # CLI
 
-**CLI** 는 Node.js 패키지이며 **커맨드 라인 인터페이스**를 통해 사용되고 이는 [tidory/tidory](https://github.com/tidory/tidory) 와 상호작용위한 것입니다.
+[티도리 프레임워크](https://tidory.com) 공식 [템플릿](https://github.com/tidory/tidory)와 상호작용하기 위한 패키지입니다.
 
 ## 설치하기
 
-자세한 사용법은 티도리 프레임워크 [공식문서](http://www.tidory.com)를 참고하십시오.
+자세한 사용법은 티도리 프레임워크 [문서](http://www.tidory.com)를 참고하십시오.
 
 ```bash
 npm install --save-dev tidory

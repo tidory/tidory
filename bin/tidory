@@ -8,7 +8,6 @@ const shelljs = require('shelljs')
 const pkg = require('../package.json')
 const path = require('path')
 const webpack = require.resolve('webpack/bin/webpack')
-const webpackDevServer = require.resolve('webpack-dev-server/bin/webpack-dev-server')
 const TistorySkin = require('tistory-skin')
 
 const webpackDevConfig = path.join(__dirname, '../config/webpack.dev.conf')
@@ -27,7 +26,7 @@ tidory
   .command('start')
   .description('Start development server')
   .action(() => {
-    shelljs.exec(`node ${webpackDevServer} --config ${webpackDevConfig} --env.development`)
+    shelljs.exec(`node ${webpack} serve --config ${webpackDevConfig} --env development`)
   })
 
 /**
@@ -37,7 +36,7 @@ tidory
   .command('preview')
   .description('Start preview server')
   .action(() => {
-    shelljs.exec(`node ${webpackDevServer} --config ${webpackDevConfig} --env.preview`)
+    shelljs.exec(`node ${webpack} serve --config ${webpackDevConfig} --env preview`)
   })
 
 /**
@@ -47,7 +46,7 @@ tidory
   .command('production')
   .description('Build tidory project for production')
   .action(() => {
-    shelljs.exec(`node ${webpack} --config ${webpackProdConfig} --env.production`)
+    shelljs.exec(`node ${webpack} --config ${webpackProdConfig} --env production`)
   })
 
 /**

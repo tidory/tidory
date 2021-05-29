@@ -3,11 +3,15 @@ require('dotenv').config()
 const wd = process.cwd()
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
+const webpack = require('webpack')
+
+const { VueLoaderPlugin } = require('vue-loader')
 
 const TistorySkin = require('tistory-skin')
 
 const pugAliasPlugin = require('../lib/pug-alias-plugin')
 const TidoryWebpackPlugin = require('../lib/tidory-webpack-plugin')
+const WebpackBar = require('webpackbar')
 
 const tidoryConfig = require('../tidory.config')
 
@@ -45,6 +49,15 @@ module.exports = async env => {
     entry: {
       app: path.resolve(wd, tidoryConfig.path.entry)
     },
+    resolve: {
+      alias: {
+        svelte: path.resolve('node_modules', 'svelte'),
+        vue: path.resolve(wd, 'node_modules', 'vue/dist/vue.esm-bundler.js')
+      },
+      extensions: ['.mjs', '.js', '.svelte'],
+      mainFields: ['svelte', 'browser', 'module', 'main']
+    },
+    stats: 'normal',
     module: {
       rules: [
         {
@@ -61,7 +74,7 @@ module.exports = async env => {
         },
         {
           test: /\.css$/,
-          use: ['style-loader', 'css-loader'].map(require.resolve)
+          use: ['vue-style-loader', 'style-loader', 'css-loader', 'postcss-loader'].map(require.resolve)
         },
         {
           test: /\.pug$/,
@@ -87,12 +100,17 @@ module.exports = async env => {
         {
           test: /\.jsx?$/,
           exclude: /node_modules(?!(\/|\\)@tidory)/,
-          use: {
-            loader: require.resolve('babel-loader'),
-            options: {
-              presets: ['babel-preset-es2015-nostrict', 'babel-preset-react'].map(require.resolve)
+          use: [
+            {
+              loader: require.resolve('babel-loader'),
+              options: {
+                presets: ['@babel/preset-react'].map(require.resolve)
+              }
+            },
+            {
+              loader: require.resolve('astroturf/loader')
             }
-          }
+          ]
         },
         {
           test: /\.vue$/,
@@ -104,11 +122,34 @@ module.exports = async env => {
               }
             }
           }
+        },
+        {
+          test: /\.svelte$/,
+          use: {
+            loader: require.resolve('svelte-loader'),
+            options: {
+              compilerOptions: {
+                dev: !env.production
+              },
+              hotReload: !env.production
+            }
+          }
+        },
+        {
+          test: /node_modules\/svelte\/.*\.mjs$/,
+          resolve: {
+            fullySpecified: false
+          }
         }
       ]
     },
     plugins: [
+      new WebpackBar({ name: 'tidory', color: 'green', reporters: ['fancy'] }),
       new Dotenv(),
+      new VueLoaderPlugin(),
+      new webpack.DefinePlugin({
+        __VUE_OPTIONS_API__: true, __VUE_PROD_DEVTOOLS__: false
+      }),
       new TidoryWebpackPlugin(env)
     ]
   }

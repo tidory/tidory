@@ -1,4 +1,5 @@
 {
+  "name": "tidory",
   "scripts": {
     "start": "tidory start",
     "preview": "tidory preview",
@@ -14,9 +15,10 @@
     "url": "https://github.com/tidory/tidory"
   },
   "dependencies": {
-    "tidory": "latest"
+    "tidory": "8"
   },
   "devDependencies": {
+    "autoprefixer": "^6.7.7",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-loader": "^4.0.0",

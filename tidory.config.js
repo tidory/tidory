@@ -41,7 +41,7 @@ module.exports = {
     webpackConfig.module.rules = [
       {
         enforce: 'pre',
-        test: /\.(js|vue)$/,
+        test: /\.(js)$/,
         exclude: /node_modules/,
         loader: 'eslint-loader'
       },

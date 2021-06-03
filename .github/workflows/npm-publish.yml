@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 12
-      - run: npm npm install --no-optional
+      - run: npm install --no-optional
       - run: npm run lint
 
   publish-npm:

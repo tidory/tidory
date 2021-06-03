@@ -1,5 +1,9 @@
 # Change Log
 
+## 8.0.1
+
+- HtmlWebpackPlugin 에서 HTML Comment 를 제거하던 것을 수정하였습니다.
+
 ## 8.0.0
 
 - **Webpack 3** 에서 **Webpack 5** 로 업데이트 되었습니다.

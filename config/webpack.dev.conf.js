@@ -23,7 +23,7 @@ module.exports = async env => {
     devtool: 'source-map',
     plugins: [
       new HtmlWebpackPlugin({
-        template: path.join(wd, tidoryConfig.path.template),
+        template: path.resolve(wd, tidoryConfig.path.template),
         filename: tidoryConfig.path.index,
         inject: true,
         scriptLoading: 'blocking'

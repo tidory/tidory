@@ -26,7 +26,16 @@ module.exports = async env => {
         template: path.resolve(wd, tidoryConfig.path.template),
         filename: path.resolve(wd, tidoryConfig.path.dist, tidoryConfig.path.index),
         inject: 'body',
-        scriptLoading: 'blocking'
+        scriptLoading: 'blocking',
+        minify: {
+          collapseWhitespace: true,
+          keepClosingSlash: true,
+          removeComments: false,
+          removeRedundantAttributes: true,
+          removeScriptTypeAttributes: true,
+          removeStyleLinkTypeAttributes: true,
+          useShortDoctype: true
+        }
       }),
       new CleanWebpackPlugin({
         cleanOnceBeforeBuildPatterns: [path.resolve(wd, tidoryConfig.path.dist, '**/*')]

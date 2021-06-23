@@ -3,7 +3,6 @@
   "scripts": {
     "start": "tidory start",
     "preview": "tidory preview",
-    "build": "tidory build",
     "production": "tidory production",
     "store": "tidory store",
     "deploy": "tidory deploy",

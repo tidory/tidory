@@ -25,12 +25,11 @@ module.exports = async env => {
       new HtmlWebpackPlugin({
         template: path.resolve(wd, tidoryConfig.path.template),
         filename: path.resolve(wd, tidoryConfig.path.dist, tidoryConfig.path.index),
-        inject: 'body',
-        scriptLoading: 'blocking',
+        inject: true,
+        scriptLoading: 'defer',
         minify: {
           collapseWhitespace: true,
           keepClosingSlash: true,
-          removeComments: false,
           removeRedundantAttributes: true,
           removeScriptTypeAttributes: true,
           removeStyleLinkTypeAttributes: true,

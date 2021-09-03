@@ -26,7 +26,7 @@ module.exports = async env => {
         template: path.resolve(wd, tidoryConfig.path.template),
         filename: tidoryConfig.path.index,
         inject: true,
-        scriptLoading: 'blocking'
+        scriptLoading: 'defer'
       })
     ]
   })

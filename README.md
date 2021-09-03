@@ -1,14 +1,7 @@
 # CLI
 
-[티도리 프레임워크](https://tidory.com) 공식 [템플릿](https://github.com/tidory/tidory)와 상호작용하기 위한 패키지입니다.
-
-## 설치하기
-
+[티도리 프레임워크](https://tidory.com) 공식 [템플릿](https://github.com/tidory/tidory)와 상호작용하기 위한 패키지입니다. \
 자세한 사용법은 티도리 프레임워크 [문서](http://www.tidory.com)를 참고하십시오.
-
-```bash
-npm install --save-dev tidory
-```
 
 ## 저작권
 

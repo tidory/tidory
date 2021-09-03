@@ -1,19 +1,17 @@
 #!/usr/bin/env node
-
-const tidory = require('commander')
-
 const wd = process.cwd()
 
+const tidory = require('commander')
 const shelljs = require('shelljs')
-const pkg = require('../package.json')
 const path = require('path')
-const webpack = require.resolve('webpack/bin/webpack')
 const TistorySkin = require('tistory-skin')
+const webpack = require.resolve('webpack/bin/webpack')
 
 const webpackDevConfig = path.join(__dirname, '../config/webpack.dev.conf')
 const webpackProdConfig = path.join(__dirname, '../config/webpack.prod.conf')
-
+const pkg = require('../package.json')
 const tidoryConfig = require('../tidory.config')
+
 const skin = new TistorySkin(tidoryConfig.url, tidoryConfig.ts_session)
 const dist = path.join(wd, tidoryConfig.path.dist)
 

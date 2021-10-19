@@ -1,5 +1,4 @@
 {
-  "name": "tidory",
   "scripts": {
     "start": "tidory start",
     "preview": "tidory preview",
@@ -12,9 +11,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/tidory/tidory"
-  },
-  "dependencies": {
-    "tidory": "8"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.7",

@@ -22,5 +22,8 @@
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
     "pug-lint": "^2.6.0"
+  },
+  "dependencies": {
+    "tidory": "^8.0.3"
   }
 }

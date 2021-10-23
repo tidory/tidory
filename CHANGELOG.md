@@ -1,5 +1,9 @@
 # Change Log
 
+## 8.0.3
+
+- 의존성에 ```html-minifier-terser``` 명시적으로 추가되었습니다.
+
 ## 8.0.2
 
 - tidory production 에서 ```defer, async, readonly``` 등 **boolean attributes** 에 대해 올바르게 변환되지 않았던 점이 수정되었습니다. 하지만 이 사항은 티스토리에서 사용하는 치환자 및 커스텀 속성에는 적용되지 않으며 이전과 마찬가지로 비어있는 상태로 나타납니다.

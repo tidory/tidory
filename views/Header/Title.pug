@@ -2,8 +2,21 @@ h1 TIDORY
 
 style.
   header > h1 {
-    color: #525252;
+    color: var(--header-title-color);
     font-size: 2.8em;
     font-weight: 200;
     margin: 0px;
+  }
+
+style.
+  @media (prefers-color-scheme: light) {
+    :root {
+      --header-title-color: #525252;
+    }
+  }
+style.
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --header-title-color: white;
+    }
   }

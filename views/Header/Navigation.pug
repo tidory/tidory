@@ -27,9 +27,24 @@ style.
     font-size: 1.05em;
     font-weight: 300;
     text-decoration: none;
-    color: black;
+    color: var(--header-list-color);
     transition-duration: 0.3s;
   }
   header > nav ul li a:hover {
-    color: #ed5207;
+    color: var(--header-list-hover-color);
+  }
+
+style.
+  @media (prefers-color-scheme: light) {
+    :root {
+      --header-list-color: black;
+      --header-list-hover-color: #ed5207;
+    }
+  }
+style.
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --header-list-color: rgba(255, 255, 255, .8);
+      --header-list-hover-color: white;
+    }
   }

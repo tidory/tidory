@@ -10,6 +10,21 @@ html(lang="ko")
     link(rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosanskr.css")
 
     style.
+      /* Color Palette */
+      :root {
+        --color-background: white;
+        --color: black;
+        --color-blur: rgba(0, 0, 0, .6)
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --color-background: #1e1f21;
+          --color: white;
+          --color-blur: rgba(255, 255, 255, .8)
+        }
+      }
+
+    style.
       * {
         padding: 0px;
         margin: 0px;
@@ -19,18 +34,7 @@ html(lang="ko")
         pointer-events: initial;
       }
       body {
-        background-color: var(--background-color);
-      }
-
-      @media (prefers-color-scheme: light) {
-        :root {
-          --background-color: white;
-        }
-      }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --background-color: #1e1f21;
-        }
+        background-color: var(--color-background);
       }
 
   body(id="[##_body_id_##]")

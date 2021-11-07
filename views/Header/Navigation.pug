@@ -19,30 +19,17 @@ style.
   header > nav ul {
     list-style: none
   }
-  header > nav ul li {
+  header > nav li {
     margin: 0 15px;
     display: inline-block;
   }
-  header > nav ul li a {
+  header > nav a {
     font-size: 1.05em;
     font-weight: 300;
     text-decoration: none;
-    color: var(--header-list-color);
+    color: var(--color-blur);
     transition-duration: 0.3s;
   }
-  header > nav ul li a:hover {
-    color: var(--header-list-hover-color);
-  }
-
-  @media (prefers-color-scheme: light) {
-    :root {
-      --header-list-color: black;
-      --header-list-hover-color: #ed5207;
-    }
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --header-list-color: rgba(255, 255, 255, .8);
-      --header-list-hover-color: white;
-    }
+  header > nav a:hover {
+    color: var(--color);
   }

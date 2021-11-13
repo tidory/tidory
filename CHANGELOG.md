@@ -1,5 +1,9 @@
 # Change Log
 
+## 8.0.4
+
+- `tistory-skin` 의 버전이 업데이트 되었습니다.
+
 ## 8.0.3
 
 - 의존성에 ```html-minifier-terser``` 명시적으로 추가되었습니다.

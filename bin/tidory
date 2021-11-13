@@ -4,7 +4,7 @@ const wd = process.cwd()
 const tidory = require('commander')
 const shelljs = require('shelljs')
 const path = require('path')
-const TistorySkin = require('tistory-skin')
+const { Skin, Archive } = require('tistory-skin')
 const webpack = require.resolve('webpack/bin/webpack')
 
 const webpackDevConfig = path.join(__dirname, '../config/webpack.dev.conf')
@@ -12,7 +12,8 @@ const webpackProdConfig = path.join(__dirname, '../config/webpack.prod.conf')
 const pkg = require('../package.json')
 const tidoryConfig = require('../tidory.config')
 
-const skin = new TistorySkin(tidoryConfig.url, tidoryConfig.ts_session)
+const archive = new Archive(tidoryConfig.url, tidoryConfig.ts_session)
+const skin = new Skin(tidoryConfig.url, tidoryConfig.ts_session)
 const dist = path.join(wd, tidoryConfig.path.dist)
 
 tidory.version(pkg.version)
@@ -65,8 +66,8 @@ tidory
   .command('store')
   .description('Store tistory skin on skin storage')
   .action(async () => {
-    await skin.storage.clear()
-    await skin.storage.store(dist, tidoryConfig.skinname)
+    await archive.clear()
+    await archive.store(dist, tidoryConfig.skinname)
   })
 
 tidory.parse(process.argv)

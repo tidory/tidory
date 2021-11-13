@@ -1,6 +1,6 @@
 {
   "name": "tistory-skin",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Unofficial Tistory Skin API for Javascript",
   "main": "index.js",
   "license": "MIT",

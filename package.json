@@ -13,7 +13,6 @@
     "url": "https://github.com/tidory/tidory"
   },
   "devDependencies": {
-    "autoprefixer": "^6.7.7",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-loader": "^4.0.0",
@@ -24,6 +23,7 @@
     "pug-lint": "^2.6.0"
   },
   "dependencies": {
-    "tidory": "^8.0.3"
+    "autoprefixer": "^6.7.7",
+    "tidory": "^8.0.4"
   }
 }

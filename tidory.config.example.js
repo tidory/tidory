@@ -2,7 +2,7 @@
  * Tidory Configuration
  * https://tidory.com/docs/configuration/
  */
- module.exports = {
+module.exports = {
   ts_session: null,
   url: null,
 

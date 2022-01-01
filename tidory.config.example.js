@@ -1,14 +1,11 @@
 /**
  * Tidory Configuration
- * https://tidory.com/docs/configuration/
+ * https://tidory.com/docs/configuration
  */
 module.exports = {
-  ts_session: null,
-  url: null,
+  ts_session: '',
+  url: '',
 
-  /**
-  * Preview
-  */
   preview: {
     /**
      * homeType
@@ -19,24 +16,24 @@ module.exports = {
     homeType: 'NONE',
 
     /**
-    * Preview Mode
-    *
-    * index
-    * entry
-    * category
-    * tag,
-    * location
-    * media,
-    * guestbook
-    */
+     * Preview Mode
+     *
+     * index
+     * entry
+     * category
+     * tag,
+     * location
+     * media,
+     * guestbook
+     */
     mode: 'index'
   },
 
   /**
-  * Webpack Configuration
-  *
-  * @param {object} webpackConfig
-  */
+   * Webpack Configuration
+   *
+   * @param {object} webpackConfig
+   */
   extends (webpackConfig) {
     webpackConfig.module.rules = [
       {

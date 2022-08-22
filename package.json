@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/tidory/cli.git"
   },
-  "version": "8.0.5",
+  "version": "8.1.0",
   "bin": {
     "tidory": "./bin/tidory"
   },
@@ -35,7 +35,6 @@
     "html-minifier-terser": "^5.1.1",
     "html-webpack-plugin": "^5.3.1",
     "js-beautify": "^1.13.13",
-    "postcss": "^8.3.0",
     "postcss-loader": "^5.3.0",
     "pug": "^3.0.2",
     "pug-plain-loader": "^1.1.0",
@@ -74,7 +73,7 @@
     "LICENSE",
     "README.md"
   ],
-  "homepage": "http://www.tidory.com",
+  "homepage": "https://tidory.com",
   "keywords": [
     "tistory",
     "tistory skin",

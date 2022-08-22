@@ -6,3 +6,6 @@ dist
 
 # Configuration
 tidory.config.js
+
+.idea
+.vscode

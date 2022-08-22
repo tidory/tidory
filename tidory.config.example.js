@@ -1,3 +1,5 @@
+const ESLintPlugin = require('eslint-webpack-plugin')
+
 /**
  * Tidory Configuration
  * https://tidory.com/docs/configuration
@@ -35,14 +37,9 @@ module.exports = {
    * @param {object} webpackConfig
    */
   extends (webpackConfig) {
-    webpackConfig.module.rules = [
-      {
-        enforce: 'pre',
-        test: /\.(js)$/,
-        exclude: /node_modules/,
-        loader: 'eslint-loader'
-      },
-      ...webpackConfig.module.rules
+    webpackConfig.plugins = [
+      new ESLintPlugin(),
+      ...webpackConfig.plugins
     ]
   }
 }

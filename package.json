@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/tidory/cli.git"
   },
-  "version": "8.2.0",
+  "version": "8.2.1",
   "bin": {
     "tidory": "./bin/tidory"
   },

@@ -10,12 +10,20 @@ const tidoryConfig = require('../tidory.config')
 module.exports = async env => {
   return merge(await webpackBaseConfig(env), {
     mode: 'development',
+    cache: false,
     devServer: {
-      watchContentBase: true,
-      index: tidoryConfig.path.index,
-      hot: true,
+      magicHtml: false,
+      watchFiles: tidoryConfig.path.devServer.watchFiles,
+      hot: false,
+      liveReload: true,
       port: env.development ? '8080' : '3000',
-      stats: 'normal'
+      devMiddleware: {
+        index: tidoryConfig.path.index
+      },
+      static: {
+        directory: path.resolve(wd, tidoryConfig.path.devServer.static.directory),
+        publicPath: tidoryConfig.path.devServer.static.publicPath
+      }
     },
     output: {
       filename: '[name].[fullhash].js'

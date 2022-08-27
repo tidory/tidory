@@ -17,7 +17,8 @@ module.exports = async env => {
     output: {
       filename: '[name].[fullhash].js',
       path: path.resolve(wd, tidoryConfig.path.dist, tidoryConfig.path.publicPath),
-      publicPath: tidoryConfig.path.publicPath
+      publicPath: tidoryConfig.path.publicPath,
+      asyncChunks: false
     },
     plugins: [
       new CopyPlugin({ patterns: [{ from: tidoryConfig.path.publicPath, to: './' }] }),

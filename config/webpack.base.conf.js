@@ -35,7 +35,7 @@ module.exports = async env => {
       extensions: ['.mjs', '.js', '.svelte'],
       mainFields: ['svelte', 'browser', 'module', 'main']
     },
-    stats: 'normal',
+    stats: 'errors-only',
     module: {
       rules: [
         {

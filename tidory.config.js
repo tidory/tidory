@@ -40,6 +40,21 @@ module.exports = Object.freeze(Object.assign(Object.assign({
     index: './skin.html',
     stylesheet: './style.css',
     script: `./images/script.${randomstring.generate(20)}.js`,
-    publicPath: './images'
+    publicPath: './images',
+    devServer: {
+      static: {
+        directory: 'images',
+        publicPath: '/images'
+      },
+      watchFiles: [
+        'assets/**/*',
+        'docs/**/*',
+        'images/**/*',
+        'views/**/*',
+        'app.pug',
+        'index.pug',
+        'tidory.config.js'
+      ]
+    }
   }
 }))

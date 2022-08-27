@@ -5,6 +5,7 @@
 - `webpack-dev-server` 의 버전이 4.x 로 변경되었습니다.
 - 이제 `webpack-dev-server` 에서 `assets/**/*`, `docs/**/*`, `images/**/*`, `views/**/*`, `app.pug`, `index.pug`, `tidory.config.js` 에 대한 감시가 설정되어 파일이 변경되면 자동으로 브라우저가 새로고침됩니다.
 - `public_path` 문제로 `asyncChunks` 가 `false` 로 변경되었습니다. 청크 내부에서 비동기 청크를 로드하지 않습니다.
+- `postcss` 를 다시 지원합니다. `8.1.0` 에서 발생했던 비동기 플러그인에 대한 문제가 해결되었습니다.
 
 ## 8.1.0
 

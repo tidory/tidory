@@ -9,33 +9,8 @@ html(lang="ko")
 
     link(rel="stylesheet" href="//fonts.googleapis.com/earlyaccess/notosanskr.css")
 
-    style.
-      /* Color Palette */
-      :root {
-        --color-background: white;
-        --color: black;
-        --color-blur: rgba(0, 0, 0, .6)
-      }
-      @media (prefers-color-scheme: dark) {
-        :root {
-          --color-background: #1e1f21;
-          --color: white;
-          --color-blur: rgba(255, 255, 255, .8)
-        }
-      }
-
-    style.
-      * {
-        padding: 0px;
-        margin: 0px;
-        font-family: "Noto Sans KR", sans-serif;
-      }
-      a {
-        pointer-events: initial;
-      }
-      body {
-        background-color: var(--color-background);
-      }
+    style
+      include @/app.css
 
   body(id="[##_body_id_##]")
     block TIDORY

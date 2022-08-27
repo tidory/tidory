@@ -32,6 +32,13 @@ module.exports = {
   },
 
   /**
+   * Alias
+   */
+  alias: {
+    '@': 'assets'
+  },
+
+  /**
    * Webpack Configuration
    *
    * @param {object} webpackConfig

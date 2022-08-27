@@ -22,6 +22,6 @@
     "pug-lint": "^2.6.0"
   },
   "dependencies": {
-    "tidory": "^8.1.0"
+    "tidory": "^8.2.0"
   }
 }

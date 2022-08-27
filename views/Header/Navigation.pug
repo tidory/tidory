@@ -1,35 +1,17 @@
 -
   const guidebook = [
-    { text: "시작하기",  href: "https://tidory.com/docs/get-started" },
-    { text: "디렉토리",  href: "https://tidory.com/docs/directory" },
-    { text: "템플릿",  href: "https://tidory.com/docs/template" },
-    { text: "프레임워크",  href: "https://tidory.com/docs/framework" },
-    { text: "빌드 및 배포",  href:"https://tidory.com/docs/deployment" }
+    { text: '시작하기', href: 'https://tidory.com/docs/get-started' },
+    { text: '디렉토리', href: 'https://tidory.com/docs/directory' },
+    { text: '템플릿', href: 'https://tidory.com/docs/template' },
+    { text: '프레임워크', href: 'https://tidory.com/docs/framework' },
+    { text: '빌드 및 배포', href: 'https://tidory.com/docs/deployment' }
   ];
 
-nav
-  ul
+nav(class='mt-9')
+  ul(class='list-none')
     each guide in guidebook
-      li: a(href=guide.href)=guide.text
-
-style.
-  header > nav {
-    margin-top: 35px;
-  }
-  header > nav ul {
-    list-style: none
-  }
-  header > nav li {
-    margin: 0 15px;
-    display: inline-block;
-  }
-  header > nav a {
-    font-size: 1.05em;
-    font-weight: 300;
-    text-decoration: none;
-    color: var(--color-blur);
-    transition-duration: 0.3s;
-  }
-  header > nav a:hover {
-    color: var(--color);
-  }
+      li(class='mx-4 inline-block')
+        a(
+          href=guide.href
+          class='text-base font-light text-zinc-300 duration-200 pointer-events-auto decoration-0 hover:text-zinc-50'
+        )=guide.text

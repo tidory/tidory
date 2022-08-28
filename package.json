@@ -26,6 +26,6 @@
     "tailwindcss": "^3.1.8"
   },
   "dependencies": {
-    "tidory": "^8.2.2"
+    "tidory": "^8.2.3"
   }
 }

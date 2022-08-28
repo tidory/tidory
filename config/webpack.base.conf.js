@@ -9,7 +9,7 @@ const webpack = require('webpack')
 const WebpackBar = require('webpackbar')
 
 const pugAliasPlugin = require('../lib/pug-alias-plugin')
-const publicPath = require('../lib/publicPath')
+const publicPath = require('../lib/helpers/publicPath')
 const TidoryWebpackPlugin = require('../lib/tidory-webpack-plugin')
 
 const tidoryConfig = require('../tidory.config')
@@ -68,7 +68,7 @@ module.exports = async env => {
                 plugins: [
                   pugAliasPlugin(Object.assign(tidoryConfig.alias || {},
                     {
-                      '@tidory': require('../lib/@tidory')
+                      '@tidory': require('../lib/pug-aliases/@tidory')
                     }
                   ))
                 ]

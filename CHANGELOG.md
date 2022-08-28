@@ -1,6 +1,10 @@
 # Change Log
 
-## 8.2.0
+## 8.2.2
+
+- 코드 리팩토링 작업이 진행되었습니다.
+
+## 8.2.1
 
 - `webpack-dev-server` 의 버전이 4.x 로 변경되었습니다.
 - 이제 `webpack-dev-server` 에서 `assets/**/*`, `docs/**/*`, `images/**/*`, `views/**/*`, `app.pug`, `index.pug`, `tidory.config.js` 에 대한 감시가 설정되어 파일이 변경되면 자동으로 브라우저가 새로고침됩니다.

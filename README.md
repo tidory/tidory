@@ -7,4 +7,4 @@
 
 [MIT](https://github.com/tidory/cli/blob/master/LICENSE)
 
-Copyright 2018-2021. [SangWoo Jeong](https://github.com/pronist). All rights reserved.
+Copyright 2018-2022. [SangWoo Jeong](https://github.com/pronist). All rights reserved.

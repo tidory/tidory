@@ -8,11 +8,10 @@ const Dotenv = require('dotenv-webpack')
 const webpack = require('webpack')
 const WebpackBar = require('webpackbar')
 
-const pugAliasPlugin = require('../lib/pug-alias-plugin')
-const publicPath = require('../lib/helpers/publicPath')
-const TidoryWebpackPlugin = require('../lib/tidory-webpack-plugin')
+const TidoryWebpackPlugin = require('tidory-webpack-plugin')
 
 const tidoryConfig = require('../tidory.config')
+const postCssConfig = require(path.resolve(wd, 'postcss.config.js'))
 
 module.exports = async env => {
   const fileLoaderConfig = {
@@ -129,11 +128,12 @@ module.exports = async env => {
       new webpack.DefinePlugin({
         __VUE_OPTIONS_API__: true, __VUE_PROD_DEVTOOLS__: false
       }),
-      new TidoryWebpackPlugin(env)
+      new TidoryWebpackPlugin(env, tidoryConfig, postCssConfig)
     ]
   }
   if (tidoryConfig.extends && typeof tidoryConfig.extends === 'function') {
     tidoryConfig.extends(webpackBaseConfig)
   }
+
   return webpackBaseConfig
 }

@@ -7,6 +7,7 @@ const path = require('path')
 const Dotenv = require('dotenv-webpack')
 const webpack = require('webpack')
 const WebpackBar = require('webpackbar')
+const aliasPugPlugin = require('alias-pug-plugin')
 
 const TidoryWebpackPlugin = require('tidory-webpack-plugin')
 
@@ -65,9 +66,9 @@ module.exports = async env => {
                 doctype: 'html',
                 basedir: wd,
                 plugins: [
-                  pugAliasPlugin(Object.assign(tidoryConfig.alias || {},
+                  aliasPugPlugin(Object.assign(tidoryConfig.alias || {},
                     {
-                      '@tidory': require('../lib/pug-aliases/@tidory')
+                      '@tidory': require('../lib/@tidory')
                     }
                   ))
                 ]

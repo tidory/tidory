@@ -1,8 +1,6 @@
 root: true
 
 env:
-  commonjs: true
   node: true
 
-extends:
-  standard
+extends: standard

@@ -19,7 +19,7 @@ module.exports = async env => {
     loader: require.resolve('file-loader'),
     options: {
       publicPath: env.production
-        ? tidoryConfig.build.public_path || await publicPath(tidoryConfig)
+        ? tidoryConfig.build.public_path || await require('../lib/public-path')(tidoryConfig)
         : '/'
     }
   }

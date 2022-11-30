@@ -12,7 +12,6 @@ const aliasPugPlugin = require('alias-pug-plugin')
 const TidoryWebpackPlugin = require('tidory-webpack-plugin')
 
 const tidoryConfig = require('../tidory.config')
-const postCssConfig = require(path.resolve(wd, 'postcss.config.js'))
 
 module.exports = async env => {
   const fileLoaderConfig = {
@@ -71,7 +70,10 @@ module.exports = async env => {
                       '@tidory': require('../lib/@tidory')
                     }
                   ))
-                ]
+                ],
+                filters: {
+                  postcss: require('postcss-pug-filter')
+                }
               }
             }
           ]
@@ -129,7 +131,7 @@ module.exports = async env => {
       new webpack.DefinePlugin({
         __VUE_OPTIONS_API__: true, __VUE_PROD_DEVTOOLS__: false
       }),
-      new TidoryWebpackPlugin(env, tidoryConfig, postCssConfig)
+      new TidoryWebpackPlugin(env, tidoryConfig)
     ]
   }
   if (tidoryConfig.extends && typeof tidoryConfig.extends === 'function') {

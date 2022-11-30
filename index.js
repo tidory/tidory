@@ -20,12 +20,10 @@ module.exports = class {
    *
    * @param {object} env
    * @param {object} config
-   * @param {object} postCssConfig
    */
-  constructor (env, config, postCssConfig) {
+  constructor (env, config) {
     this.env = env
     this.config = config
-    this.postCssConfig = postCssConfig
   }
 
   /**
@@ -60,19 +58,17 @@ module.exports = class {
   async transform (data, callback) {
     this.$ = cheerio.load(data.html)
 
-    await this.css()
-    this.js()
-
-    data.html = await this.html()
-
+    data.html = await this.css().js().html()
     callback(null, data)
   }
 
   /**
    * Set style
+   *
+   * @returns {this}
    */
-  async css () {
-    this.style = await new Css(this.$, this.postCssConfig).get()
+  css () {
+    this.style = new Css(this.$).get()
 
     if (this.env.production || this.env.preview) {
       /**
@@ -85,10 +81,14 @@ module.exports = class {
     } else {
       this.$('head').append(`<style>${this.style}</style>`)
     }
+
+    return this
   }
 
   /**
    * Set script
+   *
+   * @returns {this}
    */
   js () {
     this.script = new Js(this.$).get()
@@ -98,6 +98,8 @@ module.exports = class {
     } else {
       this.$('head').append(`<script defer src="${this.config.path.script}">`)
     }
+
+    return this
   }
 
   /**

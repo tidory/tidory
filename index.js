@@ -1,10 +1,9 @@
 const path = require('path')
 const fs = require('fs')
 const cheerio = require('cheerio')
-const Html = require('./lib/html')
-const Js = require('./lib/js')
-const Css = require('./lib/css')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const { Html, Css, Js } = require('./lib/extract')
 
 /**
  * Tidory webpack tidory-webpack-plugin

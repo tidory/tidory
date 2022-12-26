@@ -1,6 +1,6 @@
 {
   "name": "tidory-webpack-plugin",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Webpack plugin for Tidory Framework",
   "main": "index.js",
   "files": [
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tidory/tidory-webpack-plugin.git"
+    "url": "git+https://github.com/tidory/webpack-plugin.git"
   },
   "keywords": [
     "tidory"

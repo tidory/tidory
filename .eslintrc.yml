@@ -5,3 +5,6 @@ env:
 
 extends:
   standard
+
+rules:
+  space-unary-ops: off

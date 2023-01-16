@@ -1,6 +1,6 @@
 {
   "name": "tidory-webpack-plugin",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Webpack plugin for Tidory Framework",
   "main": "index.js",
   "files": [
@@ -18,9 +18,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tidory/tidory-webpack-plugin/issues"
+    "url": "https://github.com/tidory/webpack-plugin/issues"
   },
-  "homepage": "https://github.com/tidory/tidory-webpack-plugin#readme",
+  "homepage": "https://github.com/tidory/webpack-plugin#readme",
   "dependencies": {
     "@babel/core": "^7.20.5",
     "cheerio": "^1.0.0-rc.12",

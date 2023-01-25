@@ -1,8 +1,12 @@
 # Change Log
 
+## 8.3.3
+
+- `tidory-webpack-plugin` 의 버전이 [1.2.1](https://github.com/tidory/webpack-plugin/blob/main/CHANGELOG.md) 으로 갱신되었습니다.
+
 ## 8.3.2
 
-- `tidory-webpack-plugin` 의 버전이 [1.2.0](https://github.com/tidory/tidory-webpack-plugin/blob/main/CHANGELOG.md) 으로 갱신되었습니다.
+- `tidory-webpack-plugin` 의 버전이 [1.2.0](https://github.com/tidory/webpack-plugin/blob/main/CHANGELOG.md) 으로 갱신되었습니다.
 
 ## 8.3.1
 
@@ -10,7 +14,7 @@
 
 ## 8.3.0
 
-- `tidory-webpack-plugin` 의 버전이 [1.1.0](https://github.com/tidory/tidory-webpack-plugin/blob/main/CHANGELOG.md) 으로 갱신되었습니다.
+- `tidory-webpack-plugin` 의 버전이 [1.1.0](https://github.com/tidory/webpack-plugin/blob/main/CHANGELOG.md) 으로 갱신되었습니다.
 - `postcss-pug-filter` 가 추가되었습니다.
 
 ## 8.2.4

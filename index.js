@@ -3,7 +3,8 @@ const fs = require('fs')
 const cheerio = require('cheerio')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
-const { Html, Css, Js } = require('./lib/extract')
+const { Html, Css, Js } = require('./lib/extractors')
+const { Once } = require('./lib/filters')
 
 /**
  * Tidory webpack tidory-webpack-plugin
@@ -57,8 +58,23 @@ module.exports = class {
   async transform (data, callback) {
     this.$ = cheerio.load(data.html)
 
-    data.html = await this.css().js().html()
+    data.html = await this.once()
+      .css()
+      .js()
+      .html()
+
     callback(null, data)
+  }
+
+  /**
+   * Once
+   *
+   * @returns {this}
+   */
+  once () {
+    new Once(this.$).run()
+
+    return this
   }
 
   /**

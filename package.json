@@ -1,6 +1,6 @@
 {
   "name": "tidory-webpack-plugin",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Webpack plugin for Tidory Framework",
   "main": "index.js",
   "files": [

@@ -9,7 +9,7 @@
     "type": "git",
     "url": "git+https://github.com/tidory/cli.git"
   },
-  "version": "8.3.2",
+  "version": "8.3.3",
   "bin": {
     "tidory": "./bin/tidory"
   },
@@ -44,7 +44,7 @@
     "svelte": "^3.38.2",
     "svelte-loader": "^3.1.1",
     "terser-webpack-plugin": "^5.2.4",
-    "tidory-webpack-plugin": "^1.2.0",
+    "tidory-webpack-plugin": "^1.2.1",
     "tistory-skin": "^2.0.3",
     "vue-loader": "^16.2.0",
     "vue-style-loader": "^4.1.3",

@@ -69,9 +69,7 @@
     "bin",
     "config",
     "lib",
-    "tidory.config.js",
-    "LICENSE",
-    "README.md"
+    "tidory.config.js"
   ],
   "homepage": "https://tidory.com",
   "keywords": [

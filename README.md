@@ -31,4 +31,4 @@ const { Skin, Archive } = require('tistory-skin');
 
 [MIT](https://github.com/tidory/tistory-skin/blob/master/LICENSE)
 
-Copyright 2019-2021. [SangWoo Jeong](https://github.com/pronist). All rights reserved.
+Copyright 2019-2023. [SangWoo Jeong](https://github.com/pronist). All rights reserved.

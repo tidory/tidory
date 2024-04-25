@@ -1,6 +1,6 @@
 {
   "name": "tidory-webpack-plugin",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Webpack plugin for Tidory Framework",
   "main": "index.js",
   "files": [
@@ -28,7 +28,7 @@
     "html-minifier-terser": "^5.1.1",
     "html-webpack-plugin": "^5.5.0",
     "js-beautify": "^1.14.7",
-    "tistory-skin": "^2.0.3"
+    "tistory-skin": "^2.0.4"
   },
   "devDependencies": {
     "eslint": "^8.28.0",

@@ -1,4 +1,4 @@
-# Tistory Skin API for Javascript
+# Unofficial Tistory Skin API
 
 **비공식** 티스토리 API 입니다. 티스토리 스킨 파일을 업로드하거나 블로그에 적용시키는 등 스킨과 아카이브를 조작하고 제어할 수 있습니다.
 
@@ -31,4 +31,4 @@ const { Skin, Archive } = require('tistory-skin');
 
 [MIT](https://github.com/tidory/skin/blob/master/LICENSE)
 
-Copyright 2019-2023. [SangWoo Jeong](https://github.com/pronist). All rights reserved.
+Copyright 2019-2024. [SangWoo Jeong](https://github.com/pronist). All rights reserved.

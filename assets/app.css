@@ -11,7 +11,6 @@ button {
   @apply pointer-events-auto !important;
 }
 
-
 @layer utilities {
   .text-hidden {
     @apply absolute w-px h-px -m-px overflow-hidden !important;

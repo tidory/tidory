@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: [
-          'Noto Sans KR',
+          'SUIT',
           ...defaultTheme.fontFamily.sans
         ]
       }

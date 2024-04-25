@@ -2,7 +2,7 @@ const ESLintPlugin = require('eslint-webpack-plugin')
 
 /**
  * Tidory Configuration
- * https://tidory.com/docs/configuration
+ * @see https://tidory.github.io/docs/configuration/
  */
 module.exports = {
   ts_session: '',
@@ -23,9 +23,7 @@ module.exports = {
      * index
      * entry
      * category
-     * tag,
-     * location
-     * media,
+     * tag
      * guestbook
      */
     mode: 'index'

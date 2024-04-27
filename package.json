@@ -1,6 +1,6 @@
 {
   "name": "tistory-skin",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "description": "Unofficial Tistory Skin API",
   "main": "index.js",
   "license": "MIT",
@@ -22,7 +22,7 @@
     "README.md"
   ],
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^1.6.8",
     "form-data": "^2.3.3",
     "walk": "^2.3.14"
   },

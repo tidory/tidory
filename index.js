@@ -126,7 +126,7 @@ module.exports = class {
     const html = new Html(this.$)
 
     if (this.env.preview) {
-      return await html.preview(this.style, this.config)
+      return await html.preview(this.style, this.config, this.env.old)
     }
 
     return html.get()

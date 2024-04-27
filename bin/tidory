@@ -34,8 +34,17 @@ tidory
 tidory
   .command('preview')
   .description('Start preview server')
-  .action(() => {
-    shelljs.exec(`node ${webpack} serve --config ${webpackDevConfig} --env preview`)
+  .option('-o, --old', 'Run old version preview')
+  .action((options) => {
+    const command = `node ${webpack} serve --config ${webpackDevConfig} --env preview`
+
+    if (options.old) {
+      shelljs.exec(`${command} --env old`)
+
+      return
+    }
+
+    shelljs.exec(command)
   })
 
 /**

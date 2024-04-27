@@ -2,6 +2,7 @@
   "scripts": {
     "start": "tidory start",
     "preview": "tidory preview",
+    "preview:old": "tidory preview --old",
     "production": "tidory production",
     "store": "tidory store",
     "deploy": "tidory deploy",

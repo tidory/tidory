@@ -1,0 +1,82 @@
+#!/usr/bin/env node
+const wd = process.cwd()
+
+const tidory = require('commander')
+const shelljs = require('shelljs')
+const path = require('path')
+const { Skin, Archive } = require('tistory-skin')
+const webpack = require.resolve('webpack/bin/webpack')
+
+const webpackDevConfig = path.join(__dirname, '../config/webpack.dev.conf')
+const webpackProdConfig = path.join(__dirname, '../config/webpack.prod.conf')
+const pkg = require('../package.json')
+const tidoryConfig = require('../tidory.config')
+
+const archive = new Archive(tidoryConfig.url, tidoryConfig.ts_session)
+const skin = new Skin(tidoryConfig.url, tidoryConfig.ts_session)
+const dist = path.join(wd, tidoryConfig.path.dist)
+
+tidory.version(pkg.version)
+
+/**
+ * -> tidory start
+ */
+tidory
+  .command('start')
+  .description('Start development server')
+  .action(() => {
+    shelljs.exec(`node ${webpack} serve --config ${webpackDevConfig} --env development`)
+  })
+
+/**
+ * -> tidory preview
+ */
+tidory
+  .command('preview')
+  .description('Start preview server')
+  .option('-o, --old', 'Run old version preview')
+  .action((options) => {
+    const command = `node ${webpack} serve --config ${webpackDevConfig} --env preview`
+
+    if (options.old) {
+      shelljs.exec(`${command} --env old`)
+
+      return
+    }
+
+    shelljs.exec(command)
+  })
+
+/**
+ * -> tidory production
+ */
+tidory
+  .command('production')
+  .description('Build tidory project for production')
+  .action(() => {
+    shelljs.exec(`node ${webpack} --config ${webpackProdConfig} --env production`)
+  })
+
+/**
+ * -> tidory deploy
+ */
+tidory
+  .command('deploy')
+  .description('Deploy tistory skin')
+  .action(async () => {
+    await skin.clear()
+    await skin.deploy(dist)
+  })
+
+/**
+ * -> tidory store
+ */
+tidory
+  .command('store')
+  .description('Store tistory skin on skin storage')
+  .action(async () => {
+    await archive.clear()
+    await archive.store(dist, tidoryConfig.skinname)
+  })
+
+tidory.parse(process.argv)

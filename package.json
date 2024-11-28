@@ -1,31 +1,7 @@
 {
-  "scripts": {
-    "start": "tidory start",
-    "preview": "tidory preview",
-    "preview:old": "tidory preview --old",
-    "production": "tidory production",
-    "store": "tidory store",
-    "deploy": "tidory deploy",
-    "lint": "eslint --ext .js --ignore-path .gitignore . && pug-lint ."
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tidory/tidory"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.8",
-    "eslint": "^8.22.0",
-    "eslint-config-standard": "^17.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-n": "^15.2.5",
-    "eslint-plugin-promise": "^6.0.0",
-    "eslint-webpack-plugin": "^3.2.0",
-    "pug-lint": "^2.6.0"
-  },
-  "dependencies": {
-    "alpinejs": "^3.11.1",
-    "tailwindcss": "3.2.4",
-    "tidory": "^8.4.0"
-  }
+  "name": "tidory-mono-repo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
 }

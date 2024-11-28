@@ -1,0 +1,10 @@
+root: true
+
+env:
+  node: true
+
+extends:
+  standard
+
+rules:
+  space-unary-ops: off

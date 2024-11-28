@@ -1,0 +1,37 @@
+{
+  "name": "tistory-skin",
+  "version": "2.1.0",
+  "description": "Unofficial Tistory Skin API",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tidory/tistory-skin.git"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js index.js lib"
+  },
+  "keywords": [
+    "tistory",
+    "tistory-skin"
+  ],
+  "files": [
+    "lib",
+    "index.js",
+    "LICENSE",
+    "README.md"
+  ],
+  "dependencies": {
+    "axios": "^1.6.8",
+    "form-data": "^2.3.3",
+    "walk": "^2.3.14"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1"
+  }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<skin>
+   <information>
+      <name>TIDORY</name>
+      <version>1.0</version>
+      <description>
+         <![CDATA[티스토리 프레임워크, 티도리(TIDORY)]]>
+      </description>
+      <license>
+         <![CDATA[MIT]]>
+      </license>
+   </information>
+   <author>
+      <name>SangWoo Jeong</name>
+      <homepage>https://github.com/pronist</homepage>
+      <email>pronist@naver.com</email>
+   </author>
+</skin>

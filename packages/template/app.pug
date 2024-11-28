@@ -1,0 +1,23 @@
+doctype html
+
+html(
+  x-data="{ dark: window.matchMedia('(prefers-color-scheme: dark)').matches }"
+  :class="{ dark: dark }"
+  lang="ko")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+
+    title [##_page_title_##]
+
+    link(rel="stylesheet" :href="'//cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css'")
+    link(rel="stylesheet" :href="'//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css'")
+
+    style
+      include:postcss @/app.css
+
+  body(id="[##_body_id_##]" class="bg-white dark:bg-zinc-900")
+    block TIDORY
+
+    script.
+      document.addEventListener("DOMContentLoaded", () => Alpine.start())

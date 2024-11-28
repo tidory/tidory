@@ -1,0 +1,11 @@
+# Modules
+node_modules
+
+# Distribution
+dist
+
+# Configuration
+tidory.config.js
+
+.idea
+.vscode

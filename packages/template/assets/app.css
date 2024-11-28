@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.menu_toolbar {
+  @apply hidden;
+}
+
+a,
+button {
+  @apply pointer-events-auto !important;
+}
+
+@layer utilities {
+  .text-hidden {
+    @apply absolute w-px h-px -m-px overflow-hidden !important;
+  }
+}

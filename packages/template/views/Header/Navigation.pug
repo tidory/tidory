@@ -1,0 +1,14 @@
+-
+  const guidebook = [
+    { text: '시작하기', href: 'https://tidory.github.io/docs/get-started' },
+    { text: '디렉토리', href: 'https://tidory.github.io/docs/directory' },
+    { text: '템플릿', href: 'https://tidory.github.io/docs/template' },
+    { text: '프레임워크', href: 'https://tidory.github.io/docs/framework' },
+    { text: '빌드 및 배포', href: 'https://tidory.github.io/docs/deployment' }
+  ];
+
+nav(class="mt-9")
+  ul(class="list-none")
+    each guide in guidebook
+      li(class="mx-4 inline-block")
+        a(href=guide.href class="text-base duration-200 pointer-events-auto decoration-0 text-gray-500 hover:text-black dark:text-zinc-300 dark:hover:text-zinc-50")=guide.text

@@ -20,5 +20,5 @@ jobs:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
       - run: npm ci
-      - run: npm run lint
-      - run: npm run production
+      - run: npm run lint --workspaces
+      - run: npm run production -w packages/template

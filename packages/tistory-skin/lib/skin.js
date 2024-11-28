@@ -36,13 +36,9 @@ module.exports = class extends Client {
    * @param {boolean} isPreview
    */
   async change (html, css, isPreview) {
-    const { data } = await this.axiosInstance.post('/manage/design/skin/html.json', {
-      html: html,
-      css: css,
-      isPreview: isPreview
-    })
+    const { data } = await this.axiosInstance.post('/manage/design/skin/html.json', { html, css, isPreview })
 
-    return url.resolve(this.axiosInstance.defaults.baseURL, data)
+    return new url.URL(data, this.axiosInstance.defaults.baseURL)
   }
 
   /**

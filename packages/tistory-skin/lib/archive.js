@@ -29,9 +29,7 @@ module.exports = class extends Client {
    */
   unlink (filename) {
     return this.axiosInstance.delete('/manage/design/skin/deleteFile.json', {
-      data: {
-        filename: filename
-      }
+      data: { filename }
     })
   }
 

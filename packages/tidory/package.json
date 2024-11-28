@@ -5,7 +5,7 @@
   "engines": {
     "node": ">=12"
   },
-  "version": "8.4.1",
+  "version": "8.4.2",
   "bin": {
     "tidory": "./bin/tidory"
   },
@@ -40,8 +40,8 @@
     "svelte": "^3.38.2",
     "svelte-loader": "^3.1.1",
     "terser-webpack-plugin": "^5.2.4",
-    "tidory-webpack-plugin": "latest",
-    "tistory-skin": "latest",
+    "tidory-webpack-plugin": "^1.3.2",
+    "tistory-skin": "^2.1.2",
     "vue-loader": "^16.2.0",
     "vue-style-loader": "^4.1.3",
     "webpack": "^5.74.0",

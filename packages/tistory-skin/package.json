@@ -1,6 +1,6 @@
 {
   "name": "tistory-skin",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Unofficial Tistory Skin API",
   "main": "index.js",
   "scripts": {

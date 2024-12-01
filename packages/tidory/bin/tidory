@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const wd = process.cwd()
 
-const tidory = require('commander')
+const { Command } = require('commander')
 const shelljs = require('shelljs')
 const path = require('path')
 const { Skin, Archive } = require('tistory-skin')
@@ -15,6 +15,7 @@ const tidoryConfig = require('../tidory.config')
 const archive = new Archive(tidoryConfig.url, tidoryConfig.ts_session)
 const skin = new Skin(tidoryConfig.url, tidoryConfig.ts_session)
 const dist = path.join(wd, tidoryConfig.path.dist)
+const tidory = new Command()
 
 tidory.version(pkg.version)
 

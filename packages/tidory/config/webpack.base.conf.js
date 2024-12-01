@@ -49,7 +49,23 @@ module.exports = async env => {
         },
         {
           test: /\.css$/,
-          use: ['vue-style-loader', 'style-loader', 'css-loader', 'postcss-loader'].map(require.resolve)
+          use: [
+            {
+              loader: require.resolve('vue-style-loader')
+            },
+            {
+              loader: require.resolve('style-loader'),
+              options: {
+                esModule: false
+              }
+            },
+            {
+              loader: require.resolve('css-loader')
+            },
+            {
+              loader: require.resolve('postcss-loader')
+            }
+          ]
         },
         {
           test: /\.pug$/,

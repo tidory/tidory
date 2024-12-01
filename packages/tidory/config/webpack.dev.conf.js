@@ -12,7 +12,6 @@ module.exports = async env => {
     mode: 'development',
     cache: false,
     devServer: {
-      magicHtml: false,
       watchFiles: tidoryConfig.path.devServer.watchFiles,
       hot: false,
       liveReload: true,

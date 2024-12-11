@@ -43,7 +43,7 @@ module.exports = {
    */
   extends (webpackConfig) {
     webpackConfig.plugins = [
-      new ESLintPlugin(),
+      new ESLintPlugin({ configType: 'flat' }),
       ...webpackConfig.plugins
     ]
   }
